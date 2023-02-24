@@ -24,12 +24,29 @@ namespace BrookW
             statusLabel.Text = "";
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private async void MainForm_Load(object sender, EventArgs e)
         {
             Icon = Properties.Resources.favicon16;
             notifyIcon.Visible = true;
             notifyIcon.Icon = Icon;
             //this.WindowState = FormWindowState.Minimized;
+            //自动更新Core
+            var downloader = new FileDownloader();
+            downloader.DownloadProgressChanged += (sender, e) =>
+            {
+                statusLabel.Text = ($"下载进度：{e.Percentage}%");
+            };
+            var success = await downloader.DownloadFileAsync(Gobal.BrookCoreUrl);
+            if (success)
+            {
+                statusLabel.Text = "";
+                Console.WriteLine("下载完成");
+            }
+            else
+            {
+                statusLabel.Text = "下载失败";
+                Console.WriteLine("下载失败");
+            }
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
