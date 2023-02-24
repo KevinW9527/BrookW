@@ -24,5 +24,11 @@ namespace BrookW.Model.Enum
         /// </summary>
         [Description("brook wssserver")]
         WSSCLIENT,
+        /// <summary>
+        /// brook link
+        /// </summary>
+        [Description("brook connect")]
+        CONNECT,
+
     }
 }

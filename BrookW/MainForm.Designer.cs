@@ -132,7 +132,8 @@
             this.comboBox1.Items.AddRange(new object[] {
             "brook server",
             "brook wsserver",
-            "brook wssserver"});
+            "brook wssserver",
+            "brook link"});
             this.comboBox1.Location = new System.Drawing.Point(50, 53);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(154, 25);

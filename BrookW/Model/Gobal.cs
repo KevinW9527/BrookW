@@ -15,11 +15,14 @@ namespace BrookW.Model
         /// 本机回送地址
         /// </summary>
         public const string LoopbackAddress = "127.0.0.1";
+
+        /// <summary>
+        /// brook 命令行程序
+        /// </summary>
         public const string BrookCoreFile = "brook_windows_386.exe";
 
         /// <summary>
-        /// Brook最新核心版本url
-        /// https://github.com/txthinking/brook/releases/latest/download/brook_windows_386.exe
+        /// brook最新核心版本url
         /// </summary>
         public const string BrookCoreUrl = $"https://github.com/txthinking/brook/releases/latest/download/{BrookCoreFile}";
 

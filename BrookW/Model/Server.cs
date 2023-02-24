@@ -22,17 +22,15 @@ namespace BrookW.Model
         {
             get
             {
-                //switch (Type)
-                //{
-                //    case BrookClientTypeEnum.CLIENT:
-                //        return " client --http :{0} --socks5 :{1} -s {2} -p {3}";
-                //    case BrookClientTypeEnum.WSCLIENT:
-                //        return " wsclient --http :{0} --socks5 :{1} -s {2} -p {3}";
-                //    case BrookClientTypeEnum.WSSCLIENT:
-                //        return " wssclient --http :{0} --socks5 :{1} -s {2} -p {3}";
-                //}
+                switch (Type)
+                {
+                    case BrookClientTypeEnum.CONNECT:
+                        return string.Concat(Type.ToString().ToLower(), " --http {0}:{1} --socks5 {0}:{2} -l ", Url);
+                    default:
+                        return string.Concat(Type.ToString().ToLower(), " --http {0}:{1} --socks5 {0}:{2}", $" -s {Url} -p {Password}");
+                }
 
-                return string.Concat(Type.ToString().ToLower(), " --http {0}:{1} --socks5 {0}:{2}", $" -s {Url} -p {Password}");
+
             }
         }
     }
