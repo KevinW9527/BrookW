@@ -1,6 +1,6 @@
-using BrookW.Brook.Service;
-using BrookW.Brook.Model;
-using BrookW.Brook.Helper;
+using BrookW.Service;
+using BrookW.Model;
+using BrookW.Helper;
 using BrookW.Extend;
 
 namespace BrookW
@@ -100,7 +100,7 @@ namespace BrookW
                 Msg.ShowError("ÃÜÂë²»ÄÜÎª¿Õ");
                 return;
             }
-            var type = (Brook.Model.Enum.BrookClientTypeEnum)comboBox1.SelectedIndex;
+            var type = (Model.Enum.BrookClientTypeEnum)comboBox1.SelectedIndex;
             var server = new Server()
             {
                 Type = type,

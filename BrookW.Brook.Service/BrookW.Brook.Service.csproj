@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\BrookW.Brook.Model\BrookW.Brook.Model.csproj" />
-  </ItemGroup>
-
 </Project>
