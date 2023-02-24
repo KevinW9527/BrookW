@@ -1,0 +1,12 @@
+.vs/
+/BrookW.Brook.Service/bin
+/BrookW.Brook.Service/obj
+/BrookW.Brook.Model/bin
+/BrookW.Brook.Model/obj
+/BrookW.Brook.Helper/bin
+/BrookW.Brook.Helper/obj
+*.suo
+/BrookW/bin/
+/BrookW/obj/
+*.cache
+*.vsidx
