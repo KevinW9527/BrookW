@@ -26,5 +26,13 @@ namespace BrookW.Model
         /// </summary>
         public const string BrookCoreUrl = $"https://github.com/txthinking/brook/releases/latest/download/{BrookCoreFile}";
 
+
+
+        public const string ServerTip = "Server,like 1.2.3.4:9999";
+        public const string WSServerTip = "Server,like ws://1.2.3.4:80/web";
+        public const string WSSServerTip = "Server,like wss://domain.com:443/web";
+        public const string BrookLinkTip = "brook://";
+        public const string PasswordTip = "Password";
+
     }
 }

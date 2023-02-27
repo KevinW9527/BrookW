@@ -25,5 +25,13 @@ namespace BrookW.Extend
         {
             return MessageBox.Show(message, caption, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
         }
+
+
+        public const string SERVEREMPTY = "服务器地址不能为空";
+        public const string PASSWORDEMPTY = "密码不能为空";
+        public const string ADDSCUESS = "添加成功";
+
+
+
     }
 }

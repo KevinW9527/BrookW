@@ -1,4 +1,5 @@
 ﻿using BrookW.Model.Enum;
+using System.Text.Json.Serialization;
 
 namespace BrookW.Model
 {
@@ -9,15 +10,16 @@ namespace BrookW.Model
         /// <summary>
         /// 访问服务器完整 url，包括协议和path部分，如: ws://190.190.190.1:9999/web
         /// </summary>
-        public string Url { get; set; } = null!;
+        public string? Url { get; set; }
         /// <summary>
         /// 访问服务器的密码
         /// </summary>
-        public string Password { get; set; } = null!;
+        public string? Password { get; set; }
 
         /// <summary>
         /// 客户命令
         /// </summary>
+        [JsonIgnore]
         public string ClientCmdString
         {
             get
@@ -32,6 +34,7 @@ namespace BrookW.Model
 
 
             }
+
         }
     }
 }

@@ -2,6 +2,7 @@ using BrookW.Service;
 using BrookW.Model;
 using BrookW.Helper;
 using BrookW.Extend;
+using BrookW.Model.Enum;
 
 namespace BrookW
 {
@@ -24,12 +25,19 @@ namespace BrookW
             statusLabel.Text = "";
         }
 
-        private async void MainForm_Load(object sender, EventArgs e)
+        private  void MainForm_Load(object sender, EventArgs e)
         {
-            Icon = Properties.Resources.favicon16;
+            Icon = Properties.Resources.favicon32;
             notifyIcon.Visible = true;
             notifyIcon.Icon = Icon;
             //this.WindowState = FormWindowState.Minimized;
+           
+        }
+
+        /// <summary>
+        /// 更新core
+        /// </summary>
+        private async void UpdateCore() {
             //自动更新Core
             var downloader = new FileDownloader();
             downloader.DownloadProgressChanged += (sender, e) =>
@@ -117,10 +125,10 @@ namespace BrookW
                 Msg.ShowError("密码不能为空");
                 return;
             }
-            var type = (Model.Enum.BrookClientTypeEnum)comboBox1.SelectedIndex;
+            var type = comboBox1.SelectedIndex;
             var server = new Server()
             {
-                Type = type,
+                Type = (BrookClientTypeEnum)type,
                 Password = password,
                 Url = serverAddress,
             };

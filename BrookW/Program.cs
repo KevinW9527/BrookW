@@ -19,7 +19,7 @@ namespace BrookW
                 return;
             }
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainForm());
+            Application.Run(new Form1());
             mutex.ReleaseMutex();
         }
 
