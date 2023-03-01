@@ -47,11 +47,11 @@
             this.TLP_Home.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.TLP_Home.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.TLP_Home.Controls.Add(this.label1, 1, 0);
-            this.TLP_Home.Controls.Add(this.btnGoBack, 0, 0);
             this.TLP_Home.Controls.Add(this.cbBrookServerType, 2, 1);
             this.TLP_Home.Controls.Add(this.txtServer, 2, 2);
             this.TLP_Home.Controls.Add(this.txtPwd, 2, 3);
             this.TLP_Home.Controls.Add(this.btnAdd, 2, 4);
+            this.TLP_Home.Controls.Add(this.btnGoBack, 0, 0);
             this.TLP_Home.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TLP_Home.Location = new System.Drawing.Point(0, 0);
             this.TLP_Home.Name = "TLP_Home";
@@ -79,14 +79,19 @@
             // 
             // btnGoBack
             // 
-            this.btnGoBack.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGoBack.Location = new System.Drawing.Point(0, 0);
-            this.btnGoBack.Margin = new System.Windows.Forms.Padding(0);
+            this.btnGoBack.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnGoBack.BackColor = System.Drawing.Color.White;
+            this.btnGoBack.BackgroundImage = global::BrookW.Properties.Resources.refresh;
+            this.btnGoBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnGoBack.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnGoBack.FlatAppearance.BorderSize = 0;
+            this.btnGoBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGoBack.Location = new System.Drawing.Point(10, 10);
+            this.btnGoBack.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnGoBack.Name = "btnGoBack";
-            this.btnGoBack.Size = new System.Drawing.Size(40, 50);
+            this.btnGoBack.Size = new System.Drawing.Size(23, 29);
             this.btnGoBack.TabIndex = 1;
-            this.btnGoBack.Text = "返回";
-            this.btnGoBack.UseVisualStyleBackColor = true;
+            this.btnGoBack.UseVisualStyleBackColor = false;
             // 
             // cbBrookServerType
             // 
@@ -129,12 +134,13 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // AddServer
+            // SaveServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.TLP_Home);
-            this.Name = "AddServer";
+            this.Name = "SaveServer";
             this.Size = new System.Drawing.Size(380, 475);
             this.TLP_Home.ResumeLayout(false);
             this.TLP_Home.PerformLayout();

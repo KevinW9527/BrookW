@@ -28,7 +28,7 @@ namespace BrookW
                 Location = new Point(0, 0),
                 Name = "home",
             };
-            home.btnAddServer.Click += BtnAddServer_Click;
+            home.toolStripButtonServer.Click += BtnAddServer_Click;
             Controls.Add(home);
             home.Show();
 

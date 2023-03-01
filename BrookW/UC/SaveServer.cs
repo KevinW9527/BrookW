@@ -33,9 +33,9 @@ namespace BrookW.UC
             //this.label1.ForeColor = Color.White;
             this.label1.Font = new Font("Microsoft YaHei", 14F, FontStyle.Bold);
 
-            this.btnGoBack.BackColor = Color.FromArgb(0, 174, 219);
-            this.btnGoBack.ForeColor = Color.White;
-            this.btnGoBack.Font = new Font("Microsoft YaHei", 9F, FontStyle.Regular);
+            //this.btnGoBack.BackColor = Color.FromArgb(0, 174, 219);
+            //this.btnGoBack.ForeColor = Color.White;
+            //this.btnGoBack.Font = new Font("Microsoft YaHei", 9F, FontStyle.Regular);
 
             this.cbBrookServerType.BackColor = Color.White;
             this.cbBrookServerType.ForeColor = Color.Black;
@@ -56,6 +56,7 @@ namespace BrookW.UC
             // 修改按钮样式
             this.btnGoBack.FlatStyle = FlatStyle.Flat;
             this.btnGoBack.FlatAppearance.BorderSize = 0;
+            this.btnGoBack.FlatAppearance.BorderColor= Color.White;
 
             this.btnAdd.FlatStyle = FlatStyle.Flat;
             this.btnAdd.FlatAppearance.BorderSize = 0;

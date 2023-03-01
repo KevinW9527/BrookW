@@ -15,9 +15,6 @@ namespace BrookW.UC
         public Home()
         {
             InitializeComponent();
-            this.btnAddServer.BackColor = Color.FromArgb(0, 174, 219);
-            this.btnAddServer.ForeColor = Color.White;
-            this.btnAddServer.Font = new Font("Microsoft YaHei", 9F, FontStyle.Regular);
         }
 
          

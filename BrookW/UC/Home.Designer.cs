@@ -31,10 +31,11 @@
             this.TLP_Home = new System.Windows.Forms.TableLayoutPanel();
             this.cbSelectServer = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnAddServer = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.新建NToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonServer = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonRefresh = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonSetting = new System.Windows.Forms.ToolStripButton();
             this.TLP_Home.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -49,7 +50,6 @@
             this.TLP_Home.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.TLP_Home.Controls.Add(this.cbSelectServer, 2, 2);
             this.TLP_Home.Controls.Add(this.label1, 0, 2);
-            this.TLP_Home.Controls.Add(this.btnAddServer, 0, 1);
             this.TLP_Home.Controls.Add(this.toolStrip1, 0, 0);
             this.TLP_Home.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TLP_Home.Location = new System.Drawing.Point(0, 0);
@@ -90,22 +90,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "wssserver";
             // 
-            // btnAddServer
-            // 
-            this.btnAddServer.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddServer.BackgroundImage = global::BrookW.Properties.Resources.add;
-            this.btnAddServer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAddServer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddServer.FlatAppearance.BorderSize = 0;
-            this.btnAddServer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnAddServer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAddServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddServer.Location = new System.Drawing.Point(3, 43);
-            this.btnAddServer.Name = "btnAddServer";
-            this.btnAddServer.Size = new System.Drawing.Size(34, 44);
-            this.btnAddServer.TabIndex = 0;
-            this.btnAddServer.UseVisualStyleBackColor = false;
-            // 
             // toolStrip1
             // 
             this.TLP_Home.SetColumnSpan(this.toolStrip1, 5);
@@ -113,7 +97,9 @@
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator1,
-            this.新建NToolStripButton});
+            this.toolStripButtonServer,
+            this.toolStripButtonRefresh,
+            this.toolStripButtonSetting});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -124,26 +110,56 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 50);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 40);
             // 
-            // 新建NToolStripButton
+            // toolStripButtonServer
             // 
-            this.新建NToolStripButton.AutoSize = false;
-            this.新建NToolStripButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.新建NToolStripButton.Image = global::BrookW.Properties.Resources.server;
-            this.新建NToolStripButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.新建NToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.新建NToolStripButton.Margin = new System.Windows.Forms.Padding(0);
-            this.新建NToolStripButton.Name = "新建NToolStripButton";
-            this.新建NToolStripButton.Size = new System.Drawing.Size(70, 30);
-            this.新建NToolStripButton.Text = "服务器";
-            this.新建NToolStripButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.新建NToolStripButton.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.toolStripButtonServer.AutoSize = false;
+            this.toolStripButtonServer.AutoToolTip = false;
+            this.toolStripButtonServer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.toolStripButtonServer.Image = global::BrookW.Properties.Resources.server;
+            this.toolStripButtonServer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripButtonServer.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonServer.Margin = new System.Windows.Forms.Padding(0);
+            this.toolStripButtonServer.Name = "toolStripButtonServer";
+            this.toolStripButtonServer.Size = new System.Drawing.Size(65, 30);
+            this.toolStripButtonServer.Text = "服务器";
+            this.toolStripButtonServer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripButtonServer.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            // 
+            // toolStripButtonRefresh
+            // 
+            this.toolStripButtonRefresh.AutoSize = false;
+            this.toolStripButtonRefresh.AutoToolTip = false;
+            this.toolStripButtonRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.toolStripButtonRefresh.Image = global::BrookW.Properties.Resources.refresh;
+            this.toolStripButtonRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripButtonRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonRefresh.Margin = new System.Windows.Forms.Padding(0);
+            this.toolStripButtonRefresh.Name = "toolStripButtonRefresh";
+            this.toolStripButtonRefresh.Size = new System.Drawing.Size(75, 30);
+            this.toolStripButtonRefresh.Text = "检查更新";
+            this.toolStripButtonRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // toolStripButtonSetting
+            // 
+            this.toolStripButtonSetting.AutoSize = false;
+            this.toolStripButtonSetting.AutoToolTip = false;
+            this.toolStripButtonSetting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.toolStripButtonSetting.Image = global::BrookW.Properties.Resources.setting;
+            this.toolStripButtonSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripButtonSetting.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSetting.Margin = new System.Windows.Forms.Padding(0);
+            this.toolStripButtonSetting.Name = "toolStripButtonSetting";
+            this.toolStripButtonSetting.Size = new System.Drawing.Size(50, 30);
+            this.toolStripButtonSetting.Text = "设置";
+            this.toolStripButtonSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.TLP_Home);
             this.Name = "Home";
             this.Size = new System.Drawing.Size(380, 475);
@@ -158,11 +174,12 @@
         #endregion
 
         private TableLayoutPanel TLP_Home;
-        public Button btnAddServer;
         private Label label1;
         public ComboBox cbSelectServer;
         private ToolStrip toolStrip1;
-        private ToolStripButton 新建NToolStripButton;
         private ToolStripSeparator toolStripSeparator1;
+        public ToolStripButton toolStripButtonServer;
+        public ToolStripButton toolStripButtonSetting;
+        public ToolStripButton toolStripButtonRefresh;
     }
 }
