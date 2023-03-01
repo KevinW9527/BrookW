@@ -8,17 +8,26 @@ namespace BrookW.Service
     {
         private readonly Process brookProcess;
         private bool disposed = false;
+        /// <summary>
+        /// 监听本地地址
+        /// </summary>
+        public string ListenAddress => Gobal.LoopbackAddress;
 
-        public string ListenAddress
-        {
-            get
-            {
-                return Gobal.LoopbackAddress;
-            }
-        }
+        /// <summary>
+        /// 监听本地地址的Http端口
+        /// </summary>
         public int ListenHttpPort { get; }
+
+        /// <summary>
+        /// 监听本地地址的Socks5端口
+        /// </summary>
         public int ListenSocks5Port { get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="server"></param>
+        /// <exception cref="FileNotFoundException"></exception>
         public BrookProcessService(Server server)
         {
             //获取两个未被占用的端口
@@ -109,13 +118,8 @@ namespace BrookW.Service
                 .Except(endPoints.Select(p => p.Port))
                 .OrderBy(p => random.Next())
                 .Take(count);
-
             return availablePorts.ToList();
         }
-
-
-
-
     }
 
 }
