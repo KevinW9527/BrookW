@@ -13,7 +13,7 @@ namespace BrookW
     public partial class Form1 : Form
     {
         private UC.Home home;
-        private UC.AddServer addServer;
+        private UC.SaveServer addServer;
 
         public Form1()
         {
@@ -32,7 +32,7 @@ namespace BrookW
             Controls.Add(home);
             home.Show();
 
-            addServer = new UC.AddServer()
+            addServer = new UC.SaveServer()
             {
                 Dock = DockStyle.Fill,
                 Location = new Point(0, 0),

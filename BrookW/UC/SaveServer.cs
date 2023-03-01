@@ -14,12 +14,12 @@ using System.Windows.Forms;
 
 namespace BrookW.UC
 {
-    public partial class AddServer : UserControl
+    public partial class SaveServer : UserControl
     {
 
         private string serverTip = Gobal.ServerTip;
         private string passwordTip = Gobal.PasswordTip;
-        public AddServer()
+        public SaveServer()
         {
             InitializeComponent();
 
@@ -138,7 +138,7 @@ namespace BrookW.UC
             }
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtServer.Text) || txtServer.Text == serverTip)
             {

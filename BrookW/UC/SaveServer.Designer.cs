@@ -1,6 +1,6 @@
 ﻿namespace BrookW.UC
 {
-    partial class AddServer
+    partial class SaveServer
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -127,7 +127,7 @@
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "添加";
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnAdd.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // AddServer
             // 

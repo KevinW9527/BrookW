@@ -7,7 +7,7 @@
     <Compile Update="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UC\AddServer.cs">
+    <Compile Update="UC\SaveServer.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UC\Home.cs">
