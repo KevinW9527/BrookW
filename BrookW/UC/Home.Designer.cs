@@ -36,6 +36,7 @@
             this.toolStripButtonServer = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSetting = new System.Windows.Forms.ToolStripButton();
+            this.statusLabel = new System.Windows.Forms.Label();
             this.TLP_Home.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -51,11 +52,12 @@
             this.TLP_Home.Controls.Add(this.cbSelectServer, 2, 2);
             this.TLP_Home.Controls.Add(this.label1, 0, 2);
             this.TLP_Home.Controls.Add(this.toolStrip1, 0, 0);
+            this.TLP_Home.Controls.Add(this.statusLabel, 2, 5);
             this.TLP_Home.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TLP_Home.Location = new System.Drawing.Point(0, 0);
             this.TLP_Home.Name = "TLP_Home";
             this.TLP_Home.RowCount = 6;
-            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
@@ -73,7 +75,7 @@
             "brook wsserver",
             "brook wssserver",
             "brook link"});
-            this.cbSelectServer.Location = new System.Drawing.Point(88, 152);
+            this.cbSelectServer.Location = new System.Drawing.Point(88, 148);
             this.cbSelectServer.Name = "cbSelectServer";
             this.cbSelectServer.Size = new System.Drawing.Size(234, 25);
             this.cbSelectServer.TabIndex = 6;
@@ -83,7 +85,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
             this.TLP_Home.SetColumnSpan(this.label1, 2);
-            this.label1.Location = new System.Drawing.Point(20, 156);
+            this.label1.Location = new System.Drawing.Point(20, 152);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 17);
@@ -95,6 +97,7 @@
             this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
             this.TLP_Home.SetColumnSpan(this.toolStrip1, 5);
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStrip1.GripMargin = new System.Windows.Forms.Padding(0);
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator1,
@@ -104,26 +107,27 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(380, 40);
+            this.toolStrip1.Size = new System.Drawing.Size(380, 36);
             this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolStrip";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 40);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 36);
             // 
             // toolStripButtonServer
             // 
             this.toolStripButtonServer.AutoSize = false;
             this.toolStripButtonServer.AutoToolTip = false;
             this.toolStripButtonServer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.toolStripButtonServer.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.toolStripButtonServer.Image = global::BrookW.Properties.Resources.server;
             this.toolStripButtonServer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripButtonServer.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.toolStripButtonServer.Margin = new System.Windows.Forms.Padding(0);
             this.toolStripButtonServer.Name = "toolStripButtonServer";
-            this.toolStripButtonServer.Size = new System.Drawing.Size(65, 35);
+            this.toolStripButtonServer.Size = new System.Drawing.Size(75, 34);
             this.toolStripButtonServer.Text = "服务器";
             this.toolStripButtonServer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripButtonServer.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
@@ -133,28 +137,40 @@
             this.toolStripButtonRefresh.AutoSize = false;
             this.toolStripButtonRefresh.AutoToolTip = false;
             this.toolStripButtonRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.toolStripButtonRefresh.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.toolStripButtonRefresh.Image = global::BrookW.Properties.Resources.refresh;
             this.toolStripButtonRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripButtonRefresh.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.toolStripButtonRefresh.Margin = new System.Windows.Forms.Padding(0);
             this.toolStripButtonRefresh.Name = "toolStripButtonRefresh";
-            this.toolStripButtonRefresh.Size = new System.Drawing.Size(75, 35);
+            this.toolStripButtonRefresh.Size = new System.Drawing.Size(88, 34);
             this.toolStripButtonRefresh.Text = "检查更新";
             this.toolStripButtonRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripButtonRefresh.Click += new System.EventHandler(this.toolStripButtonRefresh_Click);
             // 
             // toolStripButtonSetting
             // 
             this.toolStripButtonSetting.AutoSize = false;
             this.toolStripButtonSetting.AutoToolTip = false;
             this.toolStripButtonSetting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.toolStripButtonSetting.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.toolStripButtonSetting.Image = global::BrookW.Properties.Resources.setting;
             this.toolStripButtonSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripButtonSetting.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.toolStripButtonSetting.Margin = new System.Windows.Forms.Padding(0);
             this.toolStripButtonSetting.Name = "toolStripButtonSetting";
-            this.toolStripButtonSetting.Size = new System.Drawing.Size(50, 35);
+            this.toolStripButtonSetting.Size = new System.Drawing.Size(60, 34);
             this.toolStripButtonSetting.Text = "设置";
             this.toolStripButtonSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.AutoSize = true;
+            this.statusLabel.Location = new System.Drawing.Point(88, 286);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(43, 17);
+            this.statusLabel.TabIndex = 8;
+            this.statusLabel.Text = "label2";
             // 
             // Home
             // 
@@ -182,5 +198,6 @@
         public ToolStripButton toolStripButtonServer;
         public ToolStripButton toolStripButtonSetting;
         public ToolStripButton toolStripButtonRefresh;
+        private Label statusLabel;
     }
 }
