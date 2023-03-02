@@ -53,16 +53,10 @@ namespace BrookW.UC
             this.btnAdd.ForeColor = Color.White;
             this.btnAdd.Font = new Font("Microsoft YaHei", 9F, FontStyle.Regular);
 
-            // 修改按钮样式
-            this.btnGoBack.FlatStyle = FlatStyle.Flat;
-            this.btnGoBack.FlatAppearance.BorderSize = 0;
-            this.btnGoBack.FlatAppearance.BorderColor= Color.White;
-
             this.btnAdd.FlatStyle = FlatStyle.Flat;
             this.btnAdd.FlatAppearance.BorderSize = 0;
 
             // 鼠标悬浮时的样式
-            this.btnGoBack.Cursor = Cursors.Hand;
             this.btnAdd.Cursor = Cursors.Hand;
 
 
@@ -175,6 +169,11 @@ namespace BrookW.UC
             //回调更新
 
 
+        }
+
+        private void btnGoBack_MouseEnter(object sender, EventArgs e)
+        {
+            btnGoBack.BackColor = Color.Black;
         }
     }
 }

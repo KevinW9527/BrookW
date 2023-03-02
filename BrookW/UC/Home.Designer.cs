@@ -92,6 +92,7 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
             this.TLP_Home.SetColumnSpan(this.toolStrip1, 5);
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
@@ -102,10 +103,10 @@
             this.toolStripButtonSetting});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip1.Size = new System.Drawing.Size(380, 40);
             this.toolStrip1.TabIndex = 7;
-            this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.Text = "toolStrip";
             // 
             // toolStripSeparator1
             // 
@@ -119,10 +120,10 @@
             this.toolStripButtonServer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.toolStripButtonServer.Image = global::BrookW.Properties.Resources.server;
             this.toolStripButtonServer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripButtonServer.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonServer.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.toolStripButtonServer.Margin = new System.Windows.Forms.Padding(0);
             this.toolStripButtonServer.Name = "toolStripButtonServer";
-            this.toolStripButtonServer.Size = new System.Drawing.Size(65, 30);
+            this.toolStripButtonServer.Size = new System.Drawing.Size(65, 35);
             this.toolStripButtonServer.Text = "服务器";
             this.toolStripButtonServer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripButtonServer.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
@@ -134,10 +135,10 @@
             this.toolStripButtonRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.toolStripButtonRefresh.Image = global::BrookW.Properties.Resources.refresh;
             this.toolStripButtonRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripButtonRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonRefresh.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.toolStripButtonRefresh.Margin = new System.Windows.Forms.Padding(0);
             this.toolStripButtonRefresh.Name = "toolStripButtonRefresh";
-            this.toolStripButtonRefresh.Size = new System.Drawing.Size(75, 30);
+            this.toolStripButtonRefresh.Size = new System.Drawing.Size(75, 35);
             this.toolStripButtonRefresh.Text = "检查更新";
             this.toolStripButtonRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -148,10 +149,10 @@
             this.toolStripButtonSetting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.toolStripButtonSetting.Image = global::BrookW.Properties.Resources.setting;
             this.toolStripButtonSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripButtonSetting.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSetting.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.toolStripButtonSetting.Margin = new System.Windows.Forms.Padding(0);
             this.toolStripButtonSetting.Name = "toolStripButtonSetting";
-            this.toolStripButtonSetting.Size = new System.Drawing.Size(50, 30);
+            this.toolStripButtonSetting.Size = new System.Drawing.Size(50, 35);
             this.toolStripButtonSetting.Text = "设置";
             this.toolStripButtonSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 

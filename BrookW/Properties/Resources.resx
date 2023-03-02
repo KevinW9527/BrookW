@@ -121,6 +121,9 @@
   <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="backto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>backto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="favicon16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>favicon16.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
