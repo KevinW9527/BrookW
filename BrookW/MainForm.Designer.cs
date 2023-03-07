@@ -38,7 +38,7 @@
             // notifyIcon
             // 
             this.notifyIcon.ContextMenuStrip = this.contextMenuStrip1;
-            this.notifyIcon.Text = "notifyIcon";
+            this.notifyIcon.Text = "BrookW";
             this.notifyIcon.Visible = true;
             this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
             // 
