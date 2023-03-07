@@ -34,7 +34,9 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonServer = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonRefresh = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonRefresh = new System.Windows.Forms.ToolStripDropDownButton();
+            this.brookWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.brookCoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButtonSetting = new System.Windows.Forms.ToolStripButton();
             this.statusLabel = new System.Windows.Forms.Label();
             this.TLP_Home.SuspendLayout();
@@ -137,16 +139,33 @@
             this.toolStripButtonRefresh.AutoSize = false;
             this.toolStripButtonRefresh.AutoToolTip = false;
             this.toolStripButtonRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.toolStripButtonRefresh.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.brookWToolStripMenuItem,
+            this.brookCoreToolStripMenuItem});
             this.toolStripButtonRefresh.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.toolStripButtonRefresh.Image = global::BrookW.Properties.Resources.refresh;
             this.toolStripButtonRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripButtonRefresh.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.toolStripButtonRefresh.Margin = new System.Windows.Forms.Padding(0);
             this.toolStripButtonRefresh.Name = "toolStripButtonRefresh";
-            this.toolStripButtonRefresh.Size = new System.Drawing.Size(88, 34);
+            this.toolStripButtonRefresh.Size = new System.Drawing.Size(95, 34);
             this.toolStripButtonRefresh.Text = "检查更新";
             this.toolStripButtonRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripButtonRefresh.Click += new System.EventHandler(this.toolStripButtonRefresh_Click);
+            // 
+            // brookWToolStripMenuItem
+            // 
+            this.brookWToolStripMenuItem.BackColor = System.Drawing.Color.White;
+            this.brookWToolStripMenuItem.Name = "brookWToolStripMenuItem";
+            this.brookWToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.brookWToolStripMenuItem.Text = "BrookW";
+            // 
+            // brookCoreToolStripMenuItem
+            // 
+            this.brookCoreToolStripMenuItem.BackColor = System.Drawing.Color.White;
+            this.brookCoreToolStripMenuItem.Name = "brookCoreToolStripMenuItem";
+            this.brookCoreToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.brookCoreToolStripMenuItem.Text = "Brook Core";
             // 
             // toolStripButtonSetting
             // 
@@ -197,7 +216,9 @@
         private ToolStripSeparator toolStripSeparator1;
         public ToolStripButton toolStripButtonServer;
         public ToolStripButton toolStripButtonSetting;
-        public ToolStripButton toolStripButtonRefresh;
+        public ToolStripDropDownButton toolStripButtonRefresh;
         private Label statusLabel;
+        private ToolStripMenuItem brookWToolStripMenuItem;
+        private ToolStripMenuItem brookCoreToolStripMenuItem;
     }
 }
