@@ -30,7 +30,7 @@ namespace BrookW.Extend
         public const string SERVEREMPTY = "服务器地址不能为空";
         public const string PASSWORDEMPTY = "密码不能为空";
         public const string ADDSCUESS = "添加成功";
-
+        public const string UNSELECTED = "下拉框没有选中服务器";
 
 
     }

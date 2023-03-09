@@ -38,14 +38,15 @@
             this.toolStripButtonSetting = new System.Windows.Forms.ToolStripButton();
             this.statusLabel = new System.Windows.Forms.Label();
             this.lblServer = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.lblView = new System.Windows.Forms.LinkLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pbRun = new System.Windows.Forms.PictureBox();
+            this.pbDel = new System.Windows.Forms.PictureBox();
             this.TLP_Home.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRun)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDel)).BeginInit();
             this.SuspendLayout();
             // 
             // TLP_Home
@@ -62,15 +63,16 @@
             this.TLP_Home.Controls.Add(this.toolStrip1, 0, 0);
             this.TLP_Home.Controls.Add(this.statusLabel, 2, 5);
             this.TLP_Home.Controls.Add(this.lblServer, 2, 1);
-            this.TLP_Home.Controls.Add(this.button1, 4, 1);
-            this.TLP_Home.Controls.Add(this.linkLabel1, 3, 1);
+            this.TLP_Home.Controls.Add(this.lblView, 3, 1);
             this.TLP_Home.Controls.Add(this.panel1, 2, 3);
+            this.TLP_Home.Controls.Add(this.pbDel, 4, 1);
             this.TLP_Home.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TLP_Home.Location = new System.Drawing.Point(0, 0);
+            this.TLP_Home.Margin = new System.Windows.Forms.Padding(0);
             this.TLP_Home.Name = "TLP_Home";
             this.TLP_Home.RowCount = 6;
             this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
@@ -89,7 +91,7 @@
             "brook wsserver",
             "brook wssserver",
             "brook link"});
-            this.cbSelectServer.Location = new System.Drawing.Point(73, 148);
+            this.cbSelectServer.Location = new System.Drawing.Point(73, 128);
             this.cbSelectServer.Name = "cbSelectServer";
             this.cbSelectServer.Size = new System.Drawing.Size(234, 25);
             this.cbSelectServer.TabIndex = 6;
@@ -147,7 +149,6 @@
             this.toolStripButtonRefresh.Size = new System.Drawing.Size(95, 34);
             this.toolStripButtonRefresh.Text = "检查更新";
             this.toolStripButtonRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripButtonRefresh.Click += new System.EventHandler(this.toolStripButtonRefresh_Click);
             // 
             // brookWToolStripMenuItem
             // 
@@ -162,6 +163,7 @@
             this.brookCoreToolStripMenuItem.Name = "brookCoreToolStripMenuItem";
             this.brookCoreToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
             this.brookCoreToolStripMenuItem.Text = "Brook Core";
+            this.brookCoreToolStripMenuItem.Click += new System.EventHandler(this.brookCoreToolStripMenuItem_Click);
             // 
             // toolStripButtonSetting
             // 
@@ -182,52 +184,46 @@
             // 
             this.statusLabel.AutoSize = true;
             this.TLP_Home.SetColumnSpan(this.statusLabel, 3);
-            this.statusLabel.Location = new System.Drawing.Point(73, 346);
+            this.statusLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.statusLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.statusLabel.Location = new System.Drawing.Point(73, 326);
             this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(82, 17);
+            this.statusLabel.Size = new System.Drawing.Size(234, 20);
             this.statusLabel.TabIndex = 8;
             this.statusLabel.Text = "server status";
+            this.statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblServer
             // 
             this.lblServer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblServer.AutoSize = true;
-            this.lblServer.Location = new System.Drawing.Point(70, 119);
+            this.lblServer.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblServer.Location = new System.Drawing.Point(70, 96);
             this.lblServer.Margin = new System.Windows.Forms.Padding(0);
             this.lblServer.Name = "lblServer";
-            this.lblServer.Size = new System.Drawing.Size(44, 17);
+            this.lblServer.Size = new System.Drawing.Size(48, 20);
             this.lblServer.TabIndex = 1;
             this.lblServer.Text = "server";
             // 
-            // button1
+            // lblView
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(267, 110);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "移除";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnDel_Click);
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(174, 119);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(32, 17);
-            this.linkLabel1.TabIndex = 10;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "查看";
-            this.linkLabel1.Click += new System.EventHandler(this.lblView_Click);
+            this.lblView.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblView.AutoSize = true;
+            this.lblView.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblView.Location = new System.Drawing.Point(171, 96);
+            this.lblView.Name = "lblView";
+            this.lblView.Size = new System.Drawing.Size(37, 20);
+            this.lblView.TabIndex = 10;
+            this.lblView.TabStop = true;
+            this.lblView.Text = "查看";
+            this.lblView.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblView_LinkClicked);
             // 
             // panel1
             // 
             this.TLP_Home.SetColumnSpan(this.panel1, 3);
             this.panel1.Controls.Add(this.pbRun);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(70, 186);
+            this.panel1.Location = new System.Drawing.Point(70, 166);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.TLP_Home.SetRowSpan(this.panel1, 2);
@@ -248,6 +244,20 @@
             this.pbRun.Size = new System.Drawing.Size(130, 130);
             this.pbRun.TabIndex = 12;
             this.pbRun.TabStop = false;
+            this.pbRun.Click += new System.EventHandler(this.pbRun_Click);
+            // 
+            // pbDel
+            // 
+            this.pbDel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbDel.BackgroundImage = global::BrookW.Properties.Resources.del;
+            this.pbDel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbDel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbDel.Location = new System.Drawing.Point(291, 97);
+            this.pbDel.Name = "pbDel";
+            this.pbDel.Size = new System.Drawing.Size(16, 16);
+            this.pbDel.TabIndex = 14;
+            this.pbDel.TabStop = false;
+            this.pbDel.Click += new System.EventHandler(this.pbDel_Click);
             // 
             // Home
             // 
@@ -263,6 +273,7 @@
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbRun)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDel)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -279,9 +290,9 @@
         private Label statusLabel;
         private ToolStripMenuItem brookWToolStripMenuItem;
         private ToolStripMenuItem brookCoreToolStripMenuItem;
-        private Button button1;
-        private LinkLabel linkLabel1;
+        private LinkLabel lblView;
         private PictureBox pbRun;
         private Panel panel1;
+        private PictureBox pbDel;
     }
 }

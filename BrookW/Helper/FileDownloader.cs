@@ -33,6 +33,7 @@
             {
                 // 获取远程文件的大小
                 long remoteFileSize = await GetRemoteFileSizeAsync(url);
+                if (remoteFileSize <= 0) return false;
 
                 // 获取本地文件的大小
                 long localFileSize = new FileInfo(localFilePath).Length;

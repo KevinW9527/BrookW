@@ -95,6 +95,10 @@ namespace BrookW.UC
                     Msg.ShowError(ex.Message);
                 }
             }
+            else
+            {
+                Msg.ShowError(Msg.UNSELECTED);
+            }
         }
 
         /// <summary>
@@ -115,7 +119,7 @@ namespace BrookW.UC
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnDel_Click(object sender, EventArgs e)
+        private void pbDel_Click(object sender, EventArgs e)
         {
             // 删除选中的下拉框选项
             var selectedItem = cbSelectServer.SelectedItem as Server;
@@ -127,32 +131,13 @@ namespace BrookW.UC
                 Properties.Settings.Default.Save();
                 LoadServers();
             }
-        }
-
-        /// <summary>
-        /// 查看
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void lblView_Click(object sender, EventArgs e)
-        {
-            // 查看服务器详情
-            var selectedItem = cbSelectServer.SelectedItem as Server;
-            if (selectedItem != null)
+            else
             {
-                Msg.ShowInfo($"Server: {selectedItem.Type.ToString()}\nURL: {selectedItem.Url}\nPASSWORD: {selectedItem.Password}");
+                Msg.ShowError(Msg.UNSELECTED);
             }
         }
 
-        /// <summary>
-        /// 检查更新事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void toolStripButtonRefresh_Click(object sender, EventArgs e)
-        {
-            UpdateCore();
-        }
+
 
         /// <summary>
         /// 更新core
@@ -168,12 +153,12 @@ namespace BrookW.UC
             var success = await downloader.DownloadFileAsync(Gobal.BrookCoreUrl);
             if (success)
             {
-                statusLabel.Text = "";
-                Console.WriteLine("下载完成");
+                statusLabel.Text = "更新完毕";
+                Console.WriteLine("更新完毕");
             }
             else
             {
-                statusLabel.Text = "下载失败";
+                statusLabel.Text = "下载失败，可能无法获取远程文件，\n请启动代理更新.";
                 Console.WriteLine("下载失败");
             }
         }
@@ -189,6 +174,34 @@ namespace BrookW.UC
             pbRun.BackgroundImage = isRunning ? onImage : offImage;
         }
 
+        /// <summary>
+        /// 查看
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lblView_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
 
+            // 查看服务器详情
+            var selectedItem = cbSelectServer.SelectedItem as Server;
+            if (selectedItem != null)
+            {
+                Msg.ShowInfo($"Server: {selectedItem.Type.ToString()}\nURL: {selectedItem.Url}\nPASSWORD: {selectedItem.Password}");
+            }
+            else
+            {
+                Msg.ShowError(Msg.UNSELECTED);
+            }
+        }
+
+        /// <summary>
+        ///  检查更新事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void brookCoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateCore();
+        }
     }
 }

@@ -70,39 +70,44 @@
             // cbBrookServerType
             // 
             this.cbBrookServerType.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.cbBrookServerType.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbBrookServerType.FormattingEnabled = true;
             this.cbBrookServerType.Items.AddRange(new object[] {
             "brook server",
             "brook wsserver",
             "brook wssserver",
             "brook link"});
-            this.cbBrookServerType.Location = new System.Drawing.Point(73, 108);
+            this.cbBrookServerType.Location = new System.Drawing.Point(73, 105);
             this.cbBrookServerType.Name = "cbBrookServerType";
-            this.cbBrookServerType.Size = new System.Drawing.Size(234, 25);
+            this.cbBrookServerType.Size = new System.Drawing.Size(234, 27);
             this.cbBrookServerType.TabIndex = 6;
             // 
             // txtServer
             // 
             this.txtServer.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtServer.Location = new System.Drawing.Point(73, 160);
+            this.txtServer.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtServer.Location = new System.Drawing.Point(73, 159);
             this.txtServer.Name = "txtServer";
-            this.txtServer.Size = new System.Drawing.Size(234, 23);
+            this.txtServer.Size = new System.Drawing.Size(234, 24);
             this.txtServer.TabIndex = 7;
             // 
             // txtPwd
             // 
             this.txtPwd.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtPwd.Location = new System.Drawing.Point(73, 210);
+            this.txtPwd.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtPwd.Location = new System.Drawing.Point(73, 209);
             this.txtPwd.Name = "txtPwd";
-            this.txtPwd.Size = new System.Drawing.Size(234, 23);
+            this.txtPwd.Size = new System.Drawing.Size(234, 24);
             this.txtPwd.TabIndex = 7;
             // 
             // btnAdd
             // 
+            this.btnAdd.AutoSize = true;
             this.btnAdd.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnAdd.Location = new System.Drawing.Point(73, 260);
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAdd.Location = new System.Drawing.Point(73, 253);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(234, 23);
+            this.btnAdd.Size = new System.Drawing.Size(234, 30);
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "添加";
             this.btnAdd.UseVisualStyleBackColor = true;

@@ -31,27 +31,27 @@ namespace BrookW.UC
             // 修改颜色和字体
             //this.label1.BackColor = Color.FromArgb(0, 174, 219);
             //this.label1.ForeColor = Color.White;
-            this.label1.Font = new Font("Microsoft YaHei", 14F, FontStyle.Bold);
+            this.label1.Font = new Font("Microsoft YaHei", 13F, FontStyle.Bold);
 
             //this.btnGoBack.BackColor = Color.FromArgb(0, 174, 219);
             //this.btnGoBack.ForeColor = Color.White;
             //this.btnGoBack.Font = new Font("Microsoft YaHei", 9F, FontStyle.Regular);
-
+            var font = new Font("Microsoft YaHei", 10F, FontStyle.Regular);
             this.cbBrookServerType.BackColor = Color.White;
             this.cbBrookServerType.ForeColor = Color.Black;
-            this.cbBrookServerType.Font = new Font("Microsoft YaHei", 9F, FontStyle.Regular);
+            this.cbBrookServerType.Font = font;
 
             this.txtServer.BackColor = Color.White;
             this.txtServer.ForeColor = Color.Black;
-            this.txtServer.Font = new Font("Microsoft YaHei", 9F, FontStyle.Regular);
+            this.txtServer.Font = font;
 
             this.txtPwd.BackColor = Color.White;
             this.txtPwd.ForeColor = Color.Black;
-            this.txtPwd.Font = new Font("Microsoft YaHei", 9F, FontStyle.Regular);
+            this.txtPwd.Font = font;
 
             this.btnAdd.BackColor = Color.FromArgb(0, 174, 219);
             this.btnAdd.ForeColor = Color.White;
-            this.btnAdd.Font = new Font("Microsoft YaHei", 9F, FontStyle.Regular);
+            this.btnAdd.Font = font;
 
             this.btnAdd.FlatStyle = FlatStyle.Flat;
             this.btnAdd.FlatAppearance.BorderSize = 0;
