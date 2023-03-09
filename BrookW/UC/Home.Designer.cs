@@ -30,7 +30,6 @@
         {
             this.TLP_Home = new System.Windows.Forms.TableLayoutPanel();
             this.cbSelectServer = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonServer = new System.Windows.Forms.ToolStripButton();
@@ -39,22 +38,31 @@
             this.brookCoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButtonSetting = new System.Windows.Forms.ToolStripButton();
             this.statusLabel = new System.Windows.Forms.Label();
+            this.lblServer = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.btnRun = new System.Windows.Forms.Button();
             this.TLP_Home.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TLP_Home
             // 
-            this.TLP_Home.ColumnCount = 5;
+            this.TLP_Home.ColumnCount = 7;
             this.TLP_Home.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.TLP_Home.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TLP_Home.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 240F));
+            this.TLP_Home.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.TLP_Home.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.TLP_Home.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.TLP_Home.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.TLP_Home.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.TLP_Home.Controls.Add(this.cbSelectServer, 2, 2);
-            this.TLP_Home.Controls.Add(this.label1, 0, 2);
             this.TLP_Home.Controls.Add(this.toolStrip1, 0, 0);
             this.TLP_Home.Controls.Add(this.statusLabel, 2, 5);
+            this.TLP_Home.Controls.Add(this.lblServer, 2, 1);
+            this.TLP_Home.Controls.Add(this.button1, 4, 1);
+            this.TLP_Home.Controls.Add(this.linkLabel1, 3, 1);
+            this.TLP_Home.Controls.Add(this.btnRun, 3, 3);
             this.TLP_Home.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TLP_Home.Location = new System.Drawing.Point(0, 0);
             this.TLP_Home.Name = "TLP_Home";
@@ -71,6 +79,8 @@
             // cbSelectServer
             // 
             this.cbSelectServer.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.TLP_Home.SetColumnSpan(this.cbSelectServer, 3);
+            this.cbSelectServer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSelectServer.FormattingEnabled = true;
             this.cbSelectServer.Items.AddRange(new object[] {
             "brook server",
@@ -81,23 +91,12 @@
             this.cbSelectServer.Name = "cbSelectServer";
             this.cbSelectServer.Size = new System.Drawing.Size(234, 25);
             this.cbSelectServer.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label1.AutoSize = true;
-            this.TLP_Home.SetColumnSpan(this.label1, 2);
-            this.label1.Location = new System.Drawing.Point(20, 152);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "wssserver";
+            this.cbSelectServer.SelectedIndexChanged += new System.EventHandler(this.cbSelectServer_SelectedIndexChanged);
             // 
             // toolStrip1
             // 
             this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
-            this.TLP_Home.SetColumnSpan(this.toolStrip1, 5);
+            this.TLP_Home.SetColumnSpan(this.toolStrip1, 7);
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStrip1.GripMargin = new System.Windows.Forms.Padding(0);
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
@@ -157,14 +156,14 @@
             // 
             this.brookWToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.brookWToolStripMenuItem.Name = "brookWToolStripMenuItem";
-            this.brookWToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.brookWToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
             this.brookWToolStripMenuItem.Text = "BrookW";
             // 
             // brookCoreToolStripMenuItem
             // 
             this.brookCoreToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.brookCoreToolStripMenuItem.Name = "brookCoreToolStripMenuItem";
-            this.brookCoreToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.brookCoreToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
             this.brookCoreToolStripMenuItem.Text = "Brook Core";
             // 
             // toolStripButtonSetting
@@ -185,11 +184,56 @@
             // statusLabel
             // 
             this.statusLabel.AutoSize = true;
+            this.TLP_Home.SetColumnSpan(this.statusLabel, 3);
             this.statusLabel.Location = new System.Drawing.Point(88, 286);
             this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(43, 17);
+            this.statusLabel.Size = new System.Drawing.Size(82, 17);
             this.statusLabel.TabIndex = 8;
-            this.statusLabel.Text = "label2";
+            this.statusLabel.Text = "server status";
+            // 
+            // lblServer
+            // 
+            this.lblServer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblServer.AutoSize = true;
+            this.lblServer.Location = new System.Drawing.Point(85, 119);
+            this.lblServer.Margin = new System.Windows.Forms.Padding(0);
+            this.lblServer.Name = "lblServer";
+            this.lblServer.Size = new System.Drawing.Size(44, 17);
+            this.lblServer.TabIndex = 1;
+            this.lblServer.Text = "server";
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(282, 110);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "移除";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnDel_Click);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(189, 119);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(32, 17);
+            this.linkLabel1.TabIndex = 10;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "查看";
+            this.linkLabel1.Click += new System.EventHandler(this.lblView_Click);
+            // 
+            // btnRun
+            // 
+            this.btnRun.Location = new System.Drawing.Point(168, 189);
+            this.btnRun.Name = "btnRun";
+            this.btnRun.Size = new System.Drawing.Size(74, 23);
+            this.btnRun.TabIndex = 11;
+            this.btnRun.Text = "Start";
+            this.btnRun.UseVisualStyleBackColor = true;
+            this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
             // 
             // Home
             // 
@@ -210,7 +254,7 @@
         #endregion
 
         private TableLayoutPanel TLP_Home;
-        private Label label1;
+        private Label lblServer;
         public ComboBox cbSelectServer;
         private ToolStrip toolStrip1;
         private ToolStripSeparator toolStripSeparator1;
@@ -220,5 +264,8 @@
         private Label statusLabel;
         private ToolStripMenuItem brookWToolStripMenuItem;
         private ToolStripMenuItem brookCoreToolStripMenuItem;
+        private Button button1;
+        private LinkLabel linkLabel1;
+        private Button btnRun;
     }
 }

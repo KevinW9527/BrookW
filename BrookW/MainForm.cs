@@ -1,60 +1,88 @@
-using BrookW.Service;
-using BrookW.Model;
-using BrookW.Helper;
-using BrookW.Extend;
-using BrookW.Model.Enum;
+ï»¿using BrookW.Extend;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BrookW
 {
     public partial class MainForm : Form
     {
-        private BrookProcessService? brookClient;
+        private UC.Home home;
+        private UC.SaveServer addServer;
 
-        /// <summary>
-        /// 
-        /// </summary>
         public MainForm()
         {
             InitializeComponent();
-
-            // ´ÓÅäÖÃÎÄ¼ş¶ÁÈ¡ÅäÖÃ
-            serverAddressTextBox.Text = Properties.Settings.Default.ServerAddress;
-            passwordTextBox.Text = Properties.Settings.Default.Password;
-            comboBox1.Text = Properties.Settings.Default.ServerType;
-
-            statusLabel.Text = "";
         }
 
-        private  void MainForm_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
+            home = new UC.Home()
+            {
+                Dock = DockStyle.Fill,
+                Location = new Point(0, 0),
+                Name = "home",
+            };
+            home.toolStripButtonServer.Click += BtnAddServer_Click;
+            Controls.Add(home);
+            home.Show();
+
+            addServer = new UC.SaveServer()
+            {
+                Dock = DockStyle.Fill,
+                Location = new Point(0, 0),
+                Name = "addServer",
+            };
+            addServer.btnGoBack.Click += BtnGoBack_Click;
+            Controls.Add(addServer);
+            addServer.Hide();
+
             Icon = Properties.Resources.favicon32;
             notifyIcon.Visible = true;
             notifyIcon.Icon = Icon;
-            //this.WindowState = FormWindowState.Minimized;
-           
         }
 
-        
+        private void BtnGoBack_Click(object? sender, EventArgs e)
+        {
+            addServer.Hide();
+            home.Show();
+            home.LoadServers();
+        }
+
+        private void BtnAddServer_Click(object? sender, EventArgs e)
+        {
+            addServer.Show();
+            home.Hide();
+        }
+
+
+
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                // Òş²Ø´°¿Ú£¬½«´°¿Ú×îĞ¡»¯µ½ÓÒÏÂ½ÇµÄÍ¨ÖªÇøÓò
+                // éšè—çª—å£ï¼Œå°†çª—å£æœ€å°åŒ–åˆ°å³ä¸‹è§’çš„é€šçŸ¥åŒºåŸŸ
                 e.Cancel = true;
                 this.WindowState = FormWindowState.Minimized;
                 this.ShowInTaskbar = false;
             }
             else
             {
-                // ½ø³ÌÒâÍâÍË³ö
+                // è¿›ç¨‹æ„å¤–é€€å‡º
                 Exit();
             }
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var dialog = Msg.ShowConfirm("È·ÈÏÒªÍË³ö¸Ã³ÌĞòÂğ?");
+            var dialog = Msg.ShowConfirm("ç¡®è®¤è¦é€€å‡ºè¯¥ç¨‹åºå—?");
             if (dialog == DialogResult.OK)
             {
                 Exit();
@@ -62,86 +90,26 @@ namespace BrookW
         }
 
         /// <summary>
-        /// ÍË³öÓ¦ÓÃ³ÌĞò
+        /// é€€å‡ºåº”ç”¨ç¨‹åº
         /// </summary>
         private void Exit()
         {
-            brookClient?.Stop();
+            home.brookClient?.Stop();
             notifyIcon.Dispose();
             Application.Exit();
         }
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // ÏÔÊ¾ÉèÖÃ´°¿Ú
+            // æ˜¾ç¤ºè®¾ç½®çª—å£
             this.WindowState = FormWindowState.Normal;
             this.ShowInTaskbar = true;
         }
 
-        private void saveConfig()
-        {
-            // ±£´æÅäÖÃµ½ÅäÖÃÎÄ¼ş
-            Properties.Settings.Default.ServerAddress = serverAddressTextBox.Text.Trim();
-            Properties.Settings.Default.Password = passwordTextBox.Text.Trim();
-            Properties.Settings.Default.ServerType = comboBox1.Text.Trim();
-            Properties.Settings.Default.Save();
-        }
-
-        private void startButton_Click(object sender, EventArgs e)
-        {
-            saveConfig();
-
-            // Æô¶¯ Brook ¿Í»§¶Ë
-            string serverAddress = serverAddressTextBox.Text;
-            if (string.IsNullOrEmpty(serverAddress))
-            {
-                Msg.ShowError("·şÎñÆ÷µØÖ·²»ÄÜÎª¿Õ");
-                return;
-            }
-            string password = passwordTextBox.Text;
-            if (string.IsNullOrEmpty(password))
-            {
-                Msg.ShowError("ÃÜÂë²»ÄÜÎª¿Õ");
-                return;
-            }
-            var type = comboBox1.SelectedIndex;
-            var server = new Server()
-            {
-                Type = (BrookClientTypeEnum)type,
-                Password = password,
-                Url = serverAddress,
-            };
-            try
-            {
-                brookClient = new BrookProcessService(server);
-                statusLabel.Text = "Brook client started.";
-                //http
-                SetProxyHelper.EnableProxy($"{brookClient.ListenAddress}:{brookClient.ListenHttpPort}");
-                //
-                //SetProxyHelper.EnableProxy($"socks5={brookClient.ListenAddress}:{brookClient.ListenSocks5Port}");
-
-                startButton.Enabled = false;
-                stopButton.Enabled = true;
-            }
-            catch (Exception ex)
-            {
-                Msg.ShowError(ex.Message);
-            }
-        }
-
-        private void stopButton_Click(object sender, EventArgs e)
-        {
-            // Í£Ö¹ Brook ¿Í»§¶Ë
-            brookClient?.Stop();
-            statusLabel.Text = "Brook client stopped.";
-            startButton.Enabled = true;
-            stopButton.Enabled = false;
-            SetProxyHelper.DisableProxy();
-        }
 
         private void MainForm_Resize(object sender, EventArgs e)
         {
-            // ½«´°¿Ú×îĞ¡»¯µ½ÓÒÏÂ½ÇµÄÍ¨ÖªÇøÓò
+            // å°†çª—å£æœ€å°åŒ–åˆ°å³ä¸‹è§’çš„é€šçŸ¥åŒºåŸŸ
             if (this.WindowState == FormWindowState.Minimized)
             {
                 this.ShowInTaskbar = false;
@@ -150,13 +118,15 @@ namespace BrookW
 
         private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            // »¹Ô­´°¿Ú
+            // è¿˜åŸçª—å£
             if (e.Button == MouseButtons.Left)
             {
                 this.WindowState = FormWindowState.Normal;
                 this.ShowInTaskbar = true;
             }
         }
+
+
 
     }
 }
