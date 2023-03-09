@@ -24,6 +24,10 @@ namespace BrookW.UC
         /// </summary>
         private bool isRunning;
         private List<Server> servers;
+        private Image onImage = Properties.Resources.on;
+        private Image offImage = Properties.Resources.off;
+
+
         public BrookProcessService? brookClient;
 
         /// <summary>
@@ -33,6 +37,7 @@ namespace BrookW.UC
         {
             InitializeComponent();
             LoadServers();
+            statusLabel.Text = string.Empty;
         }
         /// <summary>
         /// 刷新数据源
@@ -47,6 +52,48 @@ namespace BrookW.UC
             if (cbSelectServer.Items.Count > 0)
             {
                 cbSelectServer.SelectedIndex = 0;
+            }
+
+            // 初始化为关状态
+            pbRun.BackgroundImage = offImage;
+            pbRun.Show();
+
+        }
+
+        /// <summary>
+        /// 启动 & 停止
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pbRun_Click(object sender, EventArgs e)
+        {
+            var server = cbSelectServer.SelectedItem as Server;
+            if (server != null)
+            {
+                try
+                {
+                    if (!isRunning)
+                    {
+                        brookClient = new BrookProcessService(server);
+                        statusLabel.Text = "Brook client started.";
+                        //http
+                        SetProxyHelper.EnableProxy($"{brookClient.ListenAddress}:{brookClient.ListenHttpPort}");
+                        //socks5
+                        //SetProxyHelper.EnableProxy($"socks5={brookClient.ListenAddress}:{brookClient.ListenSocks5Port}");
+                    }
+                    else
+                    {
+                        // 停止 Brook 客户端
+                        brookClient?.Stop();
+                        statusLabel.Text = "Brook client stopped.";
+                        SetProxyHelper.DisableProxy();
+                    }
+                    ChangePbRunBackgroundImage();
+                }
+                catch (Exception ex)
+                {
+                    Msg.ShowError(ex.Message);
+                }
             }
         }
 
@@ -131,57 +178,17 @@ namespace BrookW.UC
             }
         }
 
+
         /// <summary>
-        /// 启动与停止
+        /// 更换图片
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnRun_Click(object sender, EventArgs e)
+        private void ChangePbRunBackgroundImage()
         {
-            var server = cbSelectServer.SelectedItem as Server;
-            if (server != null)
-            {
-                try
-                {
-                    if (!isRunning)
-                    {
-                        brookClient = new BrookProcessService(server);
-                        statusLabel.Text = "Brook client started.";
-                        //http
-                        SetProxyHelper.EnableProxy($"{brookClient.ListenAddress}:{brookClient.ListenHttpPort}");
-                        //socks5
-                        //SetProxyHelper.EnableProxy($"socks5={brookClient.ListenAddress}:{brookClient.ListenSocks5Port}");
-                    }
-                    else
-                    {
-                        // 停止 Brook 客户端
-                        brookClient?.Stop();
-                        statusLabel.Text = "Brook client stopped.";
-                        SetProxyHelper.DisableProxy();
-                    }
-                    ChangeBtnRun();
-                }
-                catch (Exception ex)
-                {
-                    Msg.ShowError(ex.Message);
-                }
-            }
+            // 切换图片
+            isRunning = !isRunning;
+            pbRun.BackgroundImage = isRunning ? onImage : offImage;
         }
 
-        private void ChangeBtnRun()
-        {
-            if (!isRunning)
-            {
-                isRunning = true;
-                btnRun.Text = "Stop";
-            }
-            else
-            {
-                isRunning = false;
-                btnRun.Text = "Start";
-            }
-
-        }
 
     }
 }
