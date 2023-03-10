@@ -26,41 +26,8 @@ namespace BrookW.UC
 
 
             // 设置控件边框
-            this.TLP_Home.BorderStyle = BorderStyle.None;
+            //this.TLP_Home.BorderStyle = BorderStyle.None;
 
-            // 修改颜色和字体
-            //this.label1.BackColor = Color.FromArgb(0, 174, 219);
-            //this.label1.ForeColor = Color.White;
-            this.label1.Font = new Font("Microsoft YaHei", 13F, FontStyle.Bold);
-
-            //this.btnGoBack.BackColor = Color.FromArgb(0, 174, 219);
-            //this.btnGoBack.ForeColor = Color.White;
-            //this.btnGoBack.Font = new Font("Microsoft YaHei", 9F, FontStyle.Regular);
-            var font = new Font("Microsoft YaHei", 10F, FontStyle.Regular);
-            this.cbBrookServerType.BackColor = Color.White;
-            this.cbBrookServerType.ForeColor = Color.Black;
-            this.cbBrookServerType.Font = font;
-
-            this.txtServer.BackColor = Color.White;
-            this.txtServer.ForeColor = Color.Black;
-            this.txtServer.Font = font;
-
-            this.txtPwd.BackColor = Color.White;
-            this.txtPwd.ForeColor = Color.Black;
-            this.txtPwd.Font = font;
-
-            this.btnAdd.BackColor = Color.FromArgb(0, 174, 219);
-            this.btnAdd.ForeColor = Color.White;
-            this.btnAdd.Font = font;
-
-            this.btnAdd.FlatStyle = FlatStyle.Flat;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-
-            // 鼠标悬浮时的样式
-            this.btnAdd.Cursor = Cursors.Hand;
-
-
-            //txtServer.TextChanged += new EventHandler(txtServer_TextChanged);
             txtServer.Enter += txtServer_Enter;
             txtServer.Leave += txtServer_Leave;
 

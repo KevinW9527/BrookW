@@ -1,4 +1,5 @@
-﻿using BrookW.Model;
+﻿using BrookW.Extend;
+using BrookW.Model;
 using System.Diagnostics;
 using System.Net.NetworkInformation;
 
@@ -38,8 +39,20 @@ namespace BrookW.Service
             // 判断 exe 文件是否存在
             if (!File.Exists(exe))
             {
-                throw new FileNotFoundException($"{exe} 文件不存在");
+                throw new FileNotFoundException($"{exe}{Msg.FILENOTFOUND}");
             }
+
+            // 判断进程是否存在
+            var processes = Process.GetProcessesByName(Path.GetFileNameWithoutExtension(exe));
+            if (processes.Length > 0)
+            {
+                // 杀掉进程
+                foreach (var process in processes)
+                {
+                    process.Kill();
+                }
+            }
+
             // 启动 Brook 客户端
             brookProcess = new Process();
             brookProcess.StartInfo.FileName = exe;

@@ -70,12 +70,13 @@
             this.TLP_Home.Location = new System.Drawing.Point(0, 0);
             this.TLP_Home.Margin = new System.Windows.Forms.Padding(0);
             this.TLP_Home.Name = "TLP_Home";
-            this.TLP_Home.RowCount = 6;
+            this.TLP_Home.RowCount = 7;
             this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.TLP_Home.Size = new System.Drawing.Size(380, 475);
             this.TLP_Home.TabIndex = 0;
@@ -91,7 +92,7 @@
             "brook wsserver",
             "brook wssserver",
             "brook link"});
-            this.cbSelectServer.Location = new System.Drawing.Point(73, 128);
+            this.cbSelectServer.Location = new System.Drawing.Point(73, 123);
             this.cbSelectServer.Name = "cbSelectServer";
             this.cbSelectServer.Size = new System.Drawing.Size(234, 25);
             this.cbSelectServer.TabIndex = 6;
@@ -186,7 +187,7 @@
             this.TLP_Home.SetColumnSpan(this.statusLabel, 3);
             this.statusLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.statusLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.statusLabel.Location = new System.Drawing.Point(73, 326);
+            this.statusLabel.Location = new System.Drawing.Point(73, 336);
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(234, 20);
             this.statusLabel.TabIndex = 8;
@@ -198,7 +199,7 @@
             this.lblServer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblServer.AutoSize = true;
             this.lblServer.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblServer.Location = new System.Drawing.Point(70, 96);
+            this.lblServer.Location = new System.Drawing.Point(70, 76);
             this.lblServer.Margin = new System.Windows.Forms.Padding(0);
             this.lblServer.Name = "lblServer";
             this.lblServer.Size = new System.Drawing.Size(48, 20);
@@ -210,7 +211,7 @@
             this.lblView.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblView.AutoSize = true;
             this.lblView.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblView.Location = new System.Drawing.Point(171, 96);
+            this.lblView.Location = new System.Drawing.Point(171, 76);
             this.lblView.Name = "lblView";
             this.lblView.Size = new System.Drawing.Size(37, 20);
             this.lblView.TabIndex = 10;
@@ -223,7 +224,7 @@
             this.TLP_Home.SetColumnSpan(this.panel1, 3);
             this.panel1.Controls.Add(this.pbRun);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(70, 166);
+            this.panel1.Location = new System.Drawing.Point(70, 176);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.TLP_Home.SetRowSpan(this.panel1, 2);
@@ -252,7 +253,7 @@
             this.pbDel.BackgroundImage = global::BrookW.Properties.Resources.del;
             this.pbDel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbDel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbDel.Location = new System.Drawing.Point(291, 97);
+            this.pbDel.Location = new System.Drawing.Point(291, 77);
             this.pbDel.Name = "pbDel";
             this.pbDel.Size = new System.Drawing.Size(16, 16);
             this.pbDel.TabIndex = 14;

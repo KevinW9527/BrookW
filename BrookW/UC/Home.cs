@@ -55,7 +55,7 @@ namespace BrookW.UC
             }
 
             // 初始化为关状态
-            pbRun.BackgroundImage = offImage;
+            pbRun.BackgroundImage = isRunning ? onImage : offImage;
             pbRun.Show();
 
         }

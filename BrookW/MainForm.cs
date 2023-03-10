@@ -101,9 +101,7 @@ namespace BrookW
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // 显示设置窗口
-            this.WindowState = FormWindowState.Normal;
-            this.ShowInTaskbar = true;
+            ChangeFormWindowState();
         }
 
 
@@ -113,6 +111,7 @@ namespace BrookW
             if (this.WindowState == FormWindowState.Minimized)
             {
                 this.ShowInTaskbar = false;
+                this.settingsToolStripMenuItem.Text = "显示";
             }
         }
 
@@ -121,11 +120,29 @@ namespace BrookW
             // 还原窗口
             if (e.Button == MouseButtons.Left)
             {
-                this.WindowState = FormWindowState.Normal;
-                this.ShowInTaskbar = true;
+                ChangeFormWindowState();
             }
         }
 
+
+        private void ChangeFormWindowState()
+        {
+            if (WindowState != FormWindowState.Normal)
+            { 
+                // 显示设置窗口
+                this.WindowState = FormWindowState.Normal;
+                this.ShowInTaskbar = true;
+                this.settingsToolStripMenuItem.Text = "隐藏";
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Minimized;
+                this.ShowInTaskbar = false;
+                this.settingsToolStripMenuItem.Text = "显示";
+            }
+
+
+        }
 
 
     }
