@@ -31,7 +31,7 @@
             this.TLP_Home = new System.Windows.Forms.TableLayoutPanel();
             this.cbSelectServer = new System.Windows.Forms.ComboBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonServer = new System.Windows.Forms.ToolStripButton();
+            this.btnShowServerList = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonRefresh = new System.Windows.Forms.ToolStripDropDownButton();
             this.brookWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.brookCoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,7 +70,7 @@
             this.TLP_Home.Location = new System.Drawing.Point(0, 0);
             this.TLP_Home.Margin = new System.Windows.Forms.Padding(0);
             this.TLP_Home.Name = "TLP_Home";
-            this.TLP_Home.RowCount = 7;
+            this.TLP_Home.RowCount = 8;
             this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
@@ -78,6 +78,7 @@
             this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.TLP_Home.Size = new System.Drawing.Size(380, 475);
             this.TLP_Home.TabIndex = 0;
             // 
@@ -106,7 +107,7 @@
             this.toolStrip1.GripMargin = new System.Windows.Forms.Padding(0);
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonServer,
+            this.btnShowServerList,
             this.toolStripButtonRefresh,
             this.toolStripButtonSetting});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
@@ -117,21 +118,21 @@
             this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolStrip";
             // 
-            // toolStripButtonServer
+            // btnShowServerList
             // 
-            this.toolStripButtonServer.AutoSize = false;
-            this.toolStripButtonServer.AutoToolTip = false;
-            this.toolStripButtonServer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.toolStripButtonServer.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.toolStripButtonServer.Image = global::BrookW.Properties.Resources.server;
-            this.toolStripButtonServer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripButtonServer.ImageTransparentColor = System.Drawing.Color.Transparent;
-            this.toolStripButtonServer.Margin = new System.Windows.Forms.Padding(0);
-            this.toolStripButtonServer.Name = "toolStripButtonServer";
-            this.toolStripButtonServer.Size = new System.Drawing.Size(75, 34);
-            this.toolStripButtonServer.Text = "服务器";
-            this.toolStripButtonServer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolStripButtonServer.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.btnShowServerList.AutoSize = false;
+            this.btnShowServerList.AutoToolTip = false;
+            this.btnShowServerList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnShowServerList.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnShowServerList.Image = global::BrookW.Properties.Resources.server;
+            this.btnShowServerList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnShowServerList.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.btnShowServerList.Margin = new System.Windows.Forms.Padding(0);
+            this.btnShowServerList.Name = "btnShowServerList";
+            this.btnShowServerList.Size = new System.Drawing.Size(75, 34);
+            this.btnShowServerList.Text = "服务器";
+            this.btnShowServerList.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnShowServerList.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             // 
             // toolStripButtonRefresh
             // 
@@ -285,7 +286,7 @@
         private Label lblServer;
         public ComboBox cbSelectServer;
         private ToolStrip toolStrip1;
-        public ToolStripButton toolStripButtonServer;
+        public ToolStripButton btnShowServerList;
         public ToolStripButton toolStripButtonSetting;
         public ToolStripDropDownButton toolStripButtonRefresh;
         private Label statusLabel;

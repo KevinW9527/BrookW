@@ -1,4 +1,5 @@
 ﻿using BrookW.Extend;
+using BrookW.UC;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +15,8 @@ namespace BrookW
     public partial class MainForm : Form
     {
         private UC.Home home;
-        private UC.SaveServer addServer;
-
+        private UC.ServerSave serverSave;
+        private UC.ServerList serverList;
         public MainForm()
         {
             InitializeComponent();
@@ -23,45 +24,71 @@ namespace BrookW
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            #region Home
             home = new UC.Home()
             {
                 Dock = DockStyle.Fill,
                 Location = new Point(0, 0),
                 Name = "home",
             };
-            home.toolStripButtonServer.Click += BtnAddServer_Click;
+            home.btnShowServerList.Click += (object? sender, EventArgs e) =>
+            {
+                serverSave.Hide();
+                home.Hide();
+                serverList.Show();
+            };
             Controls.Add(home);
             home.Show();
 
-            addServer = new UC.SaveServer()
+            #endregion
+
+            #region ServerList
+            serverList = new UC.ServerList()
             {
                 Dock = DockStyle.Fill,
                 Location = new Point(0, 0),
-                Name = "addServer",
+                Name = "serverList",
             };
-            addServer.btnGoBack.Click += BtnGoBack_Click;
-            Controls.Add(addServer);
-            addServer.Hide();
+
+            Controls.Add(serverList);
+            serverList.Hide();
+            serverList.btnGoBackHome.Click += (object? sender, EventArgs e) =>
+            {
+                serverSave.Hide();
+                serverList.Hide();
+                home.Show();
+                home.LoadServers();
+            };
+            serverList.btnAddServer.Click += (object? sender, EventArgs e) =>
+            {
+                home.Hide();
+                serverList.Hide();
+                serverSave.Show();
+            };
+            #endregion
+
+            #region ServerSave
+
+            serverSave = new UC.ServerSave()
+            {
+                Dock = DockStyle.Fill,
+                Location = new Point(0, 0),
+                Name = "serverSave",
+            };
+            serverSave.btnGoBackServerList.Click += (object? sender, EventArgs e) =>
+            {
+                serverSave.Hide();
+                home.Hide();
+                serverList.Show();
+            };
+            Controls.Add(serverSave);
+            serverSave.Hide(); 
+            #endregion
 
             Icon = Properties.Resources.favicon32;
             notifyIcon.Visible = true;
             notifyIcon.Icon = Icon;
         }
-
-        private void BtnGoBack_Click(object? sender, EventArgs e)
-        {
-            addServer.Hide();
-            home.Show();
-            home.LoadServers();
-        }
-
-        private void BtnAddServer_Click(object? sender, EventArgs e)
-        {
-            addServer.Show();
-            home.Hide();
-        }
-
-
 
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -128,7 +155,7 @@ namespace BrookW
         private void ChangeFormWindowState()
         {
             if (WindowState != FormWindowState.Normal)
-            { 
+            {
                 // 显示设置窗口
                 this.WindowState = FormWindowState.Normal;
                 this.ShowInTaskbar = true;

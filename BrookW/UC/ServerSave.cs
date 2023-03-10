@@ -14,12 +14,12 @@ using System.Windows.Forms;
 
 namespace BrookW.UC
 {
-    public partial class SaveServer : UserControl
+    public partial class ServerSave : UserControl
     {
 
         private string serverTip = Gobal.ServerTip;
         private string passwordTip = Gobal.PasswordTip;
-        public SaveServer()
+        public ServerSave()
         {
             InitializeComponent();
 
@@ -140,7 +140,7 @@ namespace BrookW.UC
 
         private void btnGoBack_MouseEnter(object sender, EventArgs e)
         {
-            btnGoBack.BackColor = Color.Black;
+            btnGoBackServerList.BackColor = Color.Black;
         }
     }
 }

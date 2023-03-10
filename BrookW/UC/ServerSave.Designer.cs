@@ -1,6 +1,6 @@
 ﻿namespace BrookW.UC
 {
-    partial class SaveServer
+    partial class ServerSave
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -28,48 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.TLP_Home = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpServerSave = new System.Windows.Forms.TableLayoutPanel();
             this.cbBrookServerType = new System.Windows.Forms.ComboBox();
             this.txtServer = new System.Windows.Forms.TextBox();
             this.txtPwd = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnGoBack = new System.Windows.Forms.ToolStripButton();
+            this.btnGoBackServerList = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.TLP_Home.SuspendLayout();
+            this.tlpServerSave.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // TLP_Home
+            // tlpServerSave
             // 
-            this.TLP_Home.ColumnCount = 5;
-            this.TLP_Home.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.TLP_Home.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TLP_Home.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 240F));
-            this.TLP_Home.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TLP_Home.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.TLP_Home.Controls.Add(this.cbBrookServerType, 2, 1);
-            this.TLP_Home.Controls.Add(this.txtServer, 2, 2);
-            this.TLP_Home.Controls.Add(this.txtPwd, 2, 3);
-            this.TLP_Home.Controls.Add(this.btnAdd, 2, 4);
-            this.TLP_Home.Controls.Add(this.toolStrip1, 0, 0);
-            this.TLP_Home.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TLP_Home.Location = new System.Drawing.Point(0, 0);
-            this.TLP_Home.Name = "TLP_Home";
-            this.TLP_Home.RowCount = 7;
-            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TLP_Home.Size = new System.Drawing.Size(380, 475);
-            this.TLP_Home.TabIndex = 0;
+            this.tlpServerSave.ColumnCount = 5;
+            this.tlpServerSave.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpServerSave.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpServerSave.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 240F));
+            this.tlpServerSave.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpServerSave.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpServerSave.Controls.Add(this.cbBrookServerType, 2, 1);
+            this.tlpServerSave.Controls.Add(this.txtServer, 2, 2);
+            this.tlpServerSave.Controls.Add(this.txtPwd, 2, 3);
+            this.tlpServerSave.Controls.Add(this.btnAdd, 2, 4);
+            this.tlpServerSave.Controls.Add(this.toolStrip1, 0, 0);
+            this.tlpServerSave.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpServerSave.Location = new System.Drawing.Point(0, 0);
+            this.tlpServerSave.Name = "tlpServerSave";
+            this.tlpServerSave.RowCount = 8;
+            this.tlpServerSave.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.tlpServerSave.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tlpServerSave.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tlpServerSave.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tlpServerSave.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tlpServerSave.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tlpServerSave.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpServerSave.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpServerSave.Size = new System.Drawing.Size(380, 475);
+            this.tlpServerSave.TabIndex = 0;
             // 
             // cbBrookServerType
             // 
             this.cbBrookServerType.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.cbBrookServerType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBrookServerType.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbBrookServerType.FormattingEnabled = true;
             this.cbBrookServerType.Items.AddRange(new object[] {
@@ -122,12 +124,12 @@
             // 
             this.toolStrip1.AutoSize = false;
             this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
-            this.TLP_Home.SetColumnSpan(this.toolStrip1, 5);
+            this.tlpServerSave.SetColumnSpan(this.toolStrip1, 5);
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStrip1.GripMargin = new System.Windows.Forms.Padding(0);
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnGoBack,
+            this.btnGoBackServerList,
             this.toolStripLabel1});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
@@ -137,21 +139,21 @@
             this.toolStrip1.TabIndex = 9;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // btnGoBack
+            // btnGoBackServerList
             // 
-            this.btnGoBack.AutoSize = false;
-            this.btnGoBack.AutoToolTip = false;
-            this.btnGoBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnGoBack.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnGoBack.Image = global::BrookW.Properties.Resources.backto;
-            this.btnGoBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGoBack.ImageTransparentColor = System.Drawing.Color.Transparent;
-            this.btnGoBack.Margin = new System.Windows.Forms.Padding(0);
-            this.btnGoBack.Name = "btnGoBack";
-            this.btnGoBack.Size = new System.Drawing.Size(68, 34);
-            this.btnGoBack.Text = "返回";
-            this.btnGoBack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGoBack.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.btnGoBackServerList.AutoSize = false;
+            this.btnGoBackServerList.AutoToolTip = false;
+            this.btnGoBackServerList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnGoBackServerList.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnGoBackServerList.Image = global::BrookW.Properties.Resources.backto;
+            this.btnGoBackServerList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGoBackServerList.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.btnGoBackServerList.Margin = new System.Windows.Forms.Padding(0);
+            this.btnGoBackServerList.Name = "btnGoBackServerList";
+            this.btnGoBackServerList.Size = new System.Drawing.Size(68, 34);
+            this.btnGoBackServerList.Text = "返回";
+            this.btnGoBackServerList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGoBackServerList.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             // 
             // toolStripLabel1
             // 
@@ -162,16 +164,16 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(220, 33);
             this.toolStripLabel1.Text = "添加服务器";
             // 
-            // SaveServer
+            // ServerSave
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.TLP_Home);
-            this.Name = "SaveServer";
+            this.Controls.Add(this.tlpServerSave);
+            this.Name = "ServerSave";
             this.Size = new System.Drawing.Size(380, 475);
-            this.TLP_Home.ResumeLayout(false);
-            this.TLP_Home.PerformLayout();
+            this.tlpServerSave.ResumeLayout(false);
+            this.tlpServerSave.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -180,13 +182,13 @@
 
         #endregion
 
-        private TableLayoutPanel TLP_Home;
+        private TableLayoutPanel tlpServerSave;
         private ComboBox cbBrookServerType;
         private TextBox txtServer;
         private TextBox txtPwd;
         public Button btnAdd;
         private ToolStrip toolStrip1;
-        public ToolStripButton btnGoBack;
+        public ToolStripButton btnGoBackServerList;
         private ToolStripLabel toolStripLabel1;
     }
 }
