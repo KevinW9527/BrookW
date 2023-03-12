@@ -38,10 +38,10 @@
             this.toolStripButtonSetting = new System.Windows.Forms.ToolStripButton();
             this.statusLabel = new System.Windows.Forms.Label();
             this.lblServer = new System.Windows.Forms.Label();
-            this.lblView = new System.Windows.Forms.LinkLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pbRun = new System.Windows.Forms.PictureBox();
             this.pbDel = new System.Windows.Forms.PictureBox();
+            this.lblCopyright = new System.Windows.Forms.Label();
             this.TLP_Home.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -63,9 +63,9 @@
             this.TLP_Home.Controls.Add(this.toolStrip1, 0, 0);
             this.TLP_Home.Controls.Add(this.statusLabel, 2, 5);
             this.TLP_Home.Controls.Add(this.lblServer, 2, 1);
-            this.TLP_Home.Controls.Add(this.lblView, 3, 1);
             this.TLP_Home.Controls.Add(this.panel1, 2, 3);
             this.TLP_Home.Controls.Add(this.pbDel, 4, 1);
+            this.TLP_Home.Controls.Add(this.lblCopyright, 2, 7);
             this.TLP_Home.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TLP_Home.Location = new System.Drawing.Point(0, 0);
             this.TLP_Home.Margin = new System.Windows.Forms.Padding(0);
@@ -199,6 +199,7 @@
             // 
             this.lblServer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblServer.AutoSize = true;
+            this.TLP_Home.SetColumnSpan(this.lblServer, 2);
             this.lblServer.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblServer.Location = new System.Drawing.Point(70, 76);
             this.lblServer.Margin = new System.Windows.Forms.Padding(0);
@@ -206,19 +207,6 @@
             this.lblServer.Size = new System.Drawing.Size(48, 20);
             this.lblServer.TabIndex = 1;
             this.lblServer.Text = "server";
-            // 
-            // lblView
-            // 
-            this.lblView.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lblView.AutoSize = true;
-            this.lblView.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblView.Location = new System.Drawing.Point(171, 76);
-            this.lblView.Name = "lblView";
-            this.lblView.Size = new System.Drawing.Size(37, 20);
-            this.lblView.TabIndex = 10;
-            this.lblView.TabStop = true;
-            this.lblView.Text = "查看";
-            this.lblView.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblView_LinkClicked);
             // 
             // panel1
             // 
@@ -261,6 +249,17 @@
             this.pbDel.TabStop = false;
             this.pbDel.Click += new System.EventHandler(this.pbDel_Click);
             // 
+            // lblCopyright
+            // 
+            this.lblCopyright.AutoSize = true;
+            this.TLP_Home.SetColumnSpan(this.lblCopyright, 3);
+            this.lblCopyright.Location = new System.Drawing.Point(73, 445);
+            this.lblCopyright.Name = "lblCopyright";
+            this.lblCopyright.Size = new System.Drawing.Size(146, 17);
+            this.lblCopyright.TabIndex = 15;
+            this.lblCopyright.Text = "Copyright @ 2023-2025";
+            this.lblCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -292,9 +291,9 @@
         private Label statusLabel;
         private ToolStripMenuItem brookWToolStripMenuItem;
         private ToolStripMenuItem brookCoreToolStripMenuItem;
-        private LinkLabel lblView;
         private PictureBox pbRun;
         private Panel panel1;
         private PictureBox pbDel;
+        private Label lblCopyright;
     }
 }

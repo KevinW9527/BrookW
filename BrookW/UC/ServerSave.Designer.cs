@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tlpServerSave = new System.Windows.Forms.TableLayoutPanel();
             this.cbBrookServerType = new System.Windows.Forms.ComboBox();
             this.txtServer = new System.Windows.Forms.TextBox();
@@ -36,6 +37,8 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnGoBackServerList = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.lblMsg = new System.Windows.Forms.Label();
+            this.timerHideMsg = new System.Windows.Forms.Timer(this.components);
             this.tlpServerSave.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +56,7 @@
             this.tlpServerSave.Controls.Add(this.txtPwd, 2, 3);
             this.tlpServerSave.Controls.Add(this.btnAdd, 2, 4);
             this.tlpServerSave.Controls.Add(this.toolStrip1, 0, 0);
+            this.tlpServerSave.Controls.Add(this.lblMsg, 2, 5);
             this.tlpServerSave.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpServerSave.Location = new System.Drawing.Point(0, 0);
             this.tlpServerSave.Name = "tlpServerSave";
@@ -79,7 +83,7 @@
             "brook wsserver",
             "brook wssserver",
             "brook link"});
-            this.cbBrookServerType.Location = new System.Drawing.Point(73, 85);
+            this.cbBrookServerType.Location = new System.Drawing.Point(73, 86);
             this.cbBrookServerType.Name = "cbBrookServerType";
             this.cbBrookServerType.Size = new System.Drawing.Size(234, 27);
             this.cbBrookServerType.TabIndex = 6;
@@ -164,6 +168,24 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(220, 33);
             this.toolStripLabel1.Text = "添加服务器";
             // 
+            // lblMsg
+            // 
+            this.lblMsg.AutoSize = true;
+            this.lblMsg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblMsg.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblMsg.ForeColor = System.Drawing.Color.Blue;
+            this.lblMsg.Location = new System.Drawing.Point(73, 346);
+            this.lblMsg.Name = "lblMsg";
+            this.lblMsg.Size = new System.Drawing.Size(234, 60);
+            this.lblMsg.TabIndex = 10;
+            this.lblMsg.Text = "保存成功";
+            this.lblMsg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // timerHideMsg
+            // 
+            this.timerHideMsg.Interval = 1500;
+            this.timerHideMsg.Tick += new System.EventHandler(this.timerHideMsg_Tick);
+            // 
             // ServerSave
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -190,5 +212,7 @@
         private ToolStrip toolStrip1;
         public ToolStripButton btnGoBackServerList;
         private ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.Timer timerHideMsg;
+        private Label lblMsg;
     }
 }

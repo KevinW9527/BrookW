@@ -186,7 +186,7 @@ namespace BrookW.UC
             var selectedItem = cbSelectServer.SelectedItem as Server;
             if (selectedItem != null)
             {
-                Msg.ShowInfo($"Server: {selectedItem.Type.ToString()}\nURL: {selectedItem.Url}\nPASSWORD: {selectedItem.Password}");
+                Msg.ShowInfo($"SERVER: {selectedItem.Type.ToString()}\nURL: {selectedItem.Url}\nPASSWORD: {selectedItem.Password}");
             }
             else
             {

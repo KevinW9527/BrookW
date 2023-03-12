@@ -23,11 +23,6 @@ namespace BrookW.UC
         {
             InitializeComponent();
 
-
-
-            // 设置控件边框
-            //this.TLP_Home.BorderStyle = BorderStyle.None;
-
             txtServer.Enter += txtServer_Enter;
             txtServer.Leave += txtServer_Leave;
 
@@ -129,18 +124,17 @@ namespace BrookW.UC
             var json = currServers.GroupBy(x => x.ClientCmdString).Select(g => g.First()).ToList().ToJson();
             Properties.Settings.Default.Servers = json;
             Properties.Settings.Default.Save();
-            // Msg.ShowInfo(Msg.ADDSCUESS);
-            txtPwd.Text = "";
-            txtServer.Text = "";
-
-            //回调更新
-
-
+           
+           
+            lblMsg.Text = Msg.SAVESCUESS;
+            timerHideMsg.Enabled = true;
+            CbBrookServerType_SelectedIndexChanged(sender, e);
         }
 
-        private void btnGoBack_MouseEnter(object sender, EventArgs e)
+        private void timerHideMsg_Tick(object sender, EventArgs e)
         {
-            btnGoBackServerList.BackColor = Color.Black;
+            lblMsg.Text = "";
+            timerHideMsg.Enabled = false;
         }
     }
 }
