@@ -159,18 +159,20 @@ namespace BrookW.UC
             editServer = server;
             if (server == null)
             {
-                toolStripLabel1.Text = "添加服务器";
-                btnAdd.Text = "添加";
+                toolStripLabel1.Text = Msg.SERVERADDTITLE;
+                btnAdd.Text = Msg.SERVERADDBTNTEXT;
                 CbBrookServerType_SelectedIndexChanged(null, EventArgs.Empty);
 
             }
             else
             {
-                toolStripLabel1.Text = "编辑服务器";
-                btnAdd.Text = "保存";
+                toolStripLabel1.Text = Msg.SERVEREDITTITLE;
+                btnAdd.Text = Msg.SERVEREDITBTNTEXT;
                 cbBrookServerType.SelectedIndex = (int)server.Type;
                 txtServer.Text = server.Url;
+                txtServer.ForeColor = Color.Black;
                 txtPwd.Text = server.Password;
+                txtPwd.ForeColor = Color.Black;
             }
         }
 

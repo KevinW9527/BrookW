@@ -33,6 +33,7 @@ namespace BrookW.Model
         public const string WSSServerTip = "Server,like wss://domain.com:443/web";
         public const string BrookLinkTip = "brook://";
         public const string PasswordTip = "Password";
+       
 
     }
 }

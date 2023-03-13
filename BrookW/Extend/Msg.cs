@@ -33,5 +33,11 @@ namespace BrookW.Extend
         public const string UNSELECTED = "没有选中服务器";
         public const string FILENOTFOUND = "文件不存在";
 
+        public const string SERVERADDBTNTEXT = "添加";
+        public const string SERVEREDITBTNTEXT = "保存";
+        public const string SERVERADDTITLE = "添加服务器";
+        public const string SERVEREDITTITLE = "编辑服务器";
+  
+
     }
 }
