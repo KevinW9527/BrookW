@@ -47,8 +47,11 @@ namespace BrookW.UC
         {
             if (e.RowIndex >= 0)
             {
-                var b = new SolidBrush(dgvServerList.RowHeadersDefaultCellStyle.ForeColor);
-                e.Graphics.DrawString((e.RowIndex + 1).ToString(System.Globalization.CultureInfo.CurrentUICulture), this.dgvServerList.DefaultCellStyle.Font, b, e.RowBounds.Location.X + 20, e.RowBounds.Location.Y + 4);
+                var v = dgvServerList.Rows[e.RowIndex].Cells[0].Value;
+                if (v == null)
+                    dgvServerList.Rows[e.RowIndex].Cells[0].Value = e.RowIndex + 1;
+                //var b = new SolidBrush(dgvServerList.RowHeadersDefaultCellStyle.ForeColor);
+                //e.Graphics.DrawString((e.RowIndex + 1).ToString(System.Globalization.CultureInfo.CurrentUICulture), this.dgvServerList.DefaultCellStyle.Font, b, e.RowBounds.Location.X + 20, e.RowBounds.Location.Y + 4);
             }
 
         }
@@ -78,7 +81,19 @@ namespace BrookW.UC
         /// <param name="e"></param>
         private void toolStripMenuItemEdit_Click(object sender, EventArgs e)
         {
-            Msg.ShowInfo("暂未实现");
+            var selectedItem = dgvServerList.CurrentRow.DataBoundItem as Server;
+            if (selectedItem != null)
+            {
+                if (Parent.Parent is MainForm)
+                {
+                    var parent = Parent.Parent as MainForm;
+                    if (parent != null)
+                        parent.EditServer(selectedItem);
+
+                }
+            }
+            else
+                Msg.ShowInfo(Msg.UNSELECTED);
         }
 
         /// <summary>
@@ -100,6 +115,16 @@ namespace BrookW.UC
             {
                 Msg.ShowError(Msg.UNSELECTED);
             }
+        }
+
+        /// <summary>
+        /// 跳转编辑
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgvServerList_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            toolStripMenuItemEdit_Click(sender, e);
         }
     }
 }

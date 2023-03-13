@@ -67,6 +67,7 @@ namespace BrookW
                 home.Hide();
                 serverList.Hide();
                 serverSave.Show();
+                serverSave.InitSaveServer();
             };
             #endregion
 
@@ -172,6 +173,18 @@ namespace BrookW
                 this.settingsToolStripMenuItem.Text = "显示";
             }
 
+
+        }
+
+        /// <summary>
+        /// 编辑服务器
+        /// </summary>
+        public void EditServer(Model.Server server)
+        {
+            home.Hide();
+            serverList.Hide();
+            serverSave.Show();
+            serverSave.InitSaveServer(server);
 
         }
 

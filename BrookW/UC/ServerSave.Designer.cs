@@ -210,8 +210,8 @@
         public Button btnAdd;
         private ToolStrip toolStrip1;
         public ToolStripButton btnGoBackServerList;
-        private ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.Timer timerHideMsg;
         private Label lblMsg;
+        public ToolStripLabel toolStripLabel1;
     }
 }

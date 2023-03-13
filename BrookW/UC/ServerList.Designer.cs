@@ -176,7 +176,6 @@ namespace BrookW.UC
             this.dgvServerList.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvServerList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvServerList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
-            this.dgvServerList.EnableHeadersVisualStyles = false;
             this.dgvServerList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvServerList.Location = new System.Drawing.Point(3, 39);
             this.dgvServerList.MultiSelect = false;
@@ -187,12 +186,13 @@ namespace BrookW.UC
             this.dgvServerList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             this.dgvServerList.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.tlpServerList.SetRowSpan(this.dgvServerList, 4);
+            this.tlpServerList.SetRowSpan(this.dgvServerList, 6);
             this.dgvServerList.RowTemplate.Height = 23;
             this.dgvServerList.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvServerList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvServerList.Size = new System.Drawing.Size(374, 304);
+            this.dgvServerList.Size = new System.Drawing.Size(374, 433);
             this.dgvServerList.TabIndex = 30;
+            this.dgvServerList.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvServerList_CellMouseDoubleClick);
             this.dgvServerList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvServerList_CellMouseDown);
             this.dgvServerList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvServerList_RowPostPaint);
             // 
@@ -256,19 +256,19 @@ namespace BrookW.UC
             this.toolStripMenuItemEdit,
             this.toolStripMenuItemDelete});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 48);
             // 
             // toolStripMenuItemEdit
             // 
             this.toolStripMenuItemEdit.Name = "toolStripMenuItemEdit";
-            this.toolStripMenuItemEdit.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemEdit.Size = new System.Drawing.Size(100, 22);
             this.toolStripMenuItemEdit.Text = "编辑";
             this.toolStripMenuItemEdit.Click += new System.EventHandler(this.toolStripMenuItemEdit_Click);
             // 
             // toolStripMenuItemDelete
             // 
             this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
-            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(100, 22);
             this.toolStripMenuItemDelete.Text = "删除";
             this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuItemDelete_Click);
             // 

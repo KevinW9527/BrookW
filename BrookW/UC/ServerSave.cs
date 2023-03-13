@@ -19,6 +19,11 @@ namespace BrookW.UC
 
         private string serverTip = Gobal.ServerTip;
         private string passwordTip = Gobal.PasswordTip;
+        private Server? editServer;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public ServerSave()
         {
             InitializeComponent();
@@ -124,6 +129,12 @@ namespace BrookW.UC
             {
                 server.Password = "";
             }
+            if (editServer != null)
+            {
+                var editObj = currServers.FirstOrDefault(f => f.ClientCmdString == editServer.ClientCmdString);
+                if (editObj != null)
+                    currServers.Remove(editObj);
+            }
             if (!currServers.Contains(server))
                 currServers.Add(server);
 
@@ -142,5 +153,26 @@ namespace BrookW.UC
             lblMsg.Text = "";
             timerHideMsg.Enabled = false;
         }
+
+        public void InitSaveServer(Model.Server? server = null)
+        {
+            editServer = server;
+            if (server == null)
+            {
+                toolStripLabel1.Text = "添加服务器";
+                btnAdd.Text = "添加";
+                CbBrookServerType_SelectedIndexChanged(null, EventArgs.Empty);
+
+            }
+            else
+            {
+                toolStripLabel1.Text = "编辑服务器";
+                btnAdd.Text = "保存";
+                cbBrookServerType.SelectedIndex = (int)server.Type;
+                txtServer.Text = server.Url;
+                txtPwd.Text = server.Password;
+            }
+        }
+
     }
 }
