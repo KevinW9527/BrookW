@@ -30,6 +30,7 @@ namespace BrookW.UC
             cbBrookServerType.SelectedIndex = 0;
             txtPwd.Enter += TxtPwd_Enter;
             txtPwd.Leave += TxtPwd_Leave;
+            lblMsg.Text = "";
         }
 
         private void TxtPwd_Leave(object? sender, EventArgs e)
@@ -118,14 +119,19 @@ namespace BrookW.UC
                 Password = txtPwd.Text.Trim(),
                 Url = txtServer.Text.Trim(),
             };
+            //移除brook link 的密码对象
+            if (server.Type == BrookClientTypeEnum.BROOKLINK)
+            {
+                server.Password = "";
+            }
             if (!currServers.Contains(server))
                 currServers.Add(server);
 
             var json = currServers.GroupBy(x => x.ClientCmdString).Select(g => g.First()).ToList().ToJson();
             Properties.Settings.Default.Servers = json;
             Properties.Settings.Default.Save();
-           
-           
+
+
             lblMsg.Text = Msg.SAVESCUESS;
             timerHideMsg.Enabled = true;
             CbBrookServerType_SelectedIndexChanged(sender, e);

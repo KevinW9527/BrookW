@@ -20,6 +20,7 @@ namespace BrookW
         public MainForm()
         {
             InitializeComponent();
+            lblCopyright.Text = $"Copyright @ BrookW 2023-{DateTime.Now.Year + 2}";
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -37,7 +38,8 @@ namespace BrookW
                 home.Hide();
                 serverList.Show();
             };
-            Controls.Add(home);
+            //Controls.Add(home);
+            tableLayoutPanel1.Controls.Add(home, 0, 0);
             home.Show();
 
             #endregion
@@ -50,7 +52,8 @@ namespace BrookW
                 Name = "serverList",
             };
 
-            Controls.Add(serverList);
+            //Controls.Add(serverList);
+            tableLayoutPanel1.Controls.Add(serverList, 0, 0);
             serverList.Hide();
             serverList.btnGoBackHome.Click += (object? sender, EventArgs e) =>
             {
@@ -80,9 +83,10 @@ namespace BrookW
                 serverSave.Hide();
                 home.Hide();
                 serverList.Show();
+                serverList.LoadServers();
             };
-            Controls.Add(serverSave);
-            serverSave.Hide(); 
+            tableLayoutPanel1.Controls.Add(serverSave, 0, 0);
+            serverSave.Hide();
             #endregion
 
             Icon = Properties.Resources.favicon32;

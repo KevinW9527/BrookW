@@ -115,31 +115,6 @@ namespace BrookW.UC
         }
 
         /// <summary>
-        /// 删除
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void pbDel_Click(object sender, EventArgs e)
-        {
-            // 删除选中的下拉框选项
-            var selectedItem = cbSelectServer.SelectedItem as Server;
-            if (selectedItem != null)
-            {
-                Server selectedServer = (Server)cbSelectServer.SelectedItem;
-                servers.Remove(selectedServer);
-                Properties.Settings.Default.Servers = servers.ToJson();
-                Properties.Settings.Default.Save();
-                LoadServers();
-            }
-            else
-            {
-                Msg.ShowError(Msg.UNSELECTED);
-            }
-        }
-
-
-
-        /// <summary>
         /// 更新core
         /// </summary>
         private async void UpdateCore()

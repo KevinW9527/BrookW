@@ -40,13 +40,10 @@
             this.lblServer = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pbRun = new System.Windows.Forms.PictureBox();
-            this.pbDel = new System.Windows.Forms.PictureBox();
-            this.lblCopyright = new System.Windows.Forms.Label();
             this.TLP_Home.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRun)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDel)).BeginInit();
             this.SuspendLayout();
             // 
             // TLP_Home
@@ -64,13 +61,11 @@
             this.TLP_Home.Controls.Add(this.statusLabel, 2, 5);
             this.TLP_Home.Controls.Add(this.lblServer, 2, 1);
             this.TLP_Home.Controls.Add(this.panel1, 2, 3);
-            this.TLP_Home.Controls.Add(this.pbDel, 4, 1);
-            this.TLP_Home.Controls.Add(this.lblCopyright, 2, 7);
             this.TLP_Home.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TLP_Home.Location = new System.Drawing.Point(0, 0);
             this.TLP_Home.Margin = new System.Windows.Forms.Padding(0);
             this.TLP_Home.Name = "TLP_Home";
-            this.TLP_Home.RowCount = 8;
+            this.TLP_Home.RowCount = 7;
             this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
@@ -78,7 +73,7 @@
             this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.TLP_Home.Size = new System.Drawing.Size(380, 475);
             this.TLP_Home.TabIndex = 0;
             // 
@@ -236,30 +231,6 @@
             this.pbRun.TabStop = false;
             this.pbRun.Click += new System.EventHandler(this.pbRun_Click);
             // 
-            // pbDel
-            // 
-            this.pbDel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbDel.BackgroundImage = global::BrookW.Properties.Resources.del;
-            this.pbDel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbDel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbDel.Location = new System.Drawing.Point(291, 77);
-            this.pbDel.Name = "pbDel";
-            this.pbDel.Size = new System.Drawing.Size(16, 16);
-            this.pbDel.TabIndex = 14;
-            this.pbDel.TabStop = false;
-            this.pbDel.Click += new System.EventHandler(this.pbDel_Click);
-            // 
-            // lblCopyright
-            // 
-            this.lblCopyright.AutoSize = true;
-            this.TLP_Home.SetColumnSpan(this.lblCopyright, 3);
-            this.lblCopyright.Location = new System.Drawing.Point(73, 445);
-            this.lblCopyright.Name = "lblCopyright";
-            this.lblCopyright.Size = new System.Drawing.Size(146, 17);
-            this.lblCopyright.TabIndex = 15;
-            this.lblCopyright.Text = "Copyright @ 2023-2025";
-            this.lblCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -274,7 +245,6 @@
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbRun)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDel)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -293,7 +263,5 @@
         private ToolStripMenuItem brookCoreToolStripMenuItem;
         private PictureBox pbRun;
         private Panel panel1;
-        private PictureBox pbDel;
-        private Label lblCopyright;
     }
 }

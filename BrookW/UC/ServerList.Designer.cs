@@ -30,22 +30,31 @@ namespace BrookW.UC
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tlpServerList = new System.Windows.Forms.TableLayoutPanel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnGoBackHome = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.btnAddServer = new System.Windows.Forms.ToolStripButton();
-            this.DGV_RecordDetail = new System.Windows.Forms.DataGridView();
+            this.dgvServerList = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Url = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClientCmdString = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItemEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.tlpServerList.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV_RecordDetail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvServerList)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpServerList
@@ -58,11 +67,11 @@ namespace BrookW.UC
             this.tlpServerList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpServerList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpServerList.Controls.Add(this.toolStrip1, 0, 0);
-            this.tlpServerList.Controls.Add(this.DGV_RecordDetail, 0, 1);
+            this.tlpServerList.Controls.Add(this.dgvServerList, 0, 1);
             this.tlpServerList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpServerList.Location = new System.Drawing.Point(0, 0);
             this.tlpServerList.Name = "tlpServerList";
-            this.tlpServerList.RowCount = 8;
+            this.tlpServerList.RowCount = 7;
             this.tlpServerList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tlpServerList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tlpServerList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
@@ -70,7 +79,6 @@ namespace BrookW.UC
             this.tlpServerList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tlpServerList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tlpServerList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpServerList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlpServerList.Size = new System.Drawing.Size(380, 475);
             this.tlpServerList.TabIndex = 0;
             // 
@@ -134,81 +142,135 @@ namespace BrookW.UC
             this.btnAddServer.Text = "添加服务器";
             this.btnAddServer.ToolTipText = "添加服务器";
             // 
-            // DGV_RecordDetail
+            // dgvServerList
             // 
-            this.DGV_RecordDetail.AllowUserToAddRows = false;
-            this.DGV_RecordDetail.AllowUserToDeleteRows = false;
-            this.DGV_RecordDetail.AllowUserToResizeColumns = false;
-            this.DGV_RecordDetail.AllowUserToResizeRows = false;
-            this.DGV_RecordDetail.BackgroundColor = System.Drawing.Color.White;
-            this.DGV_RecordDetail.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvServerList.AllowUserToAddRows = false;
+            this.dgvServerList.AllowUserToDeleteRows = false;
+            this.dgvServerList.AllowUserToResizeColumns = false;
+            this.dgvServerList.AllowUserToResizeRows = false;
+            this.dgvServerList.BackgroundColor = System.Drawing.Color.White;
+            this.dgvServerList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvServerList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Transparent;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_RecordDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.DGV_RecordDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_RecordDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvServerList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvServerList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvServerList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.Type,
             this.Url,
-            this.Password});
-            this.tlpServerList.SetColumnSpan(this.DGV_RecordDetail, 5);
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGV_RecordDetail.DefaultCellStyle = dataGridViewCellStyle2;
-            this.DGV_RecordDetail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DGV_RecordDetail.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
-            this.DGV_RecordDetail.EnableHeadersVisualStyles = false;
-            this.DGV_RecordDetail.Location = new System.Drawing.Point(3, 39);
-            this.DGV_RecordDetail.MultiSelect = false;
-            this.DGV_RecordDetail.Name = "DGV_RecordDetail";
-            this.DGV_RecordDetail.RowHeadersVisible = false;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.DGV_RecordDetail.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.tlpServerList.SetRowSpan(this.DGV_RecordDetail, 4);
-            this.DGV_RecordDetail.RowTemplate.Height = 23;
-            this.DGV_RecordDetail.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV_RecordDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGV_RecordDetail.Size = new System.Drawing.Size(374, 304);
-            this.DGV_RecordDetail.TabIndex = 30;
+            this.Password,
+            this.ClientCmdString});
+            this.tlpServerList.SetColumnSpan(this.dgvServerList, 5);
+            this.dgvServerList.ContextMenuStrip = this.contextMenuStrip1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvServerList.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvServerList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvServerList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
+            this.dgvServerList.EnableHeadersVisualStyles = false;
+            this.dgvServerList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvServerList.Location = new System.Drawing.Point(3, 39);
+            this.dgvServerList.MultiSelect = false;
+            this.dgvServerList.Name = "dgvServerList";
+            this.dgvServerList.ReadOnly = true;
+            this.dgvServerList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvServerList.RowHeadersVisible = false;
+            this.dgvServerList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.dgvServerList.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.tlpServerList.SetRowSpan(this.dgvServerList, 4);
+            this.dgvServerList.RowTemplate.Height = 23;
+            this.dgvServerList.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvServerList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvServerList.Size = new System.Drawing.Size(374, 304);
+            this.dgvServerList.TabIndex = 30;
+            this.dgvServerList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvServerList_CellMouseDown);
+            this.dgvServerList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvServerList_RowPostPaint);
             // 
             // Id
             // 
             this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Id.HeaderText = "序号";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Id.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Id.FillWeight = 50F;
+            this.Id.HeaderText = "No";
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
+            this.Id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Type
             // 
             this.Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Type.DataPropertyName = "Type";
+            this.Type.FillWeight = 80F;
             this.Type.HeaderText = "类型";
             this.Type.Name = "Type";
             this.Type.ReadOnly = true;
+            this.Type.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Url
             // 
             this.Url.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Url.DataPropertyName = "Url";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Url.DefaultCellStyle = dataGridViewCellStyle3;
             this.Url.FillWeight = 150F;
             this.Url.HeaderText = "地址";
             this.Url.Name = "Url";
             this.Url.ReadOnly = true;
+            this.Url.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Password
             // 
             this.Password.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Password.DataPropertyName = "Password";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Password.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Password.FillWeight = 80F;
             this.Password.HeaderText = "密码";
             this.Password.Name = "Password";
             this.Password.ReadOnly = true;
+            this.Password.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ClientCmdString
+            // 
+            this.ClientCmdString.DataPropertyName = "ClientCmdString";
+            this.ClientCmdString.HeaderText = "ClientCmdString";
+            this.ClientCmdString.Name = "ClientCmdString";
+            this.ClientCmdString.ReadOnly = true;
+            this.ClientCmdString.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ClientCmdString.Visible = false;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemEdit,
+            this.toolStripMenuItemDelete});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            // 
+            // toolStripMenuItemEdit
+            // 
+            this.toolStripMenuItemEdit.Name = "toolStripMenuItemEdit";
+            this.toolStripMenuItemEdit.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemEdit.Text = "编辑";
+            this.toolStripMenuItemEdit.Click += new System.EventHandler(this.toolStripMenuItemEdit_Click);
+            // 
+            // toolStripMenuItemDelete
+            // 
+            this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
+            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemDelete.Text = "删除";
+            this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuItemDelete_Click);
             // 
             // ServerList
             // 
@@ -221,7 +283,8 @@ namespace BrookW.UC
             this.tlpServerList.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV_RecordDetail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvServerList)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -232,11 +295,15 @@ namespace BrookW.UC
         private ToolStrip toolStrip1;
         public ToolStripButton btnGoBackHome;
         private ToolStripLabel toolStripLabel1;
-        private DataGridView DGV_RecordDetail;
+        private DataGridView dgvServerList;
         public ToolStripButton btnAddServer;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem toolStripMenuItemEdit;
+        private ToolStripMenuItem toolStripMenuItemDelete;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Type;
         private DataGridViewTextBoxColumn Url;
         private DataGridViewTextBoxColumn Password;
+        private DataGridViewTextBoxColumn ClientCmdString;
     }
 }

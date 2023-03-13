@@ -26,8 +26,8 @@ namespace BrookW.Model
             {
                 switch (Type)
                 {
-                    case BrookClientTypeEnum.CONNECT:
-                        return string.Concat(Type.ToString().ToLower(), " --http {0}:{1} --socks5 {0}:{2} -l ", Url);
+                    case BrookClientTypeEnum.BROOKLINK:
+                        return string.Concat("connect --http {0}:{1} --socks5 {0}:{2} -l ", Url);
                     default:
                         return string.Concat(Type.ToString().ToLower(), " --http {0}:{1} --socks5 {0}:{2}", $" -s {Url} -p {Password}");
                 }

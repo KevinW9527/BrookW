@@ -28,7 +28,7 @@ namespace BrookW.Model.Enum
         /// brook link
         /// </summary>
         [Description("brook connect")]
-        CONNECT = 3,
+        BROOKLINK = 3,
 
     }
 }

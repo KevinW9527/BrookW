@@ -60,7 +60,7 @@
             this.tlpServerSave.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpServerSave.Location = new System.Drawing.Point(0, 0);
             this.tlpServerSave.Name = "tlpServerSave";
-            this.tlpServerSave.RowCount = 8;
+            this.tlpServerSave.RowCount = 7;
             this.tlpServerSave.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tlpServerSave.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tlpServerSave.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
@@ -68,7 +68,6 @@
             this.tlpServerSave.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tlpServerSave.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tlpServerSave.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpServerSave.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlpServerSave.Size = new System.Drawing.Size(380, 475);
             this.tlpServerSave.TabIndex = 0;
             // 
@@ -83,7 +82,7 @@
             "brook wsserver",
             "brook wssserver",
             "brook link"});
-            this.cbBrookServerType.Location = new System.Drawing.Point(73, 86);
+            this.cbBrookServerType.Location = new System.Drawing.Point(73, 85);
             this.cbBrookServerType.Name = "cbBrookServerType";
             this.cbBrookServerType.Size = new System.Drawing.Size(234, 27);
             this.cbBrookServerType.TabIndex = 6;
