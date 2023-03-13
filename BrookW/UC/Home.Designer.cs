@@ -141,7 +141,7 @@
             this.toolStripButtonRefresh.Image = global::BrookW.Properties.Resources.refresh;
             this.toolStripButtonRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripButtonRefresh.ImageTransparentColor = System.Drawing.Color.Transparent;
-            this.toolStripButtonRefresh.Margin = new System.Windows.Forms.Padding(0);
+            this.toolStripButtonRefresh.Margin = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.toolStripButtonRefresh.Name = "toolStripButtonRefresh";
             this.toolStripButtonRefresh.Size = new System.Drawing.Size(95, 34);
             this.toolStripButtonRefresh.Text = "检查更新";
@@ -151,14 +151,14 @@
             // 
             this.brookWToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.brookWToolStripMenuItem.Name = "brookWToolStripMenuItem";
-            this.brookWToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.brookWToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
             this.brookWToolStripMenuItem.Text = "BrookW";
             // 
             // brookCoreToolStripMenuItem
             // 
             this.brookCoreToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.brookCoreToolStripMenuItem.Name = "brookCoreToolStripMenuItem";
-            this.brookCoreToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.brookCoreToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
             this.brookCoreToolStripMenuItem.Text = "Brook Core";
             this.brookCoreToolStripMenuItem.Click += new System.EventHandler(this.brookCoreToolStripMenuItem_Click);
             // 
@@ -171,7 +171,7 @@
             this.toolStripButtonSetting.Image = global::BrookW.Properties.Resources.setting;
             this.toolStripButtonSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripButtonSetting.ImageTransparentColor = System.Drawing.Color.Transparent;
-            this.toolStripButtonSetting.Margin = new System.Windows.Forms.Padding(0);
+            this.toolStripButtonSetting.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.toolStripButtonSetting.Name = "toolStripButtonSetting";
             this.toolStripButtonSetting.Size = new System.Drawing.Size(60, 34);
             this.toolStripButtonSetting.Text = "设置";
