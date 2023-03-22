@@ -1,7 +1,7 @@
 # BrookW 
-BrookW是一个基于.NET 6开发的Brook客户端轻量级的GUI，采用WinForms封装Brook的exe客户端方式实现，使用随机未被占用的端口，支持系统代理，最小化通知图标。 
-[Brook协议](https://github.com/txthinking/brook) 是一种代理协议，相关内容可查看官网。 
-BrookW是一个使用C#语言编写的图形管理界面，它可以帮助Windows用户快速连接代理服务器，从而实现自由访问互联网的目的。 
+BrookW是一个基于.NET 6开发的Brook客户端轻量级的GUI，采用WinForms封装Brook的exe客户端方式实现，使用随机未被占用的端口，支持系统代理，最小化通知图标。    
+[Brook协议](https://github.com/txthinking/brook) 是一种代理协议，相关内容可查看官网。   
+BrookW是一个使用C#语言编写的图形管理界面，它可以帮助Windows用户快速连接代理服务器，从而实现自由访问互联网的目的。   
 
 ### 特性 
 1. 支持Brook协议：BrookW是一个Brook协议的GUI客户端，支持Brook协议的大部分特性。
