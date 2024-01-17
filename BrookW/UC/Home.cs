@@ -27,8 +27,9 @@ namespace BrookW.UC
         private Image onImage = Properties.Resources.on;
         private Image offImage = Properties.Resources.off;
 
-
+        private FileDownloader downloader;
         public BrookProcessService? brookClient;
+
 
         /// <summary>
         /// 
@@ -85,7 +86,9 @@ namespace BrookW.UC
                     {
                         // 停止 Brook 客户端
                         brookClient?.Stop();
+
                         statusLabel.Text = "Brook client stopped.";
+
                         SetProxyHelper.DisableProxy();
                     }
                     ChangePbRunBackgroundImage();
@@ -111,7 +114,19 @@ namespace BrookW.UC
             Server selectedServer = (Server)cbSelectServer.SelectedItem;
             // 切换下拉框选项时更新标签显示的值
             if (selectedServer != null)
+            {
                 lblServer.Text = selectedServer.Type.ToString();
+                if (isRunning)
+                {
+                    if (brookClient != null)
+                    {
+                        brookClient?.Stop();
+                        isRunning = false;
+                    }
+                    //启动
+                    pbRun_Click(sender, e);
+                }
+            }
         }
 
         /// <summary>
@@ -120,21 +135,29 @@ namespace BrookW.UC
         private async void UpdateCore()
         {
             // 下载器
-            var downloader = new FileDownloader();
-            downloader.DownloadProgressChanged += (sender, e) =>
+            if (downloader == null)
             {
-                statusLabel.Text = ($"下载进度：{e.Percentage}%");
-            };
-            var success = await downloader.DownloadFileAsync(Gobal.BrookCoreUrl);
+                downloader = new FileDownloader();
+                downloader.DownloadProgressChanged += (sender, e) =>
+                {
+                    // 异步更新 statusLabel.Text
+                    statusLabel.BeginInvoke((MethodInvoker)(() =>
+                    {
+                        statusLabel.Text = e.Percentage.ToString();
+                    }));
+                };
+            }
+            var success = await downloader.DownloadFileAsync(Gobal.BrookCoreUrl, brookClient);
             if (success)
             {
-                statusLabel.Text = "更新完毕";
-                Console.WriteLine("更新完毕");
+                Thread.Sleep(1500);
+                // statusLabel.Text = "更新完毕";
+                if (isRunning)
+                    cbSelectServer_SelectedIndexChanged(EventArgs.Empty, EventArgs.Empty);
             }
             else
             {
-                statusLabel.Text = "下载失败，可能无法获取远程文件，\n请启动代理更新.";
-                Console.WriteLine("下载失败");
+                //statusLabel.Text = "下载失败，可能无法获取远程文件，\n请启动代理更新.";
             }
         }
 
