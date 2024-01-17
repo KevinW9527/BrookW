@@ -5,6 +5,7 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Net.Http;
+    using System.Security.AccessControl;
     using System.Threading.Tasks;
 
     class FileDownloader
@@ -75,8 +76,31 @@
                         if (brookClient != null)
                             brookClient.Stop();
 
-                        if (File.Exists(localFilePath))
+                        if (File.Exists(localFilePath)) {
+
+                            FileSecurity fileSecurity = new FileSecurity(localFilePath, AccessControlSections.Access);
+
+                            AuthorizationRuleCollection accessRules = fileSecurity.GetAccessRules(true, true, typeof(System.Security.Principal.SecurityIdentifier));
+                            bool hasDeletePermission = false;
+
+                            foreach (FileSystemAccessRule rule in accessRules)
+                            {
+                                if ((FileSystemRights.Delete & rule.FileSystemRights) == FileSystemRights.Delete &&
+                                    rule.AccessControlType == AccessControlType.Allow)
+                                {
+                                    hasDeletePermission = true;
+                                    break;
+                                }
+                            }
+
+                            if (!hasDeletePermission)
+                            {
+                                OnDownloadProgressChanged(new DownloadProgressEventArgs($"当前用户没有足够的权限来删除{localFilePath}文件."));
+                                return false;
+                            }
                             File.Delete(localFilePath);
+                        }
+                       
 
                         File.Move(tempFilePath, localFilePath);
                         OnDownloadProgressChanged(new DownloadProgressEventArgs("更新完毕."));

@@ -201,5 +201,10 @@ namespace BrookW.UC
         {
             UpdateCore();
         }
+
+        private void brookWToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

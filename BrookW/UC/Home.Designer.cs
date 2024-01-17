@@ -151,14 +151,15 @@
             // 
             this.brookWToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.brookWToolStripMenuItem.Name = "brookWToolStripMenuItem";
-            this.brookWToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
+            this.brookWToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.brookWToolStripMenuItem.Text = "BrookW";
+            this.brookWToolStripMenuItem.Click += new System.EventHandler(this.brookWToolStripMenuItem_Click);
             // 
             // brookCoreToolStripMenuItem
             // 
             this.brookCoreToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.brookCoreToolStripMenuItem.Name = "brookCoreToolStripMenuItem";
-            this.brookCoreToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
+            this.brookCoreToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.brookCoreToolStripMenuItem.Text = "Brook Core";
             this.brookCoreToolStripMenuItem.Click += new System.EventHandler(this.brookCoreToolStripMenuItem_Click);
             // 
