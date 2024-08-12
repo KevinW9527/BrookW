@@ -123,6 +123,7 @@ namespace BrookW.UC
                 Type = (BrookClientTypeEnum)cbBrookServerType.SelectedIndex,
                 Password = txtPwd.Text.Trim(),
                 Url = txtServer.Text.Trim(),
+                //Tag = ""
             };
             //移除brook link 的密码对象
             if (server.Type == BrookClientTypeEnum.BROOKLINK)

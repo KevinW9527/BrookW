@@ -1,14 +1,20 @@
 ﻿using BrookW.Extend;
+using BrookW.Helper;
+using BrookW.Model;
+using BrookW.Model.Enum;
+using BrookW.Service;
 using BrookW.UC;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TencentCloud.Cvm.V20170312.Models;
 
 namespace BrookW
 {
@@ -17,10 +23,18 @@ namespace BrookW
         private UC.Home home;
         private UC.ServerSave serverSave;
         private UC.ServerList serverList;
+        private UC.AppSetting appSetting;
+        //当前运行的
+        public string[] CurrentInstanceId;
+
+        private DateTime _lastExecutionTime;
+        private readonly TimeSpan _cooldownPeriod = TimeSpan.FromMinutes(10);
+
         public MainForm()
         {
             InitializeComponent();
             lblCopyright.Text = $"Copyright @ BrookW 2023-{DateTime.Now.Year + 2}";
+            _lastExecutionTime = DateTime.MinValue; // 初始化为最小值
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -37,7 +51,16 @@ namespace BrookW
                 serverSave.Hide();
                 home.Hide();
                 serverList.Show();
+                appSetting.Hide();
             };
+            home.btnShowAppSetting.Click += (object? sender, EventArgs e) =>
+            {
+                serverSave.Hide();
+                home.Hide();
+                serverList.Hide();
+                appSetting.Show();
+            };
+
             //Controls.Add(home);
             tableLayoutPanel1.Controls.Add(home, 0, 0);
             home.Show();
@@ -57,6 +80,7 @@ namespace BrookW
             serverList.Hide();
             serverList.btnGoBackHome.Click += (object? sender, EventArgs e) =>
             {
+                appSetting.Hide();
                 serverSave.Hide();
                 serverList.Hide();
                 home.Show();
@@ -64,6 +88,7 @@ namespace BrookW
             };
             serverList.btnAddServer.Click += (object? sender, EventArgs e) =>
             {
+                appSetting.Hide();
                 home.Hide();
                 serverList.Hide();
                 serverSave.Show();
@@ -81,6 +106,7 @@ namespace BrookW
             };
             serverSave.btnGoBackServerList.Click += (object? sender, EventArgs e) =>
             {
+                appSetting.Hide();
                 serverSave.Hide();
                 home.Hide();
                 serverList.Show();
@@ -88,6 +114,24 @@ namespace BrookW
             };
             tableLayoutPanel1.Controls.Add(serverSave, 0, 0);
             serverSave.Hide();
+            #endregion
+
+            #region appSetting
+            appSetting = new AppSetting()
+            {
+                Dock = DockStyle.Fill,
+                Location = new Point(0, 0),
+                Name = "appSetting",
+            };
+            appSetting.btnGoBackServerList.Click += (object? sender, EventArgs e) =>
+            {
+                appSetting.Hide();
+                serverSave.Hide();
+                home.Show();
+                serverList.Hide();
+            };
+            tableLayoutPanel1.Controls.Add(appSetting, 0, 0);
+            appSetting.Hide();
             #endregion
 
             Icon = Properties.Resources.favicon32;
@@ -114,10 +158,28 @@ namespace BrookW
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var dialog = Msg.ShowConfirm("确认要退出该程序吗?");
-            if (dialog == DialogResult.OK)
+            try
             {
-                Exit();
+                if (CurrentInstanceId != null && CurrentInstanceId.Length > 0)
+                {
+                    var dialog = Msg.ShowConfirm("是否需要销毁腾讯云CVM？");
+                    if (dialog == DialogResult.OK)
+                    {
+                        RemoveServer(CurrentInstanceId);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                home.statusLabel.Text = ex.Message;
+            }
+            finally
+            {
+                var dialog = Msg.ShowConfirm("确认要退出该程序吗?");
+                if (dialog == DialogResult.OK)
+                {
+                    Exit();
+                }
             }
         }
 
@@ -188,6 +250,167 @@ namespace BrookW
 
         }
 
+        /// <summary>
+        /// 查看python文件，自动获取服务器
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void timerWatchPython_Tick(object sender, EventArgs e)
+        {
+            timerWatchPython.Stop();
+            try
+            {
+                //
+                var appSetting = JsonHelper.ToObject<TencentCloudSetting>(Properties.Settings.Default.TencentCloudSetting) ?? new TencentCloudSetting();
+                if (!string.IsNullOrEmpty(appSetting.Path) && !string.IsNullOrEmpty(appSetting.SecretId) && !string.IsNullOrEmpty(appSetting.SecretKey))
+                {
+                    var path = appSetting.Path.IndexOf("full.txt") > -1 ? appSetting.Path : Path.Combine(appSetting.Path, "/full.txt");
+                    if (File.Exists(path))
+                    {
+                        DateTime now = DateTime.Now;
+                        // 检查是否在冷却时间内
+                        if (now - _lastExecutionTime < _cooldownPeriod)
+                        {
+                            var p = _cooldownPeriod - (now - _lastExecutionTime);
+                            home.statusLabel.Text = $"在{Convert.ToInt32(p.TotalSeconds)}秒内不能再次自动执行";
+                        }
+                        else
+                        {
+                            var instanceIds = string.IsNullOrEmpty(appSetting.LaunchTemplateId) ? RunInstanceSpot.RunInstancesByLaunchTemplate(appSetting.SecretId, appSetting.SecretKey)
+                                : RunInstanceSpot.RunInstancesByLaunchTemplate(appSetting.SecretId, appSetting.SecretKey, appSetting.LaunchTemplateId);
 
+                            if (instanceIds != null && instanceIds.Length > 0)
+                            {
+                                var instancesPublicIp = RunInstanceSpot.GetInstancesPublicIp(instanceIds, appSetting.SecretId, appSetting.SecretKey);
+                                if (!string.IsNullOrEmpty(instancesPublicIp))
+                                {
+                                    var server = AutoAddServer(instancesPublicIp, instanceIds);
+                                    File.Delete(path);
+                                    home.Run(server);
+                                    //启动销毁计数
+                                    timerDis.Enabled = true;
+                                    timerDis.Tag = CurrentInstanceId;
+
+                                    CurrentInstanceId = instanceIds;
+                                }
+                            }
+                            // 更新上次执行时间
+                            _lastExecutionTime = now;
+                        }
+                    }
+                }
+                else if (!string.IsNullOrEmpty(appSetting.Path))
+                {
+                    var path = appSetting.Path.IndexOf("full.txt") > -1 ? appSetting.Path : Path.Combine(appSetting.Path, "/full.txt");
+                    if (File.Exists(path))
+                    {
+                        DateTime now = DateTime.Now;
+                        // 检查是否在冷却时间内
+                        if (now - _lastExecutionTime < _cooldownPeriod)
+                        {
+                            var p = _cooldownPeriod - (now - _lastExecutionTime);
+                            home.statusLabel.Text = $"在{Convert.ToInt32(p.TotalSeconds)}秒内不能再次自动执行";
+                        }
+                        else
+                        {
+                            File.Delete(path);
+                            home.RunNext();
+
+                            // 更新上次执行时间
+                            _lastExecutionTime = now;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                home.statusLabel.Text = ex.Message;
+            }
+            timerWatchPython.Start();
+        }
+
+        private Server AutoAddServer(string? ip, string[] instanceIds)
+        {
+            try
+            {
+                var currServers = JsonHelper.ToObject<List<Server>>(Properties.Settings.Default.Servers);
+                if (currServers == null)
+                {
+                    currServers = new List<Server>();
+                }
+                var server = new Server()
+                {
+                    Type = BrookClientTypeEnum.WSSCLIENT,
+                    Password = "web2023",
+                    Url = $"ws://{ip}:3389/web3",
+                    Tag = instanceIds[0]
+                };
+
+                if (!currServers.Contains(server))
+                    currServers.Add(server);
+
+                var json = currServers.GroupBy(x => x.ClientCmdString).Select(g => g.First()).ToList().ToJson();
+                Properties.Settings.Default.Servers = json;
+                Properties.Settings.Default.Save();
+                //刷新列表
+                home.LoadServers();
+
+                return server;
+            }
+            catch (Exception e)
+            {
+                home.statusLabel.Text = e.Message;
+                return default;
+            }
+        }
+
+        private void RemoveServer(string[] instanceIds)
+        {
+            try
+            {
+                var appSetting = JsonHelper.ToObject<TencentCloudSetting>(Properties.Settings.Default.TencentCloudSetting) ?? new TencentCloudSetting();
+                if (!string.IsNullOrEmpty(appSetting.Path) && !string.IsNullOrEmpty(appSetting.SecretId) && !string.IsNullOrEmpty(appSetting.SecretKey))
+                {
+                    if (instanceIds != null && instanceIds.Length > 0)
+                    {
+                        home.statusLabel.Text = "RemoveServer：" + instanceIds[0];
+                        var rs = RunInstanceSpot.TerminateInstances(instanceIds, appSetting.SecretId, appSetting.SecretKey);
+                        if (rs)
+                        {
+                            var currServers = JsonHelper.ToObject<List<Server>>(Properties.Settings.Default.Servers);
+                            if (currServers == null)
+                            {
+                                currServers = new List<Server>();
+                            }
+
+                            var selectedItem = currServers.First(x => x.Tag == instanceIds[0]);
+                            if (selectedItem != null)
+                            {
+                                currServers.Remove(selectedItem);
+                            }
+                            Properties.Settings.Default.Servers = currServers.ToJson();
+                            Properties.Settings.Default.Save();
+                            //刷新列表
+                            home.LoadServers();
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                home.statusLabel.Text = e.Message;
+            }
+        }
+
+        private void timerDis_Tick(object sender, EventArgs e)
+        {
+            if (timerDis.Tag != null)
+            {
+                var ids = (string[])timerDis.Tag;
+                RemoveServer(ids);
+                timerDis.Tag = null;
+            }
+            timerDis.Enabled = false;
+        }
     }
 }

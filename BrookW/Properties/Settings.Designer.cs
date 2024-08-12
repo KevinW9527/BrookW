@@ -70,5 +70,17 @@ namespace BrookW.Properties {
                 this["Servers"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TencentCloudSetting {
+            get {
+                return ((string)(this["TencentCloudSetting"]));
+            }
+            set {
+                this["TencentCloudSetting"] = value;
+            }
+        }
     }
 }

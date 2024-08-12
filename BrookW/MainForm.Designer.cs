@@ -35,6 +35,8 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblCopyright = new System.Windows.Forms.Label();
+            this.timerWatchPython = new System.Windows.Forms.Timer(this.components);
+            this.timerDis = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStripNotifyIcon.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -80,7 +82,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(364, 436);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(364, 446);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // lblCopyright
@@ -88,19 +90,30 @@
             this.lblCopyright.AutoSize = true;
             this.lblCopyright.BackColor = System.Drawing.Color.Transparent;
             this.lblCopyright.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblCopyright.Location = new System.Drawing.Point(3, 406);
+            this.lblCopyright.Location = new System.Drawing.Point(3, 416);
             this.lblCopyright.Name = "lblCopyright";
             this.lblCopyright.Size = new System.Drawing.Size(358, 30);
             this.lblCopyright.TabIndex = 0;
             this.lblCopyright.Text = "Copyright @ ";
             this.lblCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // timerWatchPython
+            // 
+            this.timerWatchPython.Enabled = true;
+            this.timerWatchPython.Interval = 10000;
+            this.timerWatchPython.Tick += new System.EventHandler(this.timerWatchPython_Tick);
+            // 
+            // timerDis
+            // 
+            this.timerDis.Interval = 50000;
+            this.timerDis.Tick += new System.EventHandler(this.timerDis_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(364, 436);
+            this.ClientSize = new System.Drawing.Size(364, 446);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MaximizeBox = false;
             this.Name = "MainForm";
@@ -122,6 +135,8 @@
         private ToolStripMenuItem exitToolStripMenuItem;
         private TableLayoutPanel tableLayoutPanel1;
         private Label lblCopyright;
+        private System.Windows.Forms.Timer timerWatchPython;
+        private System.Windows.Forms.Timer timerDis;
 
         #endregion
 

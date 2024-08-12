@@ -17,6 +17,11 @@ namespace BrookW.Model
         public string? Password { get; set; }
 
         /// <summary>
+        /// 标签，方便批量查找
+        /// </summary>
+        public string? Tag { get; set; }
+
+        /// <summary>
         /// 客户命令
         /// </summary>
         [JsonIgnore]
@@ -36,5 +41,8 @@ namespace BrookW.Model
             }
 
         }
+
+       
+
     }
 }

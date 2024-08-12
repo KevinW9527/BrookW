@@ -37,6 +37,7 @@ namespace BrookW.Extend
         public const string SERVEREDITBTNTEXT = "保存";
         public const string SERVERADDTITLE = "添加服务器";
         public const string SERVEREDITTITLE = "编辑服务器";
+        public const string PYTHONCRXFULLPATH = "路径中必须包含 full.txt";
   
 
     }

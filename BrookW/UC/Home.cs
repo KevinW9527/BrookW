@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +30,7 @@ namespace BrookW.UC
 
         private FileDownloader downloader;
         public BrookProcessService? brookClient;
-
+        private int currentIndex;
 
         /// <summary>
         /// 
@@ -39,6 +40,7 @@ namespace BrookW.UC
             InitializeComponent();
             LoadServers();
             statusLabel.Text = string.Empty;
+            currentIndex = 0;
         }
         /// <summary>
         /// 刷新数据源
@@ -81,6 +83,16 @@ namespace BrookW.UC
                         SetProxyHelper.EnableProxy($"{brookClient.ListenAddress}:{brookClient.ListenHttpPort}");
                         //socks5
                         //SetProxyHelper.EnableProxy($"socks5={brookClient.ListenAddress}:{brookClient.ListenSocks5Port}");
+                        //反向赋值
+                        if (!string.IsNullOrEmpty(server.Tag) && Parent.Parent is MainForm)
+                        {
+                            var mf = Parent.Parent as MainForm;
+                            if (mf != null && (mf.CurrentInstanceId == null || mf.CurrentInstanceId.Length < 1))
+                            {
+                                mf.CurrentInstanceId = new string[] { server.Tag };
+                                statusLabel.Text = "反向赋值：" + server.Tag;
+                            }
+                        }
                     }
                     else
                     {
@@ -126,6 +138,51 @@ namespace BrookW.UC
                     //启动
                     pbRun_Click(sender, e);
                 }
+            }
+        }
+        /// <summary>
+        /// 执行下一个
+        /// </summary>
+        public void RunNext()
+        {
+            // 逐个轮询
+            if (cbSelectServer.Items.Count > 0)
+            {
+                // 更新当前索引
+                currentIndex = (currentIndex + 1) % cbSelectServer.Items.Count;
+
+                // 设置 ComboBox 的选中项
+                cbSelectServer.SelectedIndex = currentIndex;
+                //启动
+                pbRun_Click(cbSelectServer, EventArgs.Empty);
+            }
+
+
+        }
+        public void Run(Server server)
+        {
+            if (server != null)
+            {
+                cbSelectServer.SelectedItem = server;
+
+                lblServer.Text = server.Type.ToString();
+                if (isRunning)
+                {
+                    if (brookClient != null)
+                    {
+                        brookClient?.Stop();
+                        isRunning = false;
+                    }
+
+                }
+
+                brookClient = new BrookProcessService(server);
+                statusLabel.Text = "Brook client started.";
+                //http
+                SetProxyHelper.EnableProxy($"{brookClient.ListenAddress}:{brookClient.ListenHttpPort}");
+
+                ChangePbRunBackgroundImage();
+
             }
         }
 
@@ -206,5 +263,7 @@ namespace BrookW.UC
         {
 
         }
+
+
     }
 }

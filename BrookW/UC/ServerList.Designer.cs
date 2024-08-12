@@ -43,14 +43,15 @@ namespace BrookW.UC
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.btnAddServer = new System.Windows.Forms.ToolStripButton();
             this.dgvServerList = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItemEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Url = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClientCmdString = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItemEdit = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.Tag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlpServerList.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServerList)).BeginInit();
@@ -163,7 +164,8 @@ namespace BrookW.UC
             this.Type,
             this.Url,
             this.Password,
-            this.ClientCmdString});
+            this.ClientCmdString,
+            this.Tag});
             this.tlpServerList.SetColumnSpan(this.dgvServerList, 5);
             this.dgvServerList.ContextMenuStrip = this.contextMenuStrip1;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -195,6 +197,28 @@ namespace BrookW.UC
             this.dgvServerList.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvServerList_CellMouseDoubleClick);
             this.dgvServerList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvServerList_CellMouseDown);
             this.dgvServerList.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvServerList_RowPostPaint);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemEdit,
+            this.toolStripMenuItemDelete});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 48);
+            // 
+            // toolStripMenuItemEdit
+            // 
+            this.toolStripMenuItemEdit.Name = "toolStripMenuItemEdit";
+            this.toolStripMenuItemEdit.Size = new System.Drawing.Size(100, 22);
+            this.toolStripMenuItemEdit.Text = "编辑";
+            this.toolStripMenuItemEdit.Click += new System.EventHandler(this.toolStripMenuItemEdit_Click);
+            // 
+            // toolStripMenuItemDelete
+            // 
+            this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
+            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(100, 22);
+            this.toolStripMenuItemDelete.Text = "删除";
+            this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuItemDelete_Click);
             // 
             // Id
             // 
@@ -250,27 +274,14 @@ namespace BrookW.UC
             this.ClientCmdString.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.ClientCmdString.Visible = false;
             // 
-            // contextMenuStrip1
+            // Tag
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemEdit,
-            this.toolStripMenuItemDelete});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 48);
-            // 
-            // toolStripMenuItemEdit
-            // 
-            this.toolStripMenuItemEdit.Name = "toolStripMenuItemEdit";
-            this.toolStripMenuItemEdit.Size = new System.Drawing.Size(100, 22);
-            this.toolStripMenuItemEdit.Text = "编辑";
-            this.toolStripMenuItemEdit.Click += new System.EventHandler(this.toolStripMenuItemEdit_Click);
-            // 
-            // toolStripMenuItemDelete
-            // 
-            this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
-            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(100, 22);
-            this.toolStripMenuItemDelete.Text = "删除";
-            this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuItemDelete_Click);
+            this.Tag.DataPropertyName = "Tag";
+            this.Tag.HeaderText = "Tag";
+            this.Tag.Name = "Tag";
+            this.Tag.ReadOnly = true;
+            this.Tag.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Tag.Visible = false;
             // 
             // ServerList
             // 
@@ -305,5 +316,6 @@ namespace BrookW.UC
         private DataGridViewTextBoxColumn Url;
         private DataGridViewTextBoxColumn Password;
         private DataGridViewTextBoxColumn ClientCmdString;
+        private DataGridViewTextBoxColumn Tag;
     }
 }

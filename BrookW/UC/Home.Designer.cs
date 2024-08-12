@@ -35,7 +35,7 @@
             this.toolStripButtonRefresh = new System.Windows.Forms.ToolStripDropDownButton();
             this.brookWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.brookCoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButtonSetting = new System.Windows.Forms.ToolStripButton();
+            this.btnShowAppSetting = new System.Windows.Forms.ToolStripButton();
             this.statusLabel = new System.Windows.Forms.Label();
             this.lblServer = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -104,7 +104,7 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnShowServerList,
             this.toolStripButtonRefresh,
-            this.toolStripButtonSetting});
+            this.btnShowAppSetting});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -151,7 +151,7 @@
             // 
             this.brookWToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.brookWToolStripMenuItem.Name = "brookWToolStripMenuItem";
-            this.brookWToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.brookWToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
             this.brookWToolStripMenuItem.Text = "BrookW";
             this.brookWToolStripMenuItem.Click += new System.EventHandler(this.brookWToolStripMenuItem_Click);
             // 
@@ -159,24 +159,24 @@
             // 
             this.brookCoreToolStripMenuItem.BackColor = System.Drawing.Color.White;
             this.brookCoreToolStripMenuItem.Name = "brookCoreToolStripMenuItem";
-            this.brookCoreToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.brookCoreToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
             this.brookCoreToolStripMenuItem.Text = "Brook Core";
             this.brookCoreToolStripMenuItem.Click += new System.EventHandler(this.brookCoreToolStripMenuItem_Click);
             // 
-            // toolStripButtonSetting
+            // btnShowAppSetting
             // 
-            this.toolStripButtonSetting.AutoSize = false;
-            this.toolStripButtonSetting.AutoToolTip = false;
-            this.toolStripButtonSetting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.toolStripButtonSetting.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.toolStripButtonSetting.Image = global::BrookW.Properties.Resources.setting;
-            this.toolStripButtonSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripButtonSetting.ImageTransparentColor = System.Drawing.Color.Transparent;
-            this.toolStripButtonSetting.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.toolStripButtonSetting.Name = "toolStripButtonSetting";
-            this.toolStripButtonSetting.Size = new System.Drawing.Size(60, 34);
-            this.toolStripButtonSetting.Text = "设置";
-            this.toolStripButtonSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnShowAppSetting.AutoSize = false;
+            this.btnShowAppSetting.AutoToolTip = false;
+            this.btnShowAppSetting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnShowAppSetting.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnShowAppSetting.Image = global::BrookW.Properties.Resources.setting;
+            this.btnShowAppSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnShowAppSetting.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.btnShowAppSetting.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnShowAppSetting.Name = "btnShowAppSetting";
+            this.btnShowAppSetting.Size = new System.Drawing.Size(60, 34);
+            this.btnShowAppSetting.Text = "设置";
+            this.btnShowAppSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // statusLabel
             // 
@@ -257,12 +257,12 @@
         public ComboBox cbSelectServer;
         private ToolStrip toolStrip1;
         public ToolStripButton btnShowServerList;
-        public ToolStripButton toolStripButtonSetting;
+        public ToolStripButton btnShowAppSetting;
         public ToolStripDropDownButton toolStripButtonRefresh;
-        private Label statusLabel;
         private ToolStripMenuItem brookWToolStripMenuItem;
         private ToolStripMenuItem brookCoreToolStripMenuItem;
         private PictureBox pbRun;
         private Panel panel1;
+        public Label statusLabel;
     }
 }
