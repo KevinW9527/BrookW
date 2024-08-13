@@ -33,11 +33,12 @@
             this.cbBrookServerType = new System.Windows.Forms.ComboBox();
             this.txtServer = new System.Windows.Forms.TextBox();
             this.txtPwd = new System.Windows.Forms.TextBox();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnGoBackServerList = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.lblMsg = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.txtTag = new System.Windows.Forms.TextBox();
             this.timerHideMsg = new System.Windows.Forms.Timer(this.components);
             this.tlpServerSave.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -54,9 +55,10 @@
             this.tlpServerSave.Controls.Add(this.cbBrookServerType, 2, 1);
             this.tlpServerSave.Controls.Add(this.txtServer, 2, 2);
             this.tlpServerSave.Controls.Add(this.txtPwd, 2, 3);
-            this.tlpServerSave.Controls.Add(this.btnAdd, 2, 4);
             this.tlpServerSave.Controls.Add(this.toolStrip1, 0, 0);
-            this.tlpServerSave.Controls.Add(this.lblMsg, 2, 5);
+            this.tlpServerSave.Controls.Add(this.lblMsg, 2, 6);
+            this.tlpServerSave.Controls.Add(this.btnAdd, 2, 5);
+            this.tlpServerSave.Controls.Add(this.txtTag, 2, 4);
             this.tlpServerSave.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpServerSave.Location = new System.Drawing.Point(0, 0);
             this.tlpServerSave.Name = "tlpServerSave";
@@ -104,24 +106,6 @@
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.Size = new System.Drawing.Size(234, 24);
             this.txtPwd.TabIndex = 7;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.AutoSize = true;
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(73, 311);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(234, 32);
-            this.btnAdd.TabIndex = 8;
-            this.btnAdd.Text = "添加";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // toolStrip1
             // 
@@ -173,12 +157,38 @@
             this.lblMsg.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblMsg.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblMsg.ForeColor = System.Drawing.Color.Blue;
-            this.lblMsg.Location = new System.Drawing.Point(73, 346);
+            this.lblMsg.Location = new System.Drawing.Point(73, 406);
             this.lblMsg.Name = "lblMsg";
-            this.lblMsg.Size = new System.Drawing.Size(234, 60);
+            this.lblMsg.Size = new System.Drawing.Size(234, 69);
             this.lblMsg.TabIndex = 10;
             this.lblMsg.Text = "保存成功";
-            this.lblMsg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMsg.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.AutoSize = true;
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(73, 371);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(234, 32);
+            this.btnAdd.TabIndex = 8;
+            this.btnAdd.Text = "添加";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // txtTag
+            // 
+            this.txtTag.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtTag.Location = new System.Drawing.Point(73, 320);
+            this.txtTag.Name = "txtTag";
+            this.txtTag.Size = new System.Drawing.Size(234, 23);
+            this.txtTag.TabIndex = 11;
             // 
             // timerHideMsg
             // 
@@ -213,5 +223,6 @@
         private System.Windows.Forms.Timer timerHideMsg;
         private Label lblMsg;
         public ToolStripLabel toolStripLabel1;
+        private TextBox txtTag;
     }
 }

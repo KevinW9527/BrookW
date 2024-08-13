@@ -29,6 +29,7 @@ namespace BrookW
 
         private DateTime _lastExecutionTime;
         private readonly TimeSpan _cooldownPeriod = TimeSpan.FromMinutes(10);
+        private int removeServerLoopCount = 0;
 
         public MainForm()
         {
@@ -162,8 +163,8 @@ namespace BrookW
             {
                 if (CurrentInstanceId != null && CurrentInstanceId.Length > 0)
                 {
-                    var dialog = Msg.ShowConfirm("是否需要销毁腾讯云CVM？");
-                    if (dialog == DialogResult.OK)
+                    var dialog = Msg.ShowConfirmYesNo("是否需要销毁腾讯云CVM？");
+                    if (dialog == DialogResult.Yes)
                     {
                         RemoveServer(CurrentInstanceId);
                     }
@@ -189,6 +190,7 @@ namespace BrookW
         private void Exit()
         {
             home.brookClient?.Stop();
+            SetProxyHelper.DisableProxy();
             notifyIcon.Dispose();
             Application.Exit();
         }
@@ -276,20 +278,26 @@ namespace BrookW
                         }
                         else
                         {
-                            var instanceIds = string.IsNullOrEmpty(appSetting.LaunchTemplateId) ? RunInstanceSpot.RunInstancesByLaunchTemplate(appSetting.SecretId, appSetting.SecretKey)
-                                : RunInstanceSpot.RunInstancesByLaunchTemplate(appSetting.SecretId, appSetting.SecretKey, appSetting.LaunchTemplateId);
+                            var spot = new RunInstanceSpot();
+                            var instanceIds = string.IsNullOrEmpty(appSetting.LaunchTemplateId) ? spot.RunInstancesByLaunchTemplate(appSetting.SecretId, appSetting.SecretKey)
+                                : spot.RunInstancesByLaunchTemplate(appSetting.SecretId, appSetting.SecretKey, appSetting.LaunchTemplateId);
 
                             if (instanceIds != null && instanceIds.Length > 0)
                             {
-                                var instancesPublicIp = RunInstanceSpot.GetInstancesPublicIp(instanceIds, appSetting.SecretId, appSetting.SecretKey);
+                                var instancesPublicIp = spot.GetInstancesPublicIp(instanceIds, appSetting.SecretId, appSetting.SecretKey);
                                 if (!string.IsNullOrEmpty(instancesPublicIp))
                                 {
                                     var server = AutoAddServer(instancesPublicIp, instanceIds);
                                     File.Delete(path);
+                                    if (CurrentInstanceId != null)
+                                    {
+                                        RemoveServer(CurrentInstanceId);
+                                    }
                                     home.Run(server);
                                     //启动销毁计数
-                                    timerDis.Enabled = true;
-                                    timerDis.Tag = CurrentInstanceId;
+                                    timerTerminateInstances.Enabled = true;
+                                    timerTerminateInstances.Tag = CurrentInstanceId;
+                                    removeServerLoopCount = 0;
 
                                     CurrentInstanceId = instanceIds;
                                 }
@@ -325,6 +333,7 @@ namespace BrookW
             catch (Exception ex)
             {
                 home.statusLabel.Text = ex.Message;
+                //Thread.Sleep(1000 * 5);
             }
             timerWatchPython.Start();
         }
@@ -353,7 +362,7 @@ namespace BrookW
                 Properties.Settings.Default.Servers = json;
                 Properties.Settings.Default.Save();
                 //刷新列表
-                home.LoadServers();
+                //home.LoadServers();
 
                 return server;
             }
@@ -374,7 +383,7 @@ namespace BrookW
                     if (instanceIds != null && instanceIds.Length > 0)
                     {
                         home.statusLabel.Text = "RemoveServer：" + instanceIds[0];
-                        var rs = RunInstanceSpot.TerminateInstances(instanceIds, appSetting.SecretId, appSetting.SecretKey);
+                        var rs = new RunInstanceSpot().TerminateInstances(instanceIds, appSetting.SecretId, appSetting.SecretKey);
                         if (rs)
                         {
                             var currServers = JsonHelper.ToObject<List<Server>>(Properties.Settings.Default.Servers);
@@ -391,26 +400,29 @@ namespace BrookW
                             Properties.Settings.Default.Servers = currServers.ToJson();
                             Properties.Settings.Default.Save();
                             //刷新列表
-                            home.LoadServers();
+                            //home.LoadServers();
                         }
                     }
                 }
             }
             catch (Exception e)
             {
-                home.statusLabel.Text = e.Message;
+                removeServerLoopCount++;
+                home.statusLabel.Text = string.Format("{0}-{1}", removeServerLoopCount, e.Message);
             }
         }
 
-        private void timerDis_Tick(object sender, EventArgs e)
+        private void timerTerminateInstances_Tick(object sender, EventArgs e)
         {
-            if (timerDis.Tag != null)
+            timerTerminateInstances.Enabled = false;
+
+            if (timerTerminateInstances.Tag != null)
             {
-                var ids = (string[])timerDis.Tag;
+                var ids = (string[])timerTerminateInstances.Tag;
                 RemoveServer(ids);
-                timerDis.Tag = null;
+                //timerTerminateInstances.Tag = null;
             }
-            timerDis.Enabled = false;
+
         }
     }
 }

@@ -25,6 +25,10 @@ namespace BrookW.Extend
         {
             return MessageBox.Show(message, caption, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
         }
+        public static DialogResult ShowConfirmYesNo(string message, string caption = "确认操作")
+        {
+            return MessageBox.Show(message, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        }
 
 
         public const string SERVEREMPTY = "服务器地址不能为空";

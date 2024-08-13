@@ -64,6 +64,24 @@ namespace BrookW.UC
         }
 
         /// <summary>
+        /// 反向赋值
+        /// </summary>
+        /// <param name="server"></param>
+        private void SetTagToMainForm(Server server)
+        {
+            if (!string.IsNullOrEmpty(server.Tag) && Parent.Parent is MainForm)
+            {
+                var mf = Parent.Parent as MainForm;
+                if (mf != null)
+                {
+                    mf.CurrentInstanceId = new string[] { server.Tag };
+                    statusLabel.Text = "反向赋值：" + server.Tag;
+                }
+            }
+
+        }
+
+        /// <summary>
         /// 启动 & 停止
         /// </summary>
         /// <param name="sender"></param>
@@ -84,15 +102,7 @@ namespace BrookW.UC
                         //socks5
                         //SetProxyHelper.EnableProxy($"socks5={brookClient.ListenAddress}:{brookClient.ListenSocks5Port}");
                         //反向赋值
-                        if (!string.IsNullOrEmpty(server.Tag) && Parent.Parent is MainForm)
-                        {
-                            var mf = Parent.Parent as MainForm;
-                            if (mf != null && (mf.CurrentInstanceId == null || mf.CurrentInstanceId.Length < 1))
-                            {
-                                mf.CurrentInstanceId = new string[] { server.Tag };
-                                statusLabel.Text = "反向赋值：" + server.Tag;
-                            }
-                        }
+                        SetTagToMainForm(server);
                     }
                     else
                     {
@@ -127,6 +137,9 @@ namespace BrookW.UC
             // 切换下拉框选项时更新标签显示的值
             if (selectedServer != null)
             {
+                //反向赋值
+                SetTagToMainForm(selectedServer);
+
                 lblServer.Text = selectedServer.Type.ToString();
                 if (isRunning)
                 {
@@ -154,7 +167,7 @@ namespace BrookW.UC
                 // 设置 ComboBox 的选中项
                 cbSelectServer.SelectedIndex = currentIndex;
                 //启动
-                pbRun_Click(cbSelectServer, EventArgs.Empty);
+                //pbRun_Click(cbSelectServer, EventArgs.Empty);
             }
 
 

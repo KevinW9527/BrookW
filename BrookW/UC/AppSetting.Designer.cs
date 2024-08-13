@@ -30,20 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tlpServerSave = new System.Windows.Forms.TableLayoutPanel();
-            this.txtSecretKey = new System.Windows.Forms.TextBox();
-            this.txtPath = new System.Windows.Forms.TextBox();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnGoBackServerList = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.lblMsg = new System.Windows.Forms.Label();
-            this.txtSecretId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.timerHideMsg = new System.Windows.Forms.Timer(this.components);
+            this.lblMsg = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.txtLaunchTemplateId = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtSecretKey = new System.Windows.Forms.TextBox();
+            this.txtSecretId = new System.Windows.Forms.TextBox();
+            this.txtPath = new System.Windows.Forms.TextBox();
+            this.timerHideMsg = new System.Windows.Forms.Timer(this.components);
             this.tlpServerSave.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -56,10 +56,7 @@
             this.tlpServerSave.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 240F));
             this.tlpServerSave.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpServerSave.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpServerSave.Controls.Add(this.txtSecretKey, 2, 2);
-            this.tlpServerSave.Controls.Add(this.txtPath, 2, 3);
             this.tlpServerSave.Controls.Add(this.toolStrip1, 0, 0);
-            this.tlpServerSave.Controls.Add(this.txtSecretId, 2, 1);
             this.tlpServerSave.Controls.Add(this.label1, 0, 1);
             this.tlpServerSave.Controls.Add(this.label2, 0, 2);
             this.tlpServerSave.Controls.Add(this.label3, 0, 3);
@@ -67,6 +64,9 @@
             this.tlpServerSave.Controls.Add(this.btnAdd, 2, 5);
             this.tlpServerSave.Controls.Add(this.txtLaunchTemplateId, 2, 4);
             this.tlpServerSave.Controls.Add(this.label4, 0, 4);
+            this.tlpServerSave.Controls.Add(this.txtSecretKey, 2, 3);
+            this.tlpServerSave.Controls.Add(this.txtSecretId, 2, 2);
+            this.tlpServerSave.Controls.Add(this.txtPath, 2, 1);
             this.tlpServerSave.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpServerSave.Location = new System.Drawing.Point(0, 0);
             this.tlpServerSave.Name = "tlpServerSave";
@@ -80,42 +80,6 @@
             this.tlpServerSave.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpServerSave.Size = new System.Drawing.Size(380, 475);
             this.tlpServerSave.TabIndex = 1;
-            // 
-            // txtSecretKey
-            // 
-            this.txtSecretKey.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtSecretKey.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSecretKey.Location = new System.Drawing.Point(73, 169);
-            this.txtSecretKey.Name = "txtSecretKey";
-            this.txtSecretKey.Size = new System.Drawing.Size(234, 24);
-            this.txtSecretKey.TabIndex = 2;
-            // 
-            // txtPath
-            // 
-            this.txtPath.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtPath.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPath.Location = new System.Drawing.Point(73, 249);
-            this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(234, 24);
-            this.txtPath.TabIndex = 3;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.AutoSize = true;
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(73, 371);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(234, 32);
-            this.btnAdd.TabIndex = 5;
-            this.btnAdd.Text = "保存";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // toolStrip1
             // 
@@ -161,28 +125,6 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(220, 33);
             this.toolStripLabel1.Text = "配置设置";
             // 
-            // lblMsg
-            // 
-            this.lblMsg.AutoSize = true;
-            this.lblMsg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblMsg.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblMsg.ForeColor = System.Drawing.Color.Blue;
-            this.lblMsg.Location = new System.Drawing.Point(73, 406);
-            this.lblMsg.Name = "lblMsg";
-            this.lblMsg.Size = new System.Drawing.Size(234, 69);
-            this.lblMsg.TabIndex = 10;
-            this.lblMsg.Text = "保存成功";
-            this.lblMsg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtSecretId
-            // 
-            this.txtSecretId.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtSecretId.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSecretId.Location = new System.Drawing.Point(73, 89);
-            this.txtSecretId.Name = "txtSecretId";
-            this.txtSecretId.Size = new System.Drawing.Size(234, 24);
-            this.txtSecretId.TabIndex = 1;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -192,7 +134,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 17);
             this.label1.TabIndex = 11;
-            this.label1.Text = "SecId:";
+            this.label1.Text = "Path:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label2
@@ -204,7 +146,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 17);
             this.label2.TabIndex = 11;
-            this.label2.Text = "SecKey:";
+            this.label2.Text = "SecId:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label3
@@ -216,13 +158,39 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 17);
             this.label3.TabIndex = 11;
-            this.label3.Text = "Path:";
+            this.label3.Text = "SecKey:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // timerHideMsg
+            // lblMsg
             // 
-            this.timerHideMsg.Interval = 1500;
-            this.timerHideMsg.Tick += new System.EventHandler(this.timerHideMsg_Tick);
+            this.lblMsg.AutoSize = true;
+            this.lblMsg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblMsg.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblMsg.ForeColor = System.Drawing.Color.Blue;
+            this.lblMsg.Location = new System.Drawing.Point(73, 406);
+            this.lblMsg.Name = "lblMsg";
+            this.lblMsg.Size = new System.Drawing.Size(234, 69);
+            this.lblMsg.TabIndex = 10;
+            this.lblMsg.Text = "保存成功";
+            this.lblMsg.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.AutoSize = true;
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(73, 371);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(234, 32);
+            this.btnAdd.TabIndex = 5;
+            this.btnAdd.Text = "保存";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtLaunchTemplateId
             // 
@@ -244,6 +212,38 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "模板ID:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // txtSecretKey
+            // 
+            this.txtSecretKey.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtSecretKey.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtSecretKey.Location = new System.Drawing.Point(73, 249);
+            this.txtSecretKey.Name = "txtSecretKey";
+            this.txtSecretKey.Size = new System.Drawing.Size(234, 24);
+            this.txtSecretKey.TabIndex = 2;
+            // 
+            // txtSecretId
+            // 
+            this.txtSecretId.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtSecretId.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtSecretId.Location = new System.Drawing.Point(73, 169);
+            this.txtSecretId.Name = "txtSecretId";
+            this.txtSecretId.Size = new System.Drawing.Size(234, 24);
+            this.txtSecretId.TabIndex = 1;
+            // 
+            // txtPath
+            // 
+            this.txtPath.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtPath.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtPath.Location = new System.Drawing.Point(73, 89);
+            this.txtPath.Name = "txtPath";
+            this.txtPath.Size = new System.Drawing.Size(234, 24);
+            this.txtPath.TabIndex = 3;
+            // 
+            // timerHideMsg
+            // 
+            this.timerHideMsg.Interval = 1500;
+            this.timerHideMsg.Tick += new System.EventHandler(this.timerHideMsg_Tick);
             // 
             // AppSetting
             // 
