@@ -20,12 +20,12 @@ namespace BrookW
 {
     public partial class MainForm : Form
     {
-        private UC.Home home;
-        private UC.ServerSave serverSave;
-        private UC.ServerList serverList;
-        private UC.AppSetting appSetting;
+        private UC.Home home = new();
+        private UC.ServerSave serverSave = new();
+        private UC.ServerList serverList = new();
+        private UC.AppSetting appSetting = new();
         //当前运行的
-        public string[] CurrentInstanceId;
+        public string[]? CurrentInstanceId;
 
         private DateTime _lastExecutionTime;
         private readonly TimeSpan _cooldownPeriod = TimeSpan.FromMinutes(10);
@@ -52,6 +52,7 @@ namespace BrookW
                 serverSave.Hide();
                 home.Hide();
                 serverList.Show();
+                serverList.LoadServers();
                 appSetting.Hide();
             };
             home.btnShowAppSetting.Click += (object? sender, EventArgs e) =>
@@ -75,6 +76,7 @@ namespace BrookW
                 Location = new Point(0, 0),
                 Name = "serverList",
             };
+
 
             //Controls.Add(serverList);
             tableLayoutPanel1.Controls.Add(serverList, 0, 0);
@@ -293,13 +295,15 @@ namespace BrookW
                                     {
                                         RemoveServer(CurrentInstanceId);
                                     }
-                                    home.Run(server);
-                                    //启动销毁计数
-                                    timerTerminateInstances.Enabled = true;
-                                    timerTerminateInstances.Tag = CurrentInstanceId;
-                                    removeServerLoopCount = 0;
-
-                                    CurrentInstanceId = instanceIds;
+                                    if (server != null)
+                                    {
+                                        home.Run(server);
+                                        //启动销毁计数
+                                        timerTerminateInstances.Enabled = true;
+                                        timerTerminateInstances.Tag = CurrentInstanceId;
+                                        removeServerLoopCount = 0;
+                                        CurrentInstanceId = instanceIds;
+                                    }
                                 }
                             }
                             // 更新上次执行时间
@@ -338,7 +342,7 @@ namespace BrookW
             timerWatchPython.Start();
         }
 
-        private Server AutoAddServer(string? ip, string[] instanceIds)
+        private Server? AutoAddServer(string? ip, string[] instanceIds)
         {
             try
             {

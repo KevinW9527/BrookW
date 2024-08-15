@@ -16,7 +16,7 @@ namespace BrookW.UC
 {
     public partial class ServerList : UserControl
     {
-        private List<Server> servers;
+        private List<Server>? servers;
 
         /// <summary>
         /// 
@@ -84,7 +84,7 @@ namespace BrookW.UC
             var selectedItem = dgvServerList.CurrentRow.DataBoundItem as Server;
             if (selectedItem != null)
             {
-                if (Parent.Parent is MainForm)
+                if (Parent?.Parent is MainForm)
                 {
                     var parent = Parent.Parent as MainForm;
                     if (parent != null)
@@ -104,7 +104,7 @@ namespace BrookW.UC
         private void toolStripMenuItemDelete_Click(object sender, EventArgs e)
         {
             var selectedItem = dgvServerList.CurrentRow.DataBoundItem as Server;
-            if (selectedItem != null)
+            if (selectedItem != null && servers != null)
             {
                 servers.Remove(selectedItem);
                 Properties.Settings.Default.Servers = servers.ToJson();

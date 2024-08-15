@@ -24,11 +24,11 @@ namespace BrookW.UC
         /// 是否运行中
         /// </summary>
         private bool isRunning;
-        private List<Server> servers;
+        private List<Server>? servers;
         private Image onImage = Properties.Resources.on;
         private Image offImage = Properties.Resources.off;
 
-        private FileDownloader downloader;
+        private FileDownloader? downloader;
         public BrookProcessService? brookClient;
         private int currentIndex;
 
@@ -69,7 +69,7 @@ namespace BrookW.UC
         /// <param name="server"></param>
         private void SetTagToMainForm(Server server)
         {
-            if (!string.IsNullOrEmpty(server.Tag) && Parent.Parent is MainForm)
+            if (!string.IsNullOrEmpty(server.Tag) && Parent?.Parent is MainForm)
             {
                 var mf = Parent.Parent as MainForm;
                 if (mf != null)
@@ -133,7 +133,7 @@ namespace BrookW.UC
         /// <param name="e"></param>
         private void cbSelectServer_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Server selectedServer = (Server)cbSelectServer.SelectedItem;
+            var selectedServer = (Server?)cbSelectServer.SelectedItem;
             // 切换下拉框选项时更新标签显示的值
             if (selectedServer != null)
             {
@@ -211,7 +211,7 @@ namespace BrookW.UC
                 downloader.DownloadProgressChanged += (sender, e) =>
                 {
                     // 异步更新 statusLabel.Text
-                    statusLabel.BeginInvoke((MethodInvoker)(() =>
+                    statusLabel.BeginInvoke((System.Windows.Forms.MethodInvoker)(() =>
                     {
                         statusLabel.Text = e.Percentage.ToString();
                     }));

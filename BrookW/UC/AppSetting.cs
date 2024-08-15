@@ -4,6 +4,7 @@ using BrookW.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace BrookW.UC
     public partial class AppSetting : UserControl
     {
         //配置信息
-        private TencentCloudSetting appSetting;
+        private TencentCloudSetting? appSetting;
 
         /// <summary>
         /// 

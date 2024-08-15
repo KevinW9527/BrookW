@@ -182,7 +182,7 @@
 
         private async Task<byte[]> GetRemoteFileBytes(string url)
         {
-            if (remoteFileByteCache.TryGetValue(url, out byte[] data))
+            if (remoteFileByteCache.TryGetValue(url, out byte[]? data))
                 return data;
 
             using (HttpClient httpClient = new HttpClient())
