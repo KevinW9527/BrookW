@@ -267,7 +267,7 @@ namespace BrookW
                 if (!string.IsNullOrEmpty(appSetting.Path) && !string.IsNullOrEmpty(appSetting.SecretId) && !string.IsNullOrEmpty(appSetting.SecretKey))
                 {
                     var path = appSetting.Path.IndexOf("full.txt") > -1 ? appSetting.Path : Path.Combine(appSetting.Path, "/full.txt");
-                    if (File.Exists(path))
+                    if (File.Exists(path) && appSetting.Enable)
                     {
                         DateTime now = DateTime.Now;
                         // 检查是否在冷却时间内

@@ -43,6 +43,7 @@
             this.txtSecretKey = new System.Windows.Forms.TextBox();
             this.txtSecretId = new System.Windows.Forms.TextBox();
             this.txtPath = new System.Windows.Forms.TextBox();
+            this.cbTencentCloudEVM = new System.Windows.Forms.CheckBox();
             this.timerHideMsg = new System.Windows.Forms.Timer(this.components);
             this.tlpServerSave.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -67,6 +68,7 @@
             this.tlpServerSave.Controls.Add(this.txtSecretKey, 2, 3);
             this.tlpServerSave.Controls.Add(this.txtSecretId, 2, 2);
             this.tlpServerSave.Controls.Add(this.txtPath, 2, 1);
+            this.tlpServerSave.Controls.Add(this.cbTencentCloudEVM, 2, 2);
             this.tlpServerSave.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpServerSave.Location = new System.Drawing.Point(0, 0);
             this.tlpServerSave.Name = "tlpServerSave";
@@ -187,7 +189,7 @@
             this.btnAdd.Location = new System.Drawing.Point(73, 371);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(234, 32);
-            this.btnAdd.TabIndex = 5;
+            this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "保存";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -199,7 +201,7 @@
             this.txtLaunchTemplateId.Location = new System.Drawing.Point(73, 319);
             this.txtLaunchTemplateId.Name = "txtLaunchTemplateId";
             this.txtLaunchTemplateId.Size = new System.Drawing.Size(234, 24);
-            this.txtLaunchTemplateId.TabIndex = 4;
+            this.txtLaunchTemplateId.TabIndex = 5;
             // 
             // label4
             // 
@@ -220,7 +222,7 @@
             this.txtSecretKey.Location = new System.Drawing.Point(73, 249);
             this.txtSecretKey.Name = "txtSecretKey";
             this.txtSecretKey.Size = new System.Drawing.Size(234, 24);
-            this.txtSecretKey.TabIndex = 2;
+            this.txtSecretKey.TabIndex = 4;
             // 
             // txtSecretId
             // 
@@ -229,7 +231,7 @@
             this.txtSecretId.Location = new System.Drawing.Point(73, 169);
             this.txtSecretId.Name = "txtSecretId";
             this.txtSecretId.Size = new System.Drawing.Size(234, 24);
-            this.txtSecretId.TabIndex = 1;
+            this.txtSecretId.TabIndex = 2;
             // 
             // txtPath
             // 
@@ -238,7 +240,22 @@
             this.txtPath.Location = new System.Drawing.Point(73, 89);
             this.txtPath.Name = "txtPath";
             this.txtPath.Size = new System.Drawing.Size(234, 24);
-            this.txtPath.TabIndex = 3;
+            this.txtPath.TabIndex = 1;
+            // 
+            // cbTencentCloudEVM
+            // 
+            this.cbTencentCloudEVM.AutoSize = true;
+            this.tlpServerSave.SetColumnSpan(this.cbTencentCloudEVM, 2);
+            this.cbTencentCloudEVM.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.cbTencentCloudEVM.Location = new System.Drawing.Point(320, 175);
+            this.cbTencentCloudEVM.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.cbTencentCloudEVM.Name = "cbTencentCloudEVM";
+            this.cbTencentCloudEVM.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cbTencentCloudEVM.Size = new System.Drawing.Size(60, 21);
+            this.cbTencentCloudEVM.TabIndex = 6;
+            this.cbTencentCloudEVM.Text = "Cvm";
+            this.cbTencentCloudEVM.UseCompatibleTextRendering = true;
+            this.cbTencentCloudEVM.UseVisualStyleBackColor = true;
             // 
             // timerHideMsg
             // 
@@ -277,5 +294,6 @@
         private Label label3;
         private TextBox txtLaunchTemplateId;
         private Label label4;
+        private CheckBox cbTencentCloudEVM;
     }
 }

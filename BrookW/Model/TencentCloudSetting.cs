@@ -27,5 +27,10 @@ namespace BrookW.Model
         /// 启动模板id
         /// </summary>
         public string? LaunchTemplateId { get; set; }
+
+        /// <summary>
+        /// 是否启用腾讯云
+        /// </summary>
+        public bool Enable { get; set; }
     }
 }

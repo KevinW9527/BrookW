@@ -36,6 +36,7 @@ namespace BrookW.UC
             txtSecretKey.Text = appSetting.SecretKey?.Trim();
             txtPath.Text = appSetting.Path?.Trim();
             txtLaunchTemplateId.Text = appSetting.LaunchTemplateId?.Trim();
+            cbTencentCloudEVM.Checked = appSetting.Enable;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -46,6 +47,7 @@ namespace BrookW.UC
                 SecretKey = txtSecretKey.Text.Trim(),
                 Path = txtPath.Text.Trim(),
                 LaunchTemplateId = txtLaunchTemplateId.Text.Trim(),
+                Enable = cbTencentCloudEVM.Checked
             };
 
             if (s.Path.IndexOf("full.txt") < 0)
