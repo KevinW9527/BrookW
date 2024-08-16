@@ -6,6 +6,12 @@ namespace BrookW.Helper
 {
     public static class SetProxyHelper
     {
+        [DllImport("wininet.dll", SetLastError = true)]
+        public static extern bool InternetSetOption(IntPtr hInternet, int dwOption, IntPtr lpBuffer, int dwBufferLength);
+
+        private const int INTERNET_OPTION_SETTINGS_CHANGED = 39;
+        private const int INTERNET_OPTION_REFRESH = 37;
+
         private static void FlushEnvironmentVariables()
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
@@ -59,6 +65,10 @@ namespace BrookW.Helper
                         registryKey.SetValue("ProxyOverride", "localhost;127.*;10.*;172.16.*;172.17.*;172.18.*;172.19.*;172.20.*;172.21.*;172.22.*;172.23.*;172.24.*;172.25.*;172.26.*;172.27.*;172.28.*;172.29.*;172.30.*;172.31.*;192.168.*");
                         registryKey.SetValue("ProxyEnable", 1);
                         registryKey.SetValue("ProxyServer", uri);
+                        registryKey.Flush();
+                        // 通知系统设置已更改
+                        InternetSetOption(IntPtr.Zero, INTERNET_OPTION_SETTINGS_CHANGED, IntPtr.Zero, 0);
+                        InternetSetOption(IntPtr.Zero, INTERNET_OPTION_REFRESH, IntPtr.Zero, 0);
                     }
                 }
             }
@@ -82,6 +92,10 @@ namespace BrookW.Helper
                     if (registryKey != null)
                     {
                         registryKey.SetValue("ProxyEnable", 0);
+                        registryKey.Flush();
+                        // 通知系统设置已更改
+                        InternetSetOption(IntPtr.Zero, INTERNET_OPTION_SETTINGS_CHANGED, IntPtr.Zero, 0);
+                        InternetSetOption(IntPtr.Zero, INTERNET_OPTION_REFRESH, IntPtr.Zero, 0);
                     }
                 }
             }
