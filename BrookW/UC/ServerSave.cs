@@ -81,6 +81,7 @@ namespace BrookW.UC
             txtServer.ForeColor = Color.Gray;
             txtPwd.Text = passwordTip;
             txtPwd.ForeColor = Color.Gray;
+
         }
 
         private void txtServer_Enter(object? sender, EventArgs e)
@@ -174,6 +175,8 @@ namespace BrookW.UC
                 txtServer.ForeColor = Color.Black;
                 txtPwd.Text = server.Password;
                 txtPwd.ForeColor = Color.Black;
+                txtTag.Text = server.Tag;
+                txtTag.ForeColor = Color.Black;
             }
         }
 

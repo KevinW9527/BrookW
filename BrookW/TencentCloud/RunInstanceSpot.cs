@@ -30,7 +30,7 @@ namespace BrookW.Service
             HttpProfile httpProfile = new HttpProfile();
             httpProfile.Endpoint = ("cvm.ap-singapore.tencentcloudapi.com");
             clientProfile.HttpProfile = httpProfile;
-            CvmClient client = new CvmClient(cred, "ap-singapore", clientProfile);
+            CvmClient client = new CvmClient(cred, "ap-singapore");
             RunInstancesRequest req = new RunInstancesRequest();
             req.LaunchTemplate = new LaunchTemplate()
             {
@@ -64,7 +64,7 @@ namespace BrookW.Service
             HttpProfile httpProfile = new HttpProfile();
             httpProfile.Endpoint = ("cvm.ap-singapore.tencentcloudapi.com");
             clientProfile.HttpProfile = httpProfile;
-            CvmClient client = new CvmClient(cred, "ap-singapore", clientProfile);
+            CvmClient client = new CvmClient(cred, "ap-singapore");
             DescribeInstancesRequest req = new DescribeInstancesRequest();
             req.InstanceIds = instanceIds;
 
@@ -109,7 +109,7 @@ namespace BrookW.Service
             clientProfile.HttpProfile = httpProfile;
 
             // 实例化要请求产品的client对象,clientProfile是可选的
-            CvmClient client = new CvmClient(cred, "ap-singapore", clientProfile);
+            CvmClient client = new CvmClient(cred, "ap-singapore");
             // 实例化一个请求对象,每个接口都会对应一个request对象
             TerminateInstancesRequest req = new TerminateInstancesRequest();
             req.InstanceIds = instanceIds;

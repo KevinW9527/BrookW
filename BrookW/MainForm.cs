@@ -266,10 +266,11 @@ namespace BrookW
             {
                 //
                 var appSetting = JsonHelper.ToObject<TencentCloudSetting>(Properties.Settings.Default.TencentCloudSetting) ?? new TencentCloudSetting();
-                if (!string.IsNullOrEmpty(appSetting.Path) && !string.IsNullOrEmpty(appSetting.SecretId) && !string.IsNullOrEmpty(appSetting.SecretKey))
+
+                if (!string.IsNullOrEmpty(appSetting.Path) && !string.IsNullOrEmpty(appSetting.SecretId) && !string.IsNullOrEmpty(appSetting.SecretKey) && appSetting.Enable)
                 {
                     var path = appSetting.Path.IndexOf("full.txt") > -1 ? appSetting.Path : Path.Combine(appSetting.Path, "/full.txt");
-                    if (File.Exists(path) && appSetting.Enable)
+                    if (File.Exists(path))
                     {
                         DateTime now = DateTime.Now;
                         // 检查是否在冷却时间内
@@ -280,6 +281,11 @@ namespace BrookW
                         }
                         else
                         {
+                           //先停止代理
+                            home.brookClient?.Stop();
+                            SetProxyHelper.DisableProxy();
+                            Thread.Sleep(5000);
+
                             var spot = new RunInstanceSpot();
                             var instanceIds = string.IsNullOrEmpty(appSetting.LaunchTemplateId) ? spot.RunInstancesByLaunchTemplate(appSetting.SecretId, appSetting.SecretKey)
                                 : spot.RunInstancesByLaunchTemplate(appSetting.SecretId, appSetting.SecretKey, appSetting.LaunchTemplateId);
@@ -333,6 +339,7 @@ namespace BrookW
                         }
                     }
                 }
+
             }
             catch (Exception ex)
             {
