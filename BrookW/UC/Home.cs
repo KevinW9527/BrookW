@@ -141,6 +141,7 @@ namespace BrookW.UC
                 SetTagToMainForm(selectedServer);
 
                 lblServer.Text = selectedServer.Type.ToString();
+                currentIndex = cbSelectServer.SelectedIndex;
                 if (isRunning)
                 {
                     if (brookClient != null)
@@ -277,6 +278,10 @@ namespace BrookW.UC
 
         }
 
-
+        //切换到下一个服务器
+        private void link_next_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RunNext();
+        }
     }
 }

@@ -28,226 +28,230 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.TLP_Home = new System.Windows.Forms.TableLayoutPanel();
-            this.cbSelectServer = new System.Windows.Forms.ComboBox();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnShowServerList = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonRefresh = new System.Windows.Forms.ToolStripDropDownButton();
-            this.brookWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.brookCoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnShowAppSetting = new System.Windows.Forms.ToolStripButton();
-            this.statusLabel = new System.Windows.Forms.Label();
-            this.lblServer = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pbRun = new System.Windows.Forms.PictureBox();
-            this.TLP_Home.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbRun)).BeginInit();
-            this.SuspendLayout();
+            TLP_Home = new TableLayoutPanel();
+            cbSelectServer = new ComboBox();
+            toolStrip1 = new ToolStrip();
+            btnShowServerList = new ToolStripButton();
+            toolStripButtonRefresh = new ToolStripDropDownButton();
+            brookWToolStripMenuItem = new ToolStripMenuItem();
+            brookCoreToolStripMenuItem = new ToolStripMenuItem();
+            btnShowAppSetting = new ToolStripButton();
+            statusLabel = new Label();
+            lblServer = new Label();
+            panel1 = new Panel();
+            pbRun = new PictureBox();
+            link_next = new LinkLabel();
+            TLP_Home.SuspendLayout();
+            toolStrip1.SuspendLayout();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbRun).BeginInit();
+            SuspendLayout();
             // 
             // TLP_Home
             // 
-            this.TLP_Home.ColumnCount = 7;
-            this.TLP_Home.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.TLP_Home.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TLP_Home.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.TLP_Home.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.TLP_Home.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.TLP_Home.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TLP_Home.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.TLP_Home.Controls.Add(this.cbSelectServer, 2, 2);
-            this.TLP_Home.Controls.Add(this.toolStrip1, 0, 0);
-            this.TLP_Home.Controls.Add(this.statusLabel, 2, 5);
-            this.TLP_Home.Controls.Add(this.lblServer, 2, 1);
-            this.TLP_Home.Controls.Add(this.panel1, 2, 3);
-            this.TLP_Home.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TLP_Home.Location = new System.Drawing.Point(0, 0);
-            this.TLP_Home.Margin = new System.Windows.Forms.Padding(0);
-            this.TLP_Home.Name = "TLP_Home";
-            this.TLP_Home.RowCount = 7;
-            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TLP_Home.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.TLP_Home.Size = new System.Drawing.Size(380, 475);
-            this.TLP_Home.TabIndex = 0;
+            TLP_Home.ColumnCount = 7;
+            TLP_Home.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            TLP_Home.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            TLP_Home.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 80F));
+            TLP_Home.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 80F));
+            TLP_Home.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 80F));
+            TLP_Home.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            TLP_Home.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            TLP_Home.Controls.Add(cbSelectServer, 2, 2);
+            TLP_Home.Controls.Add(toolStrip1, 0, 0);
+            TLP_Home.Controls.Add(statusLabel, 2, 5);
+            TLP_Home.Controls.Add(lblServer, 2, 1);
+            TLP_Home.Controls.Add(panel1, 2, 3);
+            TLP_Home.Controls.Add(link_next, 5, 2);
+            TLP_Home.Dock = DockStyle.Fill;
+            TLP_Home.Location = new Point(0, 0);
+            TLP_Home.Margin = new Padding(0);
+            TLP_Home.Name = "TLP_Home";
+            TLP_Home.RowCount = 7;
+            TLP_Home.RowStyles.Add(new RowStyle(SizeType.Absolute, 36F));
+            TLP_Home.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
+            TLP_Home.RowStyles.Add(new RowStyle(SizeType.Absolute, 80F));
+            TLP_Home.RowStyles.Add(new RowStyle(SizeType.Absolute, 80F));
+            TLP_Home.RowStyles.Add(new RowStyle(SizeType.Absolute, 80F));
+            TLP_Home.RowStyles.Add(new RowStyle(SizeType.Absolute, 70F));
+            TLP_Home.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            TLP_Home.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            TLP_Home.Size = new Size(380, 475);
+            TLP_Home.TabIndex = 0;
             // 
             // cbSelectServer
             // 
-            this.cbSelectServer.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.TLP_Home.SetColumnSpan(this.cbSelectServer, 3);
-            this.cbSelectServer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSelectServer.FormattingEnabled = true;
-            this.cbSelectServer.Items.AddRange(new object[] {
-            "brook server",
-            "brook wsserver",
-            "brook wssserver",
-            "brook link"});
-            this.cbSelectServer.Location = new System.Drawing.Point(73, 123);
-            this.cbSelectServer.Name = "cbSelectServer";
-            this.cbSelectServer.Size = new System.Drawing.Size(234, 25);
-            this.cbSelectServer.TabIndex = 6;
-            this.cbSelectServer.SelectedIndexChanged += new System.EventHandler(this.cbSelectServer_SelectedIndexChanged);
+            cbSelectServer.Anchor = AnchorStyles.Left;
+            TLP_Home.SetColumnSpan(cbSelectServer, 3);
+            cbSelectServer.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbSelectServer.FormattingEnabled = true;
+            cbSelectServer.Items.AddRange(new object[] { "brook server", "brook wsserver", "brook wssserver", "brook link" });
+            cbSelectServer.Location = new Point(73, 123);
+            cbSelectServer.Name = "cbSelectServer";
+            cbSelectServer.Size = new Size(234, 25);
+            cbSelectServer.TabIndex = 6;
+            cbSelectServer.SelectedIndexChanged += cbSelectServer_SelectedIndexChanged;
             // 
             // toolStrip1
             // 
-            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
-            this.TLP_Home.SetColumnSpan(this.toolStrip1, 7);
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStrip1.GripMargin = new System.Windows.Forms.Padding(0);
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnShowServerList,
-            this.toolStripButtonRefresh,
-            this.btnShowAppSetting});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 0);
-            this.toolStrip1.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(377, 36);
-            this.toolStrip1.TabIndex = 7;
-            this.toolStrip1.Text = "toolStrip";
+            toolStrip1.BackColor = Color.Transparent;
+            TLP_Home.SetColumnSpan(toolStrip1, 7);
+            toolStrip1.Dock = DockStyle.Fill;
+            toolStrip1.GripMargin = new Padding(0);
+            toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnShowServerList, toolStripButtonRefresh, btnShowAppSetting });
+            toolStrip1.Location = new Point(3, 0);
+            toolStrip1.Margin = new Padding(3, 0, 0, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.RenderMode = ToolStripRenderMode.System;
+            toolStrip1.Size = new Size(377, 36);
+            toolStrip1.TabIndex = 7;
+            toolStrip1.Text = "toolStrip";
             // 
             // btnShowServerList
             // 
-            this.btnShowServerList.AutoSize = false;
-            this.btnShowServerList.AutoToolTip = false;
-            this.btnShowServerList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnShowServerList.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnShowServerList.Image = global::BrookW.Properties.Resources.server;
-            this.btnShowServerList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnShowServerList.ImageTransparentColor = System.Drawing.Color.Transparent;
-            this.btnShowServerList.Margin = new System.Windows.Forms.Padding(0);
-            this.btnShowServerList.Name = "btnShowServerList";
-            this.btnShowServerList.Size = new System.Drawing.Size(75, 34);
-            this.btnShowServerList.Text = "服务器";
-            this.btnShowServerList.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnShowServerList.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            btnShowServerList.AutoSize = false;
+            btnShowServerList.AutoToolTip = false;
+            btnShowServerList.BackgroundImageLayout = ImageLayout.Zoom;
+            btnShowServerList.Font = new Font("Microsoft YaHei UI", 10F);
+            btnShowServerList.Image = Properties.Resources.server;
+            btnShowServerList.ImageAlign = ContentAlignment.MiddleLeft;
+            btnShowServerList.ImageTransparentColor = Color.Transparent;
+            btnShowServerList.Margin = new Padding(0);
+            btnShowServerList.Name = "btnShowServerList";
+            btnShowServerList.Size = new Size(75, 34);
+            btnShowServerList.Text = "服务器";
+            btnShowServerList.TextAlign = ContentAlignment.MiddleRight;
+            btnShowServerList.TextDirection = ToolStripTextDirection.Horizontal;
             // 
             // toolStripButtonRefresh
             // 
-            this.toolStripButtonRefresh.AutoSize = false;
-            this.toolStripButtonRefresh.AutoToolTip = false;
-            this.toolStripButtonRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.toolStripButtonRefresh.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.brookWToolStripMenuItem,
-            this.brookCoreToolStripMenuItem});
-            this.toolStripButtonRefresh.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.toolStripButtonRefresh.Image = global::BrookW.Properties.Resources.refresh;
-            this.toolStripButtonRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripButtonRefresh.ImageTransparentColor = System.Drawing.Color.Transparent;
-            this.toolStripButtonRefresh.Margin = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.toolStripButtonRefresh.Name = "toolStripButtonRefresh";
-            this.toolStripButtonRefresh.Size = new System.Drawing.Size(95, 34);
-            this.toolStripButtonRefresh.Text = "检查更新";
-            this.toolStripButtonRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            toolStripButtonRefresh.AutoSize = false;
+            toolStripButtonRefresh.AutoToolTip = false;
+            toolStripButtonRefresh.BackgroundImageLayout = ImageLayout.Zoom;
+            toolStripButtonRefresh.DropDownItems.AddRange(new ToolStripItem[] { brookWToolStripMenuItem, brookCoreToolStripMenuItem });
+            toolStripButtonRefresh.Font = new Font("Microsoft YaHei UI", 10F);
+            toolStripButtonRefresh.Image = Properties.Resources.refresh;
+            toolStripButtonRefresh.ImageAlign = ContentAlignment.MiddleLeft;
+            toolStripButtonRefresh.ImageTransparentColor = Color.Transparent;
+            toolStripButtonRefresh.Margin = new Padding(8, 0, 0, 0);
+            toolStripButtonRefresh.Name = "toolStripButtonRefresh";
+            toolStripButtonRefresh.Size = new Size(95, 34);
+            toolStripButtonRefresh.Text = "检查更新";
+            toolStripButtonRefresh.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // brookWToolStripMenuItem
             // 
-            this.brookWToolStripMenuItem.BackColor = System.Drawing.Color.White;
-            this.brookWToolStripMenuItem.Name = "brookWToolStripMenuItem";
-            this.brookWToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
-            this.brookWToolStripMenuItem.Text = "BrookW";
-            this.brookWToolStripMenuItem.Click += new System.EventHandler(this.brookWToolStripMenuItem_Click);
+            brookWToolStripMenuItem.BackColor = Color.White;
+            brookWToolStripMenuItem.Name = "brookWToolStripMenuItem";
+            brookWToolStripMenuItem.Size = new Size(153, 24);
+            brookWToolStripMenuItem.Text = "BrookW";
+            brookWToolStripMenuItem.Click += brookWToolStripMenuItem_Click;
             // 
             // brookCoreToolStripMenuItem
             // 
-            this.brookCoreToolStripMenuItem.BackColor = System.Drawing.Color.White;
-            this.brookCoreToolStripMenuItem.Name = "brookCoreToolStripMenuItem";
-            this.brookCoreToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
-            this.brookCoreToolStripMenuItem.Text = "Brook Core";
-            this.brookCoreToolStripMenuItem.Click += new System.EventHandler(this.brookCoreToolStripMenuItem_Click);
+            brookCoreToolStripMenuItem.BackColor = Color.White;
+            brookCoreToolStripMenuItem.Name = "brookCoreToolStripMenuItem";
+            brookCoreToolStripMenuItem.Size = new Size(153, 24);
+            brookCoreToolStripMenuItem.Text = "Brook Core";
+            brookCoreToolStripMenuItem.Click += brookCoreToolStripMenuItem_Click;
             // 
             // btnShowAppSetting
             // 
-            this.btnShowAppSetting.AutoSize = false;
-            this.btnShowAppSetting.AutoToolTip = false;
-            this.btnShowAppSetting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnShowAppSetting.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnShowAppSetting.Image = global::BrookW.Properties.Resources.setting;
-            this.btnShowAppSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnShowAppSetting.ImageTransparentColor = System.Drawing.Color.Transparent;
-            this.btnShowAppSetting.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnShowAppSetting.Name = "btnShowAppSetting";
-            this.btnShowAppSetting.Size = new System.Drawing.Size(60, 34);
-            this.btnShowAppSetting.Text = "设置";
-            this.btnShowAppSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            btnShowAppSetting.AutoSize = false;
+            btnShowAppSetting.AutoToolTip = false;
+            btnShowAppSetting.BackgroundImageLayout = ImageLayout.Zoom;
+            btnShowAppSetting.Font = new Font("Microsoft YaHei UI", 10F);
+            btnShowAppSetting.Image = Properties.Resources.setting;
+            btnShowAppSetting.ImageAlign = ContentAlignment.MiddleLeft;
+            btnShowAppSetting.ImageTransparentColor = Color.Transparent;
+            btnShowAppSetting.Margin = new Padding(15, 0, 0, 0);
+            btnShowAppSetting.Name = "btnShowAppSetting";
+            btnShowAppSetting.Size = new Size(60, 34);
+            btnShowAppSetting.Text = "设置";
+            btnShowAppSetting.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // statusLabel
             // 
-            this.statusLabel.AutoSize = true;
-            this.TLP_Home.SetColumnSpan(this.statusLabel, 3);
-            this.statusLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.statusLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.statusLabel.Location = new System.Drawing.Point(73, 336);
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(234, 20);
-            this.statusLabel.TabIndex = 8;
-            this.statusLabel.Text = "server status";
-            this.statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            statusLabel.AutoSize = true;
+            TLP_Home.SetColumnSpan(statusLabel, 3);
+            statusLabel.Dock = DockStyle.Top;
+            statusLabel.Font = new Font("Microsoft YaHei UI", 10F);
+            statusLabel.Location = new Point(73, 336);
+            statusLabel.Name = "statusLabel";
+            statusLabel.Size = new Size(234, 20);
+            statusLabel.TabIndex = 8;
+            statusLabel.Text = "server status";
+            statusLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblServer
             // 
-            this.lblServer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblServer.AutoSize = true;
-            this.TLP_Home.SetColumnSpan(this.lblServer, 2);
-            this.lblServer.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblServer.Location = new System.Drawing.Point(70, 76);
-            this.lblServer.Margin = new System.Windows.Forms.Padding(0);
-            this.lblServer.Name = "lblServer";
-            this.lblServer.Size = new System.Drawing.Size(48, 20);
-            this.lblServer.TabIndex = 1;
-            this.lblServer.Text = "server";
+            lblServer.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lblServer.AutoSize = true;
+            TLP_Home.SetColumnSpan(lblServer, 2);
+            lblServer.Font = new Font("Microsoft YaHei UI", 10F);
+            lblServer.Location = new Point(70, 76);
+            lblServer.Margin = new Padding(0);
+            lblServer.Name = "lblServer";
+            lblServer.Size = new Size(48, 20);
+            lblServer.TabIndex = 1;
+            lblServer.Text = "server";
             // 
             // panel1
             // 
-            this.TLP_Home.SetColumnSpan(this.panel1, 3);
-            this.panel1.Controls.Add(this.pbRun);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(70, 176);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.TLP_Home.SetRowSpan(this.panel1, 2);
-            this.panel1.Size = new System.Drawing.Size(240, 160);
-            this.panel1.TabIndex = 13;
+            TLP_Home.SetColumnSpan(panel1, 3);
+            panel1.Controls.Add(pbRun);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(70, 176);
+            panel1.Margin = new Padding(0);
+            panel1.Name = "panel1";
+            TLP_Home.SetRowSpan(panel1, 2);
+            panel1.Size = new Size(240, 160);
+            panel1.TabIndex = 13;
             // 
             // pbRun
             // 
-            this.pbRun.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbRun.BackColor = System.Drawing.Color.Transparent;
-            this.pbRun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbRun.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbRun.Location = new System.Drawing.Point(55, 25);
-            this.pbRun.Margin = new System.Windows.Forms.Padding(0);
-            this.pbRun.Name = "pbRun";
-            this.pbRun.Size = new System.Drawing.Size(130, 130);
-            this.pbRun.TabIndex = 12;
-            this.pbRun.TabStop = false;
-            this.pbRun.Click += new System.EventHandler(this.pbRun_Click);
+            pbRun.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pbRun.BackColor = Color.Transparent;
+            pbRun.BackgroundImageLayout = ImageLayout.Zoom;
+            pbRun.Cursor = Cursors.Hand;
+            pbRun.Location = new Point(55, 25);
+            pbRun.Margin = new Padding(0);
+            pbRun.Name = "pbRun";
+            pbRun.Size = new Size(130, 130);
+            pbRun.TabIndex = 12;
+            pbRun.TabStop = false;
+            pbRun.Click += pbRun_Click;
+            // 
+            // link_next
+            // 
+            link_next.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            link_next.AutoSize = true;
+            link_next.Location = new Point(310, 96);
+            link_next.Margin = new Padding(0);
+            link_next.Name = "link_next";
+            link_next.Size = new Size(50, 80);
+            link_next.TabIndex = 14;
+            link_next.TabStop = true;
+            link_next.Text = "Next";
+            link_next.TextAlign = ContentAlignment.MiddleCenter;
+            link_next.LinkClicked += link_next_LinkClicked;
             // 
             // Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.TLP_Home);
-            this.Name = "Home";
-            this.Size = new System.Drawing.Size(380, 475);
-            this.TLP_Home.ResumeLayout(false);
-            this.TLP_Home.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbRun)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            Controls.Add(TLP_Home);
+            Name = "Home";
+            Size = new Size(380, 475);
+            TLP_Home.ResumeLayout(false);
+            TLP_Home.PerformLayout();
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pbRun).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -264,5 +268,6 @@
         private PictureBox pbRun;
         private Panel panel1;
         public Label statusLabel;
+        private LinkLabel link_next;
     }
 }

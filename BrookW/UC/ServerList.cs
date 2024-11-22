@@ -1,6 +1,7 @@
 ﻿using BrookW.Extend;
 using BrookW.Helper;
 using BrookW.Model;
+using BrookW.Model.Enum;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -125,6 +126,63 @@ namespace BrookW.UC
         private void dgvServerList_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             toolStripMenuItemEdit_Click(sender, e);
+        }
+        /// <summary>
+        /// 清空列表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsmClear_Click(object sender, EventArgs e)
+        {
+            if (servers != null && servers.Count > 0 && Msg.ShowConfirm("确定要清空列表吗?") == DialogResult.OK)
+            {
+                servers.Clear();
+                Properties.Settings.Default.Servers = servers.ToJson();
+                Properties.Settings.Default.Save();
+                LoadServers();
+            }
+        }
+        /// <summary>
+        /// 添加常用
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsmAddChangyong_Click(object sender, EventArgs e)
+        {
+            if (servers != null)
+            {
+                servers.Clear();
+                servers.AddRange(new List<Server>() { new() { Type = BrookClientTypeEnum.WSCLIENT, Password = "web2023", Url = "ws://124.221.188.24:9999/web3" }, new() { Type = BrookClientTypeEnum.WSCLIENT, Password = "web2023", Url = "ws://124.221.188.24:8888/web3", Tag = "", }, new() { Type = BrookClientTypeEnum.WSCLIENT, Password = "web2023", Url = "ws://124.221.188.24:7777/web3", Tag = "", }, new() { Type = BrookClientTypeEnum.WSCLIENT, Password = "web2023", Url = "ws://124.221.188.24:8080/web3", Tag = "", }, });
+                Properties.Settings.Default.Servers = servers.ToJson();
+                Properties.Settings.Default.Save();
+                LoadServers();
+            }
+
+        }
+        /// <summary>
+        /// 添加附加的
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tsmAddFuJia_Click(object sender, EventArgs e)
+        {
+            if (servers != null)
+            {
+                servers.Clear();
+                servers.AddRange(new List<Server>() { new() { Type = BrookClientTypeEnum.WSCLIENT, Password = "web2023", Url = "ws://124.221.188.24:9999/web3" }, new() { Type = BrookClientTypeEnum.WSCLIENT, Password = "web2023", Url = "ws://124.221.188.24:8888/web3", Tag = "", }, new() { Type = BrookClientTypeEnum.WSCLIENT, Password = "web2023", Url = "ws://124.221.188.24:7777/web3", Tag = "", }, new() { Type = BrookClientTypeEnum.WSCLIENT, Password = "web2023", Url = "ws://124.221.188.24:8080/web3", Tag = "", }, });
+                for (int i = 0; i < 101; i++)
+                {
+                    servers.Add(new()
+                    {
+                        Type = BrookClientTypeEnum.WSCLIENT,
+                        Password = "web2023",
+                        Url = $"ws://124.221.188.24:{6000 + i}/web3"
+                    });
+                }
+                Properties.Settings.Default.Servers = servers.ToJson();
+                Properties.Settings.Default.Save();
+                LoadServers();
+            }
         }
     }
 }

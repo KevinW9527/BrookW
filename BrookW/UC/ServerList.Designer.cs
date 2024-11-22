@@ -40,18 +40,22 @@ namespace BrookW.UC
             tlpServerList = new TableLayoutPanel();
             toolStrip1 = new ToolStrip();
             btnGoBackHome = new ToolStripButton();
-            toolStripLabel1 = new ToolStripLabel();
+            tslTitle = new ToolStripLabel();
             btnAddServer = new ToolStripButton();
+            tslSetting = new ToolStripDropDownButton();
+            tsmClear = new ToolStripMenuItem();
+            tsmAddChangyong = new ToolStripMenuItem();
+            tsmAddFuJia = new ToolStripMenuItem();
             dgvServerList = new DataGridView();
-            contextMenuStrip1 = new ContextMenuStrip(components);
-            toolStripMenuItemEdit = new ToolStripMenuItem();
-            toolStripMenuItemDelete = new ToolStripMenuItem();
             Id = new DataGridViewTextBoxColumn();
             Type = new DataGridViewTextBoxColumn();
             Url = new DataGridViewTextBoxColumn();
             Password = new DataGridViewTextBoxColumn();
             ClientCmdString = new DataGridViewTextBoxColumn();
             Tags = new DataGridViewTextBoxColumn();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            toolStripMenuItemEdit = new ToolStripMenuItem();
+            toolStripMenuItemDelete = new ToolStripMenuItem();
             tlpServerList.SuspendLayout();
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvServerList).BeginInit();
@@ -91,7 +95,7 @@ namespace BrookW.UC
             toolStrip1.Dock = DockStyle.Fill;
             toolStrip1.GripMargin = new Padding(0);
             toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnGoBackHome, toolStripLabel1, btnAddServer });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnGoBackHome, tslTitle, btnAddServer, tslSetting });
             toolStrip1.Location = new Point(3, 0);
             toolStrip1.Margin = new Padding(3, 0, 0, 0);
             toolStrip1.Name = "toolStrip1";
@@ -116,29 +120,64 @@ namespace BrookW.UC
             btnGoBackHome.TextAlign = ContentAlignment.MiddleLeft;
             btnGoBackHome.TextDirection = ToolStripTextDirection.Horizontal;
             // 
-            // toolStripLabel1
+            // tslTitle
             // 
-            toolStripLabel1.AutoSize = false;
-            toolStripLabel1.Font = new Font("Microsoft YaHei UI", 10F);
-            toolStripLabel1.ImageAlign = ContentAlignment.MiddleLeft;
-            toolStripLabel1.Name = "toolStripLabel1";
-            toolStripLabel1.Size = new Size(220, 33);
-            toolStripLabel1.Text = "服务器列表";
+            tslTitle.AutoSize = false;
+            tslTitle.Font = new Font("Microsoft YaHei UI", 10F);
+            tslTitle.ImageAlign = ContentAlignment.MiddleLeft;
+            tslTitle.Margin = new Padding(0);
+            tslTitle.Name = "tslTitle";
+            tslTitle.Size = new Size(216, 34);
+            tslTitle.Text = "服务器列表";
             // 
             // btnAddServer
             // 
-            btnAddServer.Alignment = ToolStripItemAlignment.Right;
             btnAddServer.AutoSize = false;
             btnAddServer.BackgroundImageLayout = ImageLayout.None;
             btnAddServer.DisplayStyle = ToolStripItemDisplayStyle.Image;
             btnAddServer.Font = new Font("Microsoft YaHei UI", 10F);
             btnAddServer.Image = Properties.Resources.plus;
             btnAddServer.ImageTransparentColor = Color.White;
-            btnAddServer.Margin = new Padding(0, 0, 3, 0);
+            btnAddServer.Margin = new Padding(0);
             btnAddServer.Name = "btnAddServer";
             btnAddServer.Size = new Size(34, 34);
             btnAddServer.Text = "添加服务器";
             btnAddServer.ToolTipText = "添加服务器";
+            // 
+            // tslSetting
+            // 
+            tslSetting.Alignment = ToolStripItemAlignment.Right;
+            tslSetting.AutoSize = false;
+            tslSetting.BackColor = Color.White;
+            tslSetting.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            tslSetting.DropDownItems.AddRange(new ToolStripItem[] { tsmClear, tsmAddChangyong, tsmAddFuJia });
+            tslSetting.Image = Properties.Resources.setting;
+            tslSetting.ImageTransparentColor = Color.Magenta;
+            tslSetting.Margin = new Padding(0);
+            tslSetting.Name = "tslSetting";
+            tslSetting.Size = new Size(36, 34);
+            tslSetting.Text = "设置";
+            // 
+            // tsmClear
+            // 
+            tsmClear.Name = "tsmClear";
+            tsmClear.Size = new Size(180, 22);
+            tsmClear.Text = "清除列表";
+            tsmClear.Click += tsmClear_Click;
+            // 
+            // tsmAddChangyong
+            // 
+            tsmAddChangyong.Name = "tsmAddChangyong";
+            tsmAddChangyong.Size = new Size(180, 22);
+            tsmAddChangyong.Text = "添加常用";
+            tsmAddChangyong.Click += tsmAddChangyong_Click;
+            // 
+            // tsmAddFuJia
+            // 
+            tsmAddFuJia.Name = "tsmAddFuJia";
+            tsmAddFuJia.Size = new Size(180, 22);
+            tsmAddFuJia.Text = "添加附加";
+            tsmAddFuJia.Click += tsmAddFuJia_Click;
             // 
             // dgvServerList
             // 
@@ -188,26 +227,6 @@ namespace BrookW.UC
             dgvServerList.CellMouseDoubleClick += dgvServerList_CellMouseDoubleClick;
             dgvServerList.CellMouseDown += dgvServerList_CellMouseDown;
             dgvServerList.RowPostPaint += dgvServerList_RowPostPaint;
-            // 
-            // contextMenuStrip1
-            // 
-            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItemEdit, toolStripMenuItemDelete });
-            contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(101, 48);
-            // 
-            // toolStripMenuItemEdit
-            // 
-            toolStripMenuItemEdit.Name = "toolStripMenuItemEdit";
-            toolStripMenuItemEdit.Size = new Size(100, 22);
-            toolStripMenuItemEdit.Text = "编辑";
-            toolStripMenuItemEdit.Click += toolStripMenuItemEdit_Click;
-            // 
-            // toolStripMenuItemDelete
-            // 
-            toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
-            toolStripMenuItemDelete.Size = new Size(100, 22);
-            toolStripMenuItemDelete.Text = "删除";
-            toolStripMenuItemDelete.Click += toolStripMenuItemDelete_Click;
             // 
             // Id
             // 
@@ -272,6 +291,26 @@ namespace BrookW.UC
             Tags.SortMode = DataGridViewColumnSortMode.NotSortable;
             Tags.Visible = false;
             // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItemEdit, toolStripMenuItemDelete });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(101, 48);
+            // 
+            // toolStripMenuItemEdit
+            // 
+            toolStripMenuItemEdit.Name = "toolStripMenuItemEdit";
+            toolStripMenuItemEdit.Size = new Size(100, 22);
+            toolStripMenuItemEdit.Text = "编辑";
+            toolStripMenuItemEdit.Click += toolStripMenuItemEdit_Click;
+            // 
+            // toolStripMenuItemDelete
+            // 
+            toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
+            toolStripMenuItemDelete.Size = new Size(100, 22);
+            toolStripMenuItemDelete.Text = "删除";
+            toolStripMenuItemDelete.Click += toolStripMenuItemDelete_Click;
+            // 
             // ServerList
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -293,7 +332,7 @@ namespace BrookW.UC
         private TableLayoutPanel tlpServerList;
         private ToolStrip toolStrip1;
         public ToolStripButton btnGoBackHome;
-        private ToolStripLabel toolStripLabel1;
+        private ToolStripLabel tslTitle;
         private DataGridView dgvServerList;
         public ToolStripButton btnAddServer;
         private ContextMenuStrip contextMenuStrip1;
@@ -305,5 +344,9 @@ namespace BrookW.UC
         private DataGridViewTextBoxColumn Password;
         private DataGridViewTextBoxColumn ClientCmdString;
         private DataGridViewTextBoxColumn Tags;
+        private ToolStripDropDownButton tslSetting;
+        private ToolStripMenuItem tsmClear;
+        private ToolStripMenuItem tsmAddChangyong;
+        private ToolStripMenuItem tsmAddFuJia;
     }
 }

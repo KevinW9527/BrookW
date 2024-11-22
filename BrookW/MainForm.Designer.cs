@@ -28,105 +28,102 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.contextMenuStripNotifyIcon = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblCopyright = new System.Windows.Forms.Label();
-            this.timerWatchPython = new System.Windows.Forms.Timer(this.components);
-            this.timerTerminateInstances = new System.Windows.Forms.Timer(this.components);
-            this.contextMenuStripNotifyIcon.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            notifyIcon = new NotifyIcon(components);
+            contextMenuStripNotifyIcon = new ContextMenuStrip(components);
+            settingsToolStripMenuItem = new ToolStripMenuItem();
+            exitToolStripMenuItem = new ToolStripMenuItem();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            lblCopyright = new Label();
+            timerWatchPython = new System.Windows.Forms.Timer(components);
+            timerTerminateInstances = new System.Windows.Forms.Timer(components);
+            contextMenuStripNotifyIcon.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            SuspendLayout();
             // 
             // notifyIcon
             // 
-            this.notifyIcon.ContextMenuStrip = this.contextMenuStripNotifyIcon;
-            this.notifyIcon.Text = "BrookW";
-            this.notifyIcon.Visible = true;
-            this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
+            notifyIcon.ContextMenuStrip = contextMenuStripNotifyIcon;
+            notifyIcon.Text = "BrookW";
+            notifyIcon.Visible = true;
+            notifyIcon.MouseDoubleClick += notifyIcon_MouseDoubleClick;
             // 
             // contextMenuStripNotifyIcon
             // 
-            this.contextMenuStripNotifyIcon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.settingsToolStripMenuItem,
-            this.exitToolStripMenuItem});
-            this.contextMenuStripNotifyIcon.Name = "contextMenuStrip1";
-            this.contextMenuStripNotifyIcon.Size = new System.Drawing.Size(101, 48);
+            contextMenuStripNotifyIcon.Items.AddRange(new ToolStripItem[] { settingsToolStripMenuItem, exitToolStripMenuItem });
+            contextMenuStripNotifyIcon.Name = "contextMenuStrip1";
+            contextMenuStripNotifyIcon.Size = new Size(101, 48);
             // 
             // settingsToolStripMenuItem
             // 
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.settingsToolStripMenuItem.Text = "隐藏";
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+            settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            settingsToolStripMenuItem.Size = new Size(100, 22);
+            settingsToolStripMenuItem.Text = "隐藏";
+            settingsToolStripMenuItem.Click += settingsToolStripMenuItem_Click;
             // 
             // exitToolStripMenuItem
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.exitToolStripMenuItem.Text = "退出";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            exitToolStripMenuItem.Size = new Size(100, 22);
+            exitToolStripMenuItem.Text = "退出";
+            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.lblCopyright, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(364, 468);
-            this.tableLayoutPanel1.TabIndex = 1;
+            tableLayoutPanel1.BackColor = Color.Transparent;
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(lblCopyright, 0, 1);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel1.Size = new Size(364, 468);
+            tableLayoutPanel1.TabIndex = 1;
             // 
             // lblCopyright
             // 
-            this.lblCopyright.AutoSize = true;
-            this.lblCopyright.BackColor = System.Drawing.Color.Transparent;
-            this.lblCopyright.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblCopyright.Location = new System.Drawing.Point(3, 438);
-            this.lblCopyright.Name = "lblCopyright";
-            this.lblCopyright.Size = new System.Drawing.Size(358, 30);
-            this.lblCopyright.TabIndex = 0;
-            this.lblCopyright.Text = "Copyright @ ";
-            this.lblCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblCopyright.AutoSize = true;
+            lblCopyright.BackColor = Color.Transparent;
+            lblCopyright.Dock = DockStyle.Fill;
+            lblCopyright.Location = new Point(3, 438);
+            lblCopyright.Name = "lblCopyright";
+            lblCopyright.Size = new Size(358, 30);
+            lblCopyright.TabIndex = 0;
+            lblCopyright.Text = "Copyright @ ";
+            lblCopyright.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // timerWatchPython
             // 
-            this.timerWatchPython.Enabled = true;
-            this.timerWatchPython.Interval = 15000;
-            this.timerWatchPython.Tick += new System.EventHandler(this.timerWatchPython_Tick);
+            timerWatchPython.Enabled = true;
+            timerWatchPython.Interval = 15000;
+            timerWatchPython.Tick += timerWatchPython_Tick;
             // 
             // timerTerminateInstances
             // 
-            this.timerTerminateInstances.Interval = 90000;
-            this.timerTerminateInstances.Tick += new System.EventHandler(this.timerTerminateInstances_Tick);
+            timerTerminateInstances.Interval = 5000;
+            timerTerminateInstances.Tick += timerTerminateInstances_Tick;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(364, 468);
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.MaximizeBox = false;
-            this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BrookW";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.Resize += new System.EventHandler(this.MainForm_Resize);
-            this.contextMenuStripNotifyIcon.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(364, 468);
+            Controls.Add(tableLayoutPanel1);
+            MaximizeBox = false;
+            Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "BrookW";
+            FormClosing += MainForm_FormClosing;
+            Load += Form1_Load;
+            Resize += MainForm_Resize;
+            contextMenuStripNotifyIcon.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            ResumeLayout(false);
         }
 
         private NotifyIcon notifyIcon;

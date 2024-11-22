@@ -281,7 +281,7 @@ namespace BrookW
                         }
                         else
                         {
-                           //先停止代理
+                            //先停止代理
                             home.brookClient?.Stop();
                             SetProxyHelper.DisableProxy();
                             Thread.Sleep(5000);
@@ -322,21 +322,35 @@ namespace BrookW
                     var path = appSetting.Path.IndexOf("full.txt") > -1 ? appSetting.Path : Path.Combine(appSetting.Path, "/full.txt");
                     if (File.Exists(path))
                     {
+                        var ip = File.ReadAllText(path).Trim();
                         DateTime now = DateTime.Now;
                         // 检查是否在冷却时间内
-                        if (now - _lastExecutionTime < _cooldownPeriod)
+                        //if (now - _lastExecutionTime < _cooldownPeriod)
+                        //{
+                        //    var p = _cooldownPeriod - (now - _lastExecutionTime);
+                        //    home.statusLabel.Text = $"在{Convert.ToInt32(p.TotalSeconds)}秒内不能再次自动执行";
+                        //}
+                        //else
+                        //{
+                        if (!string.IsNullOrEmpty(ip))
                         {
-                            var p = _cooldownPeriod - (now - _lastExecutionTime);
-                            home.statusLabel.Text = $"在{Convert.ToInt32(p.TotalSeconds)}秒内不能再次自动执行";
-                        }
-                        else
-                        {
-                            File.Delete(path);
-                            home.RunNext();
+                            //先停止代理
+                            home.brookClient?.Stop();
+                            SetProxyHelper.DisableProxy();
+                            Thread.Sleep(5000);
 
-                            // 更新上次执行时间
-                            _lastExecutionTime = now;
+                            var server = AutoAddServer(ip, [""]);
+                            if (server != null)
+                            {
+                                home.Run(server);
+                            }
                         }
+                        File.Delete(path);
+                        //home.RunNext();
+
+                        // 更新上次执行时间
+                        //_lastExecutionTime = now;
+                        //}
                     }
                 }
 
