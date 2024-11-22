@@ -176,7 +176,7 @@ namespace BrookW.UC
                     {
                         Type = BrookClientTypeEnum.WSCLIENT,
                         Password = "web2023",
-                        Url = $"ws://124.221.188.24:{6000 + i}/web3"
+                        Url = $"ws://124.221.188.24:{7000 + i}/web3"
                     });
                 }
                 Properties.Settings.Default.Servers = servers.ToJson();

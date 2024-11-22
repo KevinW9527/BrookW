@@ -37,6 +37,7 @@
             lblCopyright = new Label();
             timerWatchPython = new System.Windows.Forms.Timer(components);
             timerTerminateInstances = new System.Windows.Forms.Timer(components);
+            nextToolStripMenuItem = new ToolStripMenuItem();
             contextMenuStripNotifyIcon.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -50,21 +51,21 @@
             // 
             // contextMenuStripNotifyIcon
             // 
-            contextMenuStripNotifyIcon.Items.AddRange(new ToolStripItem[] { settingsToolStripMenuItem, exitToolStripMenuItem });
+            contextMenuStripNotifyIcon.Items.AddRange(new ToolStripItem[] { settingsToolStripMenuItem, nextToolStripMenuItem, exitToolStripMenuItem });
             contextMenuStripNotifyIcon.Name = "contextMenuStrip1";
-            contextMenuStripNotifyIcon.Size = new Size(101, 48);
+            contextMenuStripNotifyIcon.Size = new Size(181, 92);
             // 
             // settingsToolStripMenuItem
             // 
             settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            settingsToolStripMenuItem.Size = new Size(100, 22);
+            settingsToolStripMenuItem.Size = new Size(180, 22);
             settingsToolStripMenuItem.Text = "隐藏";
             settingsToolStripMenuItem.Click += settingsToolStripMenuItem_Click;
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(100, 22);
+            exitToolStripMenuItem.Size = new Size(180, 22);
             exitToolStripMenuItem.Text = "退出";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -106,6 +107,13 @@
             timerTerminateInstances.Interval = 5000;
             timerTerminateInstances.Tick += timerTerminateInstances_Tick;
             // 
+            // nextToolStripMenuItem
+            // 
+            nextToolStripMenuItem.Name = "nextToolStripMenuItem";
+            nextToolStripMenuItem.Size = new Size(180, 22);
+            nextToolStripMenuItem.Text = "Next";
+            nextToolStripMenuItem.Click += nextToolStripMenuItem_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -134,6 +142,7 @@
         private Label lblCopyright;
         private System.Windows.Forms.Timer timerWatchPython;
         private System.Windows.Forms.Timer timerTerminateInstances;
+        private ToolStripMenuItem nextToolStripMenuItem;
 
         #endregion
 

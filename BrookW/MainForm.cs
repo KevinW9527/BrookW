@@ -449,5 +449,15 @@ namespace BrookW
             }
 
         }
+        /// <summary>
+        /// 切换到下一个节点
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void nextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (home != null)
+                home.RunNext();
+        }
     }
 }
